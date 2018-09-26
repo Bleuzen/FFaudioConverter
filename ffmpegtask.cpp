@@ -10,18 +10,14 @@ FFmpegTask::FFmpegTask(int id, QString inpath, QString outdir)
 
 void FFmpegTask::run()
 {
-    //qDebug() << "New FFmpeg task started";
-
     qDebug() << "Convert:" << id << infile;
 
     QFileInfo fileInfo(infile);
     QDir qdir = fileInfo.absoluteDir();
 
     QString dir = qdir.path();
-    //QString basename = fileInfo.baseName();
     QString name = fileInfo.fileName();
     QString basename = name.left(name.lastIndexOf("."));
-    //path = fileInfo.filePath();  // path is already set
 
     // add dir path of the input file to the outdir to reconstruct directory structure
     outdir = (outdir + dir);
@@ -46,17 +42,14 @@ void FFmpegTask::run()
                          << "-map_metadata" << "0"
                          << "-map_metadata" << "0:s:0"
                          << "-id3v2_version" << "3"
-//                         << "-vn"
                          << outfile);
     ffmpeg->start();
     ffmpeg->waitForFinished();
     int exitCode = ffmpeg->exitCode();
 
-    qDebug() << "Exit code:" << exitCode;
+    qDebug() << id << "FFmpeg exit code:" << exitCode;
 
     bool success = (exitCode == 0);
-
-    //qDebug() << "FFmpeg task finished";
 
     emit Done(id, success);
 }

@@ -104,7 +104,6 @@ void MainWindow::on_pushButton_Clear_clicked()
 }
 
 void MainWindow::addFile(QString file) {
-    //qDebug() << "Adding file:" << files;
     addRow();
     int rowIndex = model->rowCount()-1;
     updateTableValue(rowIndex, 1, file);
