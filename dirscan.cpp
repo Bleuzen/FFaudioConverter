@@ -20,13 +20,10 @@ void DirScan::scanDir(QDir dir)
 
     dir.setFilter(QDir::Files | QDir::NoDotAndDotDot | QDir::NoSymLinks);
 
-    //qDebug() << "Scanning dir: " << dir.path();
-
     QStringList fileList = dir.entryList();
     for (int i=0; i<fileList.count(); i++)
     {
         QString filePath = dir.path() + QDir::separator() + fileList[i];
-        //qDebug() << "Found file: " << filePath;
         files.append(filePath);
     }
 
