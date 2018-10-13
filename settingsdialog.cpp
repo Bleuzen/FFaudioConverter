@@ -11,6 +11,7 @@ SettingsDialog::SettingsDialog(QWidget *parent) :
 
     // Init settings elements
     ui->comboBox_OutputFormat->addItem("mp3");
+    ui->comboBox_OutputFormat->addItem("ogg");
     ui->comboBox_OutputFormat->addItem("wav");
 
     // Set settings in GUI

@@ -61,6 +61,15 @@ QStringList FFmpegTask::buildArgs() {
                     << "-map_metadata" << "0:s:0"
                     << "-id3v2_version" << "3"
                     << outfile + ".mp3";
+    } else if(Settings::OutputFormat == "ogg") {
+        // ogg options
+        ffmpeg_args << "-vn"
+                    << "-c:a" << "libvorbis"
+                    << "-q:a" << "9"
+                    << "-ar" << "44100"
+                    << "-map_metadata" << "0"
+                    << "-map_metadata" << "0:s:0"
+                    << outfile + ".ogg";
     } else if(Settings::OutputFormat == "wav") {
         // wav options
         ffmpeg_args << "-c:a" << "pcm_s16le"
