@@ -29,6 +29,29 @@
     <set>QDialogButtonBox::Cancel|QDialogButtonBox::Ok</set>
    </property>
   </widget>
+  <widget class="QLabel" name="label">
+   <property name="geometry">
+    <rect>
+     <x>20</x>
+     <y>22</y>
+     <width>141</width>
+     <height>41</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>Output format:</string>
+   </property>
+  </widget>
+  <widget class="QComboBox" name="comboBox_OutputFormat">
+   <property name="geometry">
+    <rect>
+     <x>170</x>
+     <y>30</y>
+     <width>201</width>
+     <height>26</height>
+    </rect>
+   </property>
+  </widget>
  </widget>
  <resources/>
  <connections>

@@ -23,7 +23,10 @@ class MainWindow : public QMainWindow
 public:
     explicit MainWindow(QWidget *parent = nullptr);
     ~MainWindow();
+
     QString outdir;
+
+    SettingsDialog *settingsDialog;
 
 private slots:
     void on_pushButton_Clear_clicked();
@@ -35,8 +38,6 @@ private slots:
 
 private:
     Ui::MainWindow *ui;
-
-    SettingsDialog *settingsDialog;
 
     QStandardItemModel *model;
     QThreadPool *threadpool_converts;

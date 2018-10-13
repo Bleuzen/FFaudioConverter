@@ -19,6 +19,9 @@ private:
     int id;
     QString infile;
     QString outdir;
+    QString outfile;
+
+    QStringList buildArgs();
 
 signals:
     void Done(int id, bool success);
