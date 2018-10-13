@@ -23,7 +23,7 @@ void FFmpegTask::run()
     outdir = (outdir + dir);
 
     //TODO
-    outfile = outdir + QDir::separator() + basename + "." + "mp3";
+    outfile = outdir + QDir::separator() + basename;
 
     // Create output dir of not exists
     //TODO: need to do this every time?
@@ -50,13 +50,26 @@ QStringList FFmpegTask::buildArgs() {
     QStringList ffmpeg_args;
     ffmpeg_args << "-hide_banner" << "-n"
                              << "-i"
-                             << infile
-                             << "-c:a" << "libmp3lame"
-                             << "-q:a" << "1"
-                             << "-ar" << "44100"
-                             << "-map_metadata" << "0"
-                             << "-map_metadata" << "0:s:0"
-                             << "-id3v2_version" << "3"
-                             << outfile;
+                             << infile;
+
+    if(Settings::OutputFormat == "mp3") {
+        // mp3 options
+        ffmpeg_args << "-c:a" << "libmp3lame"
+                    << "-q:a" << "1"
+                    << "-ar" << "44100"
+                    << "-map_metadata" << "0"
+                    << "-map_metadata" << "0:s:0"
+                    << "-id3v2_version" << "3"
+                    << outfile + ".mp3";
+    } else if(Settings::OutputFormat == "wav") {
+        // wav options
+        ffmpeg_args << "-c:a" << "pcm_s16le"
+                    << "-ar" << "44100"
+                    << outfile + ".wav";
+    } else {
+        // unknown format options
+        ffmpeg_args << outfile + "." + Settings::OutputFormat;
+    }
+
     return ffmpeg_args;
 }
