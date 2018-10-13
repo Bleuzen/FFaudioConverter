@@ -13,8 +13,8 @@ SettingsDialog::SettingsDialog(QWidget *parent) :
     ui->comboBox_OutputFormat->addItem("mp3");
     ui->comboBox_OutputFormat->addItem("wav");
 
-    // Set defaults
-    //Settings::OutputFormat = "mp3";
+    // Set settings in GUI
+    ui->comboBox_OutputFormat->setCurrentText(Settings::OutputFormat);
 }
 
 SettingsDialog::~SettingsDialog()
@@ -25,5 +25,5 @@ SettingsDialog::~SettingsDialog()
 void SettingsDialog::on_buttonBox_accepted()
 {
     // Apply settings
-    //Settings::OutputFormat = ui->comboBox_OutputFormat->currentText();
+    Settings::OutputFormat = ui->comboBox_OutputFormat->currentText();
 }

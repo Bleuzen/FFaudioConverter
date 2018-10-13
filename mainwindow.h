@@ -37,8 +37,6 @@ private slots:
 private:
     Ui::MainWindow *ui;
 
-    SettingsDialog *settingsDialog;
-
     QStandardItemModel *model;
     QThreadPool *threadpool_converts;
 

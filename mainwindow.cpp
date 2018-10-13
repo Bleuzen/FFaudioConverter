@@ -14,9 +14,6 @@ MainWindow::MainWindow(QWidget *parent) :
     QString version = "0.1";
     setWindowTitle(windowTitle() + " v" + version);
 
-    settingsDialog = new SettingsDialog();
-    settingsDialog->setModal(true);
-
     //TODO: let the user set this in GUI
     outdir = QStandardPaths::writableLocation(QStandardPaths::HomeLocation) + QDir().separator() + "FFaudioConverter";
 
@@ -174,5 +171,7 @@ void MainWindow::setButtonsEnabled(bool e) {
 
 void MainWindow::on_pushButton_Settings_clicked()
 {
+    SettingsDialog *settingsDialog = new SettingsDialog();
+    settingsDialog->setModal(true);
     settingsDialog->setVisible(true);
 }
