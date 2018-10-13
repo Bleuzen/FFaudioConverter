@@ -1,5 +1,5 @@
 #!/bin/sh
-mkdir -p build-release
+mkdir -p build
 cd build/
 
 qmake ../FFaudioConverter.pro -spec linux-g++ CONFIG+=qtquickcompiler
