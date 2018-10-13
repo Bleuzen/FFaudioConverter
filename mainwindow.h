@@ -26,8 +26,6 @@ public:
 
     QString outdir;
 
-    SettingsDialog *settingsDialog;
-
 private slots:
     void on_pushButton_Clear_clicked();
     void on_pushButton_Convert_clicked();
@@ -38,6 +36,8 @@ private slots:
 
 private:
     Ui::MainWindow *ui;
+
+    SettingsDialog *settingsDialog;
 
     QStandardItemModel *model;
     QThreadPool *threadpool_converts;

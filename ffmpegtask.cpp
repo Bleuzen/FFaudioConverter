@@ -57,8 +57,5 @@ QStringList FFmpegTask::buildArgs() {
                              << "-map_metadata" << "0:s:0"
                              << "-id3v2_version" << "3"
                              << outfile;
-
-
-
     return ffmpeg_args;
 }
