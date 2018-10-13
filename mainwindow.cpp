@@ -5,6 +5,8 @@
 #include <QDragEnterEvent>
 #include <QMessageBox>
 
+#include "settingsdialog.h"
+
 MainWindow::MainWindow(QWidget *parent) :
     QMainWindow(parent),
     ui(new Ui::MainWindow)
@@ -13,6 +15,9 @@ MainWindow::MainWindow(QWidget *parent) :
 
     QString version = "0.1";
     setWindowTitle(windowTitle() + " v" + version);
+
+    settingsDialog = new SettingsDialog();
+    settingsDialog->setModal(true);
 
     //TODO: let the user set this in GUI
     outdir = QStandardPaths::writableLocation(QStandardPaths::HomeLocation) + QDir().separator() + "FFaudioConverter";
@@ -163,13 +168,13 @@ void MainWindow::onConvertDone(int id, bool success)
     }
 }
 
-void MainWindow::on_pushButton_AddMusicDir_clicked()
-{
-    addDirectory(QStandardPaths::writableLocation(QStandardPaths::MusicLocation));
-}
-
 void MainWindow::setButtonsEnabled(bool e) {
     ui->pushButton_Convert->setEnabled(e);
-    ui->pushButton_AddMusicDir->setEnabled(e);
+    ui->pushButton_Settings->setEnabled(e);
     ui->pushButton_Clear->setEnabled(e);
+}
+
+void MainWindow::on_pushButton_Settings_clicked()
+{
+    settingsDialog->setVisible(true);
 }

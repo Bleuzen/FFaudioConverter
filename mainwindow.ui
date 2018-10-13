@@ -38,16 +38,16 @@
        </widget>
       </item>
       <item>
-       <widget class="QPushButton" name="pushButton_AddMusicDir">
+       <widget class="QPushButton" name="pushButton_Clear">
         <property name="text">
-         <string>Add music directory</string>
+         <string>Reset</string>
         </property>
        </widget>
       </item>
       <item>
-       <widget class="QPushButton" name="pushButton_Clear">
+       <widget class="QPushButton" name="pushButton_Settings">
         <property name="text">
-         <string>Reset</string>
+         <string>Settings</string>
         </property>
        </widget>
       </item>
