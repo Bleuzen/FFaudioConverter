@@ -40,7 +40,7 @@
       <item>
        <widget class="QPushButton" name="pushButton_Clear">
         <property name="text">
-         <string>Reset</string>
+         <string>Clear</string>
         </property>
        </widget>
       </item>
