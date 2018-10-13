@@ -5,8 +5,6 @@
 #include <QDragEnterEvent>
 #include <QMessageBox>
 
-#include "settingsdialog.h"
-
 MainWindow::MainWindow(QWidget *parent) :
     QMainWindow(parent),
     ui(new Ui::MainWindow)
