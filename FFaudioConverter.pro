@@ -26,15 +26,18 @@ SOURCES += \
         main.cpp \
         mainwindow.cpp \
     dirscan.cpp \
-    ffmpegtask.cpp
+    ffmpegtask.cpp \
+    settingsdialog.cpp
 
 HEADERS += \
         mainwindow.h \
     dirscan.h \
-    ffmpegtask.h
+    ffmpegtask.h \
+    settingsdialog.h
 
 FORMS += \
-        mainwindow.ui
+        mainwindow.ui \
+    settingsdialog.ui
 
 # Default rules for deployment.
 qnx: target.path = /tmp/$${TARGET}/bin

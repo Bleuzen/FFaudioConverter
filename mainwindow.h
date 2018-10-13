@@ -10,6 +10,7 @@
 
 #include "dirscan.h"
 #include "ffmpegtask.h"
+#include "settingsdialog.h"
 
 namespace Ui {
 class MainWindow;
@@ -26,13 +27,17 @@ public:
 
 private slots:
     void on_pushButton_Clear_clicked();
-    void on_pushButton_AddMusicDir_clicked();
     void on_pushButton_Convert_clicked();
 
     void onConvertDone(int id, bool success);
 
+    void on_pushButton_Settings_clicked();
+
 private:
     Ui::MainWindow *ui;
+
+    SettingsDialog *settingsDialog;
+
     QStandardItemModel *model;
     QThreadPool *threadpool_converts;
 
