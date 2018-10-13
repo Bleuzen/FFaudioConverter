@@ -9,6 +9,9 @@ SettingsDialog::SettingsDialog(QWidget *parent) :
 {
     ui->setupUi(this);
 
+    // Disable resize
+    setFixedSize(width(), height());
+
     // Init settings elements
     ui->comboBox_OutputFormat->addItem("mp3");
     ui->comboBox_OutputFormat->addItem("ogg");

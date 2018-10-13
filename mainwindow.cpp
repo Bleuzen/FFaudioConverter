@@ -11,7 +11,7 @@ MainWindow::MainWindow(QWidget *parent) :
 {
     ui->setupUi(this);
 
-    QString version = "0.1";
+    QString version = "0.2";
     setWindowTitle(windowTitle() + " v" + version);
 
     //TODO: let the user set this in GUI
