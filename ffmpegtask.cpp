@@ -63,7 +63,7 @@ QStringList FFmpegTask::buildArgs() {
                     << outfile + ".mp3";
     } else if(Settings::OutputFormat == "ogg") {
         // ogg options
-        ffmpeg_args << "-vn"
+        ffmpeg_args << "-vn" //TODO: remove this to keep album art but without the output is a video, will have to find a solution
                     << "-c:a" << "libvorbis"
                     << "-q:a" << "9"
                     << "-ar" << "44100"
