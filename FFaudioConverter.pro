@@ -27,13 +27,15 @@ SOURCES += \
         mainwindow.cpp \
     dirscan.cpp \
     ffmpegtask.cpp \
-    settingsdialog.cpp
+    settingsdialog.cpp \
+    settings.cpp
 
 HEADERS += \
         mainwindow.h \
     dirscan.h \
     ffmpegtask.h \
-    settingsdialog.h
+    settingsdialog.h \
+    settings.h
 
 FORMS += \
         mainwindow.ui \
