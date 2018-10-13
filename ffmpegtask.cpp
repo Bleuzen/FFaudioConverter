@@ -22,7 +22,7 @@ void FFmpegTask::run()
     // add dir path of the input file to the outdir to reconstruct directory structure
     outdir = (outdir + dir);
 
-    QString outfile = outdir + QDir::separator() + basename + ".mp3";
+    outfile = outdir + QDir::separator() + basename + ".";
 
     // Create output dir of not exists
     //TODO: need to do this every time?
@@ -33,16 +33,7 @@ void FFmpegTask::run()
     // Convert using ffmpeg command
     QProcess *ffmpeg = new QProcess();
     ffmpeg->setProgram("ffmpeg");
-    ffmpeg->setArguments(QStringList() << "-hide_banner" << "-n"
-                         << "-i"
-                         << infile
-                         << "-c:a" << "libmp3lame"
-                         << "-q:a" << "1"
-                         << "-ar" << "44100"
-                         << "-map_metadata" << "0"
-                         << "-map_metadata" << "0:s:0"
-                         << "-id3v2_version" << "3"
-                         << outfile);
+    ffmpeg->setArguments(buildArgs());
     ffmpeg->start();
     ffmpeg->waitForFinished();
     int exitCode = ffmpeg->exitCode();
@@ -52,4 +43,22 @@ void FFmpegTask::run()
     bool success = (exitCode == 0);
 
     emit Done(id, success);
+}
+
+QStringList FFmpegTask::buildArgs() {
+    QStringList ffmpeg_args;
+    ffmpeg_args << "-hide_banner" << "-n"
+                             << "-i"
+                             << infile
+                             << "-c:a" << "libmp3lame"
+                             << "-q:a" << "1"
+                             << "-ar" << "44100"
+                             << "-map_metadata" << "0"
+                             << "-map_metadata" << "0:s:0"
+                             << "-id3v2_version" << "3"
+                             << outfile;
+
+
+
+    return ffmpeg_args;
 }
