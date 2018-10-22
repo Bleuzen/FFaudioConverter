@@ -7,6 +7,9 @@ class Settings
 {
 public:
     static QString OutputFormat;
+    static bool ChangeSamplerate;
+    static bool Force16bitFLAC;
+    static bool Multithreading;
 };
 
 #endif // SETTINGS_H
