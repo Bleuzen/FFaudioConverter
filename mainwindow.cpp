@@ -11,7 +11,7 @@ MainWindow::MainWindow(QWidget *parent) :
 {
     ui->setupUi(this);
 
-    QString version = "0.2";
+    QString version = "0.3"; // 20181022
     setWindowTitle(windowTitle() + " v" + version);
 
     //TODO: let the user set this in GUI
@@ -26,15 +26,11 @@ MainWindow::MainWindow(QWidget *parent) :
     ui->tableView->setModel(model);
     ui->tableView->horizontalHeader()->setStretchLastSection(true);
 
+    // Allow to drop input files in this window
     setAcceptDrops(true);
 
     // Init own thread pool
     threadpool_converts = new QThreadPool();
-    // Set max parallel threads
-    //TODO: let the user set this in GUI
-    int threadCount = QThread::idealThreadCount();
-    qDebug() << "Using threads:" << threadCount;
-    threadpool_converts->setMaxThreadCount(threadCount);
 }
 
 MainWindow::~MainWindow()
@@ -120,6 +116,14 @@ void MainWindow::addDirectory(QString dir) {
 
 void MainWindow::on_pushButton_Convert_clicked()
 {
+    int threadCount = 1;
+    if(Settings::Multithreading) {
+        threadCount = QThread::idealThreadCount();
+    }
+    threadpool_converts->setMaxThreadCount(threadCount);
+
+    qDebug() << "Starting convert with" << threadCount << "thread(s)";
+
     convert_itemCount = model->rowCount();
 
     if(!(convert_itemCount > 0)) {

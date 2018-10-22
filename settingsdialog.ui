@@ -34,8 +34,8 @@
     <rect>
      <x>20</x>
      <y>22</y>
-     <width>141</width>
-     <height>41</height>
+     <width>140</width>
+     <height>40</height>
     </rect>
    </property>
    <property name="text">
@@ -47,9 +47,48 @@
     <rect>
      <x>170</x>
      <y>30</y>
-     <width>201</width>
+     <width>200</width>
      <height>26</height>
     </rect>
+   </property>
+  </widget>
+  <widget class="QCheckBox" name="checkBox_ChangeSamplerate">
+   <property name="geometry">
+    <rect>
+     <x>20</x>
+     <y>80</y>
+     <width>350</width>
+     <height>24</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>Change samplerate to 44100 Hz</string>
+   </property>
+  </widget>
+  <widget class="QCheckBox" name="checkBox_Multithreading">
+   <property name="geometry">
+    <rect>
+     <x>20</x>
+     <y>160</y>
+     <width>350</width>
+     <height>24</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>Multithreading</string>
+   </property>
+  </widget>
+  <widget class="QCheckBox" name="checkBox_Force16bitFLAC">
+   <property name="geometry">
+    <rect>
+     <x>20</x>
+     <y>120</y>
+     <width>350</width>
+     <height>24</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>Force 16-bit FLAC</string>
    </property>
   </widget>
  </widget>
