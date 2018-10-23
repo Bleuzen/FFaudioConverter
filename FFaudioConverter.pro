@@ -23,23 +23,23 @@ DEFINES += QT_DEPRECATED_WARNINGS
 CONFIG += c++11
 
 SOURCES += \
-        main.cpp \
-        mainwindow.cpp \
-    dirscan.cpp \
-    ffmpegtask.cpp \
-    settingsdialog.cpp \
-    settings.cpp
+        src/main.cpp \
+        src/mainwindow.cpp \
+        src/dirscan.cpp \
+        src/ffmpegtask.cpp \
+        src/settingsdialog.cpp \
+        src/settings.cpp
 
 HEADERS += \
-        mainwindow.h \
-    dirscan.h \
-    ffmpegtask.h \
-    settingsdialog.h \
-    settings.h
+        src/mainwindow.h \
+        src/dirscan.h \
+        src/ffmpegtask.h \
+        src/settingsdialog.h \
+        src/settings.h
 
 FORMS += \
-        mainwindow.ui \
-    settingsdialog.ui
+        src/mainwindow.ui \
+        src/settingsdialog.ui
 
 # Default rules for deployment.
 qnx: target.path = /tmp/$${TARGET}/bin

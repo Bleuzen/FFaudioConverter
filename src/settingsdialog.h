@@ -2,6 +2,7 @@
 #define SETTINGSDIALOG_H
 
 #include <QDialog>
+#include <QSettings>
 
 #include "settings.h"
 
@@ -22,6 +23,9 @@ private slots:
 
 private:
     Ui::SettingsDialog *ui;
+
+    void SaveSettings();
+    void LoadSettings();
 };
 
 #endif // SETTINGSDIALOG_H
