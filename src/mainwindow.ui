@@ -6,15 +6,22 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>705</width>
-    <height>529</height>
+    <width>700</width>
+    <height>500</height>
    </rect>
-  </property>
-  <property name="windowTitle">
-   <string>FFaudioConverter</string>
   </property>
   <widget class="QWidget" name="centralWidget">
    <layout class="QVBoxLayout" name="verticalLayout">
+    <item>
+     <widget class="QLabel" name="label_HelpMessage">
+      <property name="text">
+       <string>Drop files or a directory here</string>
+      </property>
+      <property name="alignment">
+       <set>Qt::AlignCenter</set>
+      </property>
+     </widget>
+    </item>
     <item>
      <widget class="QTableView" name="tableView">
       <property name="sizePolicy">
@@ -48,6 +55,13 @@
        <widget class="QPushButton" name="pushButton_Settings">
         <property name="text">
          <string>Settings</string>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QPushButton" name="pushButton_About">
+        <property name="text">
+         <string>About</string>
         </property>
        </widget>
       </item>

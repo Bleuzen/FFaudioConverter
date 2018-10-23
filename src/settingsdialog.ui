@@ -33,9 +33,9 @@
    <property name="geometry">
     <rect>
      <x>20</x>
-     <y>22</y>
-     <width>140</width>
-     <height>40</height>
+     <y>20</y>
+     <width>130</width>
+     <height>24</height>
     </rect>
    </property>
    <property name="text">
@@ -45,9 +45,9 @@
   <widget class="QComboBox" name="comboBox_OutputFormat">
    <property name="geometry">
     <rect>
-     <x>170</x>
-     <y>30</y>
-     <width>200</width>
+     <x>160</x>
+     <y>19</y>
+     <width>210</width>
      <height>26</height>
     </rect>
    </property>
@@ -56,7 +56,7 @@
    <property name="geometry">
     <rect>
      <x>20</x>
-     <y>80</y>
+     <y>110</y>
      <width>350</width>
      <height>24</height>
     </rect>
@@ -69,7 +69,7 @@
    <property name="geometry">
     <rect>
      <x>20</x>
-     <y>160</y>
+     <y>190</y>
      <width>350</width>
      <height>24</height>
     </rect>
@@ -82,13 +82,36 @@
    <property name="geometry">
     <rect>
      <x>20</x>
-     <y>120</y>
+     <y>150</y>
      <width>350</width>
      <height>24</height>
     </rect>
    </property>
    <property name="text">
     <string>Force 16-bit FLAC</string>
+   </property>
+  </widget>
+  <widget class="QLabel" name="label_2">
+   <property name="geometry">
+    <rect>
+     <x>20</x>
+     <y>60</y>
+     <width>130</width>
+     <height>24</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>Output directory:</string>
+   </property>
+  </widget>
+  <widget class="QLineEdit" name="lineEdit_OutputDirectory">
+   <property name="geometry">
+    <rect>
+     <x>160</x>
+     <y>59</y>
+     <width>210</width>
+     <height>26</height>
+    </rect>
    </property>
   </widget>
  </widget>
