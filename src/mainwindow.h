@@ -7,6 +7,7 @@
 #include <QtGui>
 #include <QtDebug>
 #include <QDir>
+#include <QList>
 
 #include "dirscan.h"
 #include "ffmpegtask.h"
@@ -30,6 +31,8 @@ private slots:
     void on_pushButton_Settings_clicked();
     void on_pushButton_About_clicked();
 
+    void on_tableView_customContextMenuRequested(const QPoint &pos);
+
     void onConvertDone(int id, bool success);
 
 private:
@@ -43,12 +46,13 @@ private:
     void dragEnterEvent(QDragEnterEvent *event);
     void dropEvent(QDropEvent *event);
 
-    int convert_itemCount;
-
+    void insertTableRow();
     void updateTableValue(int, int, QString);
-    void setRowStatusBackground(int, QColor);
-    void addRow();
+    void setTableRowStatusBackground(int, QColor);
+    void removeTableRows(QList<int>);
     void resetTableModel();
+
+    int convert_itemCount;
     void convertItem(int, QString);
 
     void addFile(QString);

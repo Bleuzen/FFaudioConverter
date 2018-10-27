@@ -22,7 +22,6 @@ void FFmpegTask::run()
     // add dir path of the input file to the outdir to reconstruct directory structure
     outdir = (outdir + dir);
 
-    //TODO
     outfile = outdir + QDir::separator() + basename;
 
     // Create output dir of not exists
