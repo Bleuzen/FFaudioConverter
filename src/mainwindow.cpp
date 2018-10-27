@@ -4,6 +4,7 @@
 #include <QDropEvent>
 #include <QDragEnterEvent>
 #include <QMessageBox>
+#include <QMenu>
 
 MainWindow::MainWindow(QWidget *parent) :
     QMainWindow(parent),
@@ -24,6 +25,12 @@ MainWindow::MainWindow(QWidget *parent) :
 
     ui->tableView->setModel(model);
     ui->tableView->horizontalHeader()->setStretchLastSection(true);
+
+    // Set selection properties for tableView
+    ui->tableView->setSelectionBehavior(QAbstractItemView::SelectRows);
+
+    // Use custom context menu for tableView
+    ui->tableView->setContextMenuPolicy(Qt::CustomContextMenu);
 
     // Allow to drop input files in this window
     setAcceptDrops(true);
@@ -95,10 +102,10 @@ void MainWindow::dropEvent(QDropEvent *event)
 }
 
 void MainWindow::addFile(QString file) {
-    addRow();
+    insertTableRow();
     int rowIndex = model->rowCount()-1;
     updateTableValue(rowIndex, 1, file);
-    setRowStatusBackground(rowIndex, QColor(Qt::yellow));
+    setTableRowStatusBackground(rowIndex, QColor(Qt::yellow));
 }
 
 void MainWindow::addDirectory(QString dir) {
@@ -109,7 +116,7 @@ void MainWindow::addDirectory(QString dir) {
     }
 }
 
-void MainWindow::addRow()
+void MainWindow::insertTableRow()
 {
     model->insertRows(model->rowCount(), 1);
 }
@@ -120,10 +127,22 @@ void MainWindow::updateTableValue(int row, int column, QString content)
     model->setData(index, content);
 }
 
-void MainWindow::setRowStatusBackground(int row, QColor color)
+void MainWindow::setTableRowStatusBackground(int row, QColor color)
 {
     QModelIndex index = model->index(row, 0, QModelIndex()); // Status is column 0
     model->setData(index, color, Qt::BackgroundRole);
+}
+
+void MainWindow::removeTableRows(QList<int> rows)
+{
+    int prev = -1;
+    for (int i = rows.count() - 1; i >= 0; i--) {
+       int current = rows[i];
+       if(current != prev) {
+          model->removeRow(current);
+          prev = current;
+       }
+    }
 }
 
 void MainWindow::resetTableModel()
@@ -143,9 +162,9 @@ void MainWindow::onConvertDone(int id, bool success)
 {
     int rowIndex = (id - 1);
     if(success) {
-        setRowStatusBackground(rowIndex, QColor(Qt::green));
+        setTableRowStatusBackground(rowIndex, QColor(Qt::green));
     } else {
-        setRowStatusBackground(rowIndex, QColor(Qt::red));
+        setTableRowStatusBackground(rowIndex, QColor(Qt::red));
     }
 
     // Check if the was the last file
@@ -153,6 +172,29 @@ void MainWindow::onConvertDone(int id, bool success)
         // Convert of all files is done
         setButtonsEnabled(true);
     }
+}
+
+void MainWindow::on_tableView_customContextMenuRequested(const QPoint &pos)
+{
+    //QModelIndex selectedRow = ui->tableView->indexAt(pos);  // single selected row
+    QModelIndexList selectedRows = ui->tableView->selectionModel()->selectedRows();  // all selected rows
+
+    QMenu *menu = new QMenu(this);
+
+    QAction *action_Remove = new QAction("Remove", this);
+    menu->addAction(action_Remove);
+    connect(action_Remove, &QAction::triggered, this, [=]() {
+        // Collect all selected rows
+        QList<int> rows;
+        foreach (QModelIndex index, selectedRows) {
+            rows.append(index.row());
+        }
+
+        // Remove all selected rows
+        removeTableRows(rows);
+    });
+
+    menu->popup(ui->tableView->viewport()->mapToGlobal(pos));
 }
 
 void MainWindow::setButtonsEnabled(bool e) {
