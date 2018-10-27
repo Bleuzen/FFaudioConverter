@@ -7,7 +7,6 @@
 class DirScan
 {
 public:
-    DirScan();
     static QList<QString> ListFiles(QString path);
 private:
     static void scanDir(QDir dir);
