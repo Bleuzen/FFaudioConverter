@@ -7,7 +7,7 @@
     <x>0</x>
     <y>0</y>
     <width>400</width>
-    <height>300</height>
+    <height>360</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -17,7 +17,7 @@
    <property name="geometry">
     <rect>
      <x>40</x>
-     <y>250</y>
+     <y>310</y>
      <width>340</width>
      <height>32</height>
     </rect>
@@ -33,7 +33,7 @@
    <property name="geometry">
     <rect>
      <x>20</x>
-     <y>20</y>
+     <y>60</y>
      <width>130</width>
      <height>24</height>
     </rect>
@@ -46,7 +46,7 @@
    <property name="geometry">
     <rect>
      <x>160</x>
-     <y>19</y>
+     <y>59</y>
      <width>210</width>
      <height>26</height>
     </rect>
@@ -56,10 +56,13 @@
    <property name="geometry">
     <rect>
      <x>20</x>
-     <y>110</y>
+     <y>150</y>
      <width>350</width>
      <height>24</height>
     </rect>
+   </property>
+   <property name="toolTip">
+    <string>Enable this to resample the output file to 44.1 kHz instead of keeping the samplerate of the input file.</string>
    </property>
    <property name="text">
     <string>Change samplerate to 44100 Hz</string>
@@ -69,10 +72,13 @@
    <property name="geometry">
     <rect>
      <x>20</x>
-     <y>190</y>
+     <y>270</y>
      <width>350</width>
      <height>24</height>
     </rect>
+   </property>
+   <property name="toolTip">
+    <string>Use all available CPU cores to convert multiple files at the same time.</string>
    </property>
    <property name="text">
     <string>Multithreading</string>
@@ -82,10 +88,13 @@
    <property name="geometry">
     <rect>
      <x>20</x>
-     <y>150</y>
+     <y>190</y>
      <width>350</width>
      <height>24</height>
     </rect>
+   </property>
+   <property name="toolTip">
+    <string>Enable this to encode FLAC to 16 bit instead of the bit depth of the original file.</string>
    </property>
    <property name="text">
     <string>Force 16-bit FLAC</string>
@@ -95,7 +104,7 @@
    <property name="geometry">
     <rect>
      <x>20</x>
-     <y>60</y>
+     <y>100</y>
      <width>130</width>
      <height>24</height>
     </rect>
@@ -108,10 +117,50 @@
    <property name="geometry">
     <rect>
      <x>160</x>
-     <y>59</y>
+     <y>99</y>
      <width>210</width>
      <height>26</height>
     </rect>
+   </property>
+  </widget>
+  <widget class="QLabel" name="label_3">
+   <property name="geometry">
+    <rect>
+     <x>20</x>
+     <y>20</y>
+     <width>130</width>
+     <height>24</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>FFmpeg binary:</string>
+   </property>
+  </widget>
+  <widget class="QLineEdit" name="lineEdit_FFmpegBinary">
+   <property name="geometry">
+    <rect>
+     <x>160</x>
+     <y>19</y>
+     <width>210</width>
+     <height>26</height>
+    </rect>
+   </property>
+  </widget>
+  <widget class="QCheckBox" name="checkBox_SkipExistingFiles">
+   <property name="geometry">
+    <rect>
+     <x>20</x>
+     <y>230</y>
+     <width>350</width>
+     <height>24</height>
+    </rect>
+   </property>
+   <property name="toolTip">
+    <string>Do not convert already existing converted files again.
+Disable this to reencode and overwrite existing files.</string>
+   </property>
+   <property name="text">
+    <string>Skip existing files</string>
    </property>
   </widget>
  </widget>

@@ -9,6 +9,9 @@ int main(int argc, char *argv[])
     QCoreApplication::setApplicationName("FFaudioConverter");
     QCoreApplication::setApplicationVersion("0.5");
 
+    // Register ENUMs
+    qRegisterMetaType<FFmpegTask::ConvertStatus>("FFmpegTask::ConvertStatus");
+
     MainWindow w;
     w.show();
 

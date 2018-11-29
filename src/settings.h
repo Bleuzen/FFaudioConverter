@@ -9,10 +9,12 @@
 class Settings
 {
 public:
+    static QString FFmpegBinary;
     static QString OutputFormat;
     static QString OutputDirectory;
     static bool ChangeSamplerate;
     static bool Force16bitFLAC;
+    static bool SkipExistingFiles;
     static bool Multithreading;
 };
 
