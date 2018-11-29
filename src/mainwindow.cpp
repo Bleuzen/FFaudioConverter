@@ -162,12 +162,17 @@ void MainWindow::onConvertDone(int id, FFmpegTask::ConvertStatus status)
     if(id == convert_itemCount) {
         // Convert of all files is done
         qDebug() << "Done";
-        setButtonsEnabled(true);
+        setIsConverting(false);
     }
 }
 
 void MainWindow::on_tableView_customContextMenuRequested(const QPoint &pos)
 {
+    // Do not show Remove option during converting
+    if(isConverting) {
+        return;
+    }
+
     //QModelIndex selectedRow = ui->tableView->indexAt(pos);  // single selected row
     QModelIndexList selectedRows = ui->tableView->selectionModel()->selectedRows();  // all selected rows
 
@@ -189,10 +194,12 @@ void MainWindow::on_tableView_customContextMenuRequested(const QPoint &pos)
     menu->popup(ui->tableView->viewport()->mapToGlobal(pos));
 }
 
-void MainWindow::setButtonsEnabled(bool e) {
-    ui->pushButton_Convert->setEnabled(e);
-    ui->pushButton_Settings->setEnabled(e);
-    ui->pushButton_Clear->setEnabled(e);
+void MainWindow::setIsConverting(bool e) {
+    isConverting = e;
+
+    ui->pushButton_Convert->setEnabled(!e);
+    ui->pushButton_Settings->setEnabled(!e);
+    ui->pushButton_Clear->setEnabled(!e);
 }
 
 void MainWindow::on_pushButton_Convert_clicked()
@@ -211,7 +218,7 @@ void MainWindow::on_pushButton_Convert_clicked()
 
     qDebug() << "Starting convert with" << threadCount << "thread(s)";
 
-    setButtonsEnabled(false);
+    setIsConverting(true);
 
     for(int i = 0; i < convert_itemCount; ++i)
     {
