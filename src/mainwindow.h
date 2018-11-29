@@ -48,7 +48,7 @@ private:
 
     void insertTableRow();
     void updateTableValue(int, int, QString);
-    void setTableRowStatusBackground(int, QColor);
+    void setConvertItemStatus(int, FFmpegTask::ConvertStatus);
     void removeTableRows(QList<int>);
     void resetTableModel();
 

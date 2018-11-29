@@ -10,8 +10,6 @@ FFmpegTask::FFmpegTask(int id, QString inpath, QString outdir)
 
 void FFmpegTask::run()
 {
-    qDebug() << "Convert:" << id << infile;
-
     QFileInfo fileInfo(infile);
     QDir qdir = fileInfo.absoluteDir();
 
@@ -38,6 +36,8 @@ void FFmpegTask::run()
             return;
         }
     }
+
+    qDebug() << "Convert:" << id << infile;
 
     // Create output dir if it does not exist
     //TODO: need to do this every time?
