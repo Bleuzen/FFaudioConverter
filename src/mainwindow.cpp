@@ -107,7 +107,7 @@ void MainWindow::addFile(QString file) {
     insertTableRow();
     int rowIndex = model->rowCount()-1;
     updateTableValue(rowIndex, 1, file);
-    setTableRowStatusBackground(rowIndex, QColor(Qt::yellow));
+    setConvertItemStatus(rowIndex, FFmpegTask::ConvertStatus::Pending);
 }
 
 void MainWindow::addDirectory(QString dir) {
@@ -129,10 +129,20 @@ void MainWindow::updateTableValue(int row, int column, QString content)
     model->setData(index, content);
 }
 
-void MainWindow::setTableRowStatusBackground(int row, QColor color)
+void MainWindow::setConvertItemStatus(int row, FFmpegTask::ConvertStatus status)
 {
     QModelIndex index = model->index(row, 0, QModelIndex()); // Status is column 0
-    model->setData(index, color, Qt::BackgroundRole);
+    QColor sColor;
+
+    if(status == FFmpegTask::ConvertStatus::Pending) {
+        model->setData(index, QColor(Qt::yellow), Qt::BackgroundRole);
+    } else if(status == FFmpegTask::ConvertStatus::Done) {
+        model->setData(index, QColor(Qt::green), Qt::BackgroundRole);
+    } else if(status == FFmpegTask::ConvertStatus::Failed) {
+        model->setData(index, QColor(Qt::red), Qt::BackgroundRole);
+    } else if(status == FFmpegTask::ConvertStatus::Skipped) {
+        model->setData(index, QColor(Qt::blue), Qt::BackgroundRole);
+    }
 }
 
 void MainWindow::removeTableRows(QList<int> rows)
@@ -164,17 +174,12 @@ void MainWindow::onConvertDone(int id, FFmpegTask::ConvertStatus status)
 {
     int rowIndex = (id - 1);
 
-    if(status == FFmpegTask::ConvertStatus::Done) {
-        setTableRowStatusBackground(rowIndex, QColor(Qt::green));
-    } else if(status == FFmpegTask::ConvertStatus::Failed) {
-        setTableRowStatusBackground(rowIndex, QColor(Qt::red));
-    } else if(status == FFmpegTask::ConvertStatus::Skipped) {
-        setTableRowStatusBackground(rowIndex, QColor(Qt::blue));
-    }
+    setConvertItemStatus(rowIndex, status);
 
     // Check if the was the last file
     if(id == convert_itemCount) {
         // Convert of all files is done
+        qDebug() << "Done";
         setButtonsEnabled(true);
     }
 }
