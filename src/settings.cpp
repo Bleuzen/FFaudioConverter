@@ -1,11 +1,21 @@
 #include "settings.h"
 
-// Settings with their defaults
+QString Settings::FFmpegBinary;
+QString Settings::OutputFormat;
+QString Settings::OutputDirectory;
+bool Settings::ChangeSamplerate;
+bool Settings::Force16bitFLAC;
+bool Settings::SkipExistingFiles;
+bool Settings::Multithreading;
 
-QString Settings::FFmpegBinary = "/usr/bin/ffmpeg";
-QString Settings::OutputFormat = "mp3";
-QString Settings::OutputDirectory = QStandardPaths::writableLocation(QStandardPaths::HomeLocation) + QDir().separator() + "FFaudioConverter";
-bool Settings::ChangeSamplerate = false;
-bool Settings::Force16bitFLAC = false;
-bool Settings::SkipExistingFiles = true;
-bool Settings::Multithreading = true;
+void Settings::init() {
+    QSettings settings;
+    Settings::FFmpegBinary = settings.value("FFmpegBinary", "/usr/bin/ffmpeg").toString();
+    Settings::OutputFormat = settings.value("OutputFormat", "mp3").toString();
+    Settings::OutputDirectory = settings.value("OutputDirectory", QStandardPaths::writableLocation(QStandardPaths::HomeLocation) + QDir().separator() + QCoreApplication::applicationName()).toString();
+    Settings::ChangeSamplerate = settings.value("ChangeSamplerate", false).toBool();
+    Settings::Force16bitFLAC = settings.value("Force16bitFLAC", false).toBool();
+    Settings::SkipExistingFiles = settings.value("SkipExistingFiles", true).toBool();
+    Settings::Multithreading = settings.value("Multithreading", true).toBool();
+    qDebug() << "Settings loaded";
+}

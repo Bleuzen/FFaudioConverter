@@ -14,9 +14,6 @@ MainWindow::MainWindow(QWidget *parent) :
 
     setWindowTitle(QCoreApplication::applicationName());
 
-    // Load settings from config file
-    LoadSettings();
-
     // Init tableView related stuff
     model = new QStandardItemModel(this);
 
@@ -45,21 +42,6 @@ MainWindow::MainWindow(QWidget *parent) :
 MainWindow::~MainWindow()
 {
     delete ui;
-}
-
-void MainWindow::LoadSettings()
-{
-    QSettings settings;
-
-    Settings::FFmpegBinary = settings.value("FFmpegBinary", Settings::FFmpegBinary).toString();
-    Settings::OutputFormat = settings.value("OutputFormat", Settings::OutputFormat).toString();
-    Settings::OutputDirectory = settings.value("OutputDirectory", Settings::OutputDirectory).toString();
-    Settings::ChangeSamplerate = settings.value("ChangeSamplerate", Settings::ChangeSamplerate).toBool();
-    Settings::Force16bitFLAC = settings.value("Force16bitFLAC", Settings::Force16bitFLAC).toBool();
-    Settings::SkipExistingFiles = settings.value("SkipExistingFiles", Settings::SkipExistingFiles).toBool();
-    Settings::Multithreading = settings.value("Multithreading", Settings::Multithreading).toBool();
-
-    qDebug() << "Settings loaded";
 }
 
 void MainWindow::dragEnterEvent(QDragEnterEvent *event)

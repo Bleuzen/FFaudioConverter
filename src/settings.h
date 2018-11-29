@@ -9,6 +9,8 @@
 class Settings
 {
 public:
+    static void init();
+
     static QString FFmpegBinary;
     static QString OutputFormat;
     static QString OutputDirectory;
