@@ -41,6 +41,8 @@ private:
     QStandardItemModel *model;
     QThreadPool *threadpool_converts;
 
+    bool isConverting;
+
     void dragEnterEvent(QDragEnterEvent *event);
     void dropEvent(QDropEvent *event);
 
@@ -56,7 +58,7 @@ private:
     void addFile(QString);
     void addDirectory(QString);
 
-    void setButtonsEnabled(bool);
+    void setIsConverting(bool);
 };
 
 #endif // MAINWINDOW_H

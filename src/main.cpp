@@ -9,7 +9,7 @@ int main(int argc, char *argv[])
 
     QCoreApplication::setOrganizationName("Bleuzen");
     QCoreApplication::setApplicationName("FFaudioConverter");
-    QCoreApplication::setApplicationVersion("0.6");
+    QCoreApplication::setApplicationVersion("0.6.1");
 
     // Register ENUMs
     qRegisterMetaType<FFmpegTask::ConvertStatus>("FFmpegTask::ConvertStatus");
