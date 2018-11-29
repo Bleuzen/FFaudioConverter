@@ -15,6 +15,13 @@ class FFmpegTask : public QObject, public QRunnable
 public:
     FFmpegTask(int id, QString inpath, QString outdir);
 
+    enum ConvertStatus {  // registered in "main.cpp"
+        Pending,
+        Failed,
+        Skipped,
+        Done
+    };
+
 private:
     int id;
     QString infile;
@@ -24,7 +31,7 @@ private:
     QStringList buildArgs();
 
 signals:
-    void Done(int id, bool success);
+    void ConvertDone(int id, FFmpegTask::ConvertStatus status);
 
 protected:
     void run();

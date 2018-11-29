@@ -51,10 +51,12 @@ void MainWindow::LoadSettings()
 {
     QSettings settings;
 
+    Settings::FFmpegBinary = settings.value("FFmpegBinary", Settings::FFmpegBinary).toString();
     Settings::OutputFormat = settings.value("OutputFormat", Settings::OutputFormat).toString();
     Settings::OutputDirectory = settings.value("OutputDirectory", Settings::OutputDirectory).toString();
     Settings::ChangeSamplerate = settings.value("ChangeSamplerate", Settings::ChangeSamplerate).toBool();
     Settings::Force16bitFLAC = settings.value("Force16bitFLAC", Settings::Force16bitFLAC).toBool();
+    Settings::SkipExistingFiles = settings.value("SkipExistingFiles", Settings::SkipExistingFiles).toBool();
     Settings::Multithreading = settings.value("Multithreading", Settings::Multithreading).toBool();
 
     qDebug() << "Settings loaded";
@@ -154,17 +156,20 @@ void MainWindow::convertItem(int id, QString path)
 {
     FFmpegTask *task = new FFmpegTask(id, path, Settings::OutputDirectory);
     task->setAutoDelete(true);
-    connect(task, SIGNAL(Done(int, bool)), this, SLOT(onConvertDone(int, bool)), Qt::QueuedConnection);
+    connect(task, SIGNAL(ConvertDone(int, FFmpegTask::ConvertStatus)), this, SLOT(onConvertDone(int, FFmpegTask::ConvertStatus)), Qt::QueuedConnection);
     threadpool_converts->start(task);
 }
 
-void MainWindow::onConvertDone(int id, bool success)
+void MainWindow::onConvertDone(int id, FFmpegTask::ConvertStatus status)
 {
     int rowIndex = (id - 1);
-    if(success) {
+
+    if(status == FFmpegTask::ConvertStatus::Done) {
         setTableRowStatusBackground(rowIndex, QColor(Qt::green));
-    } else {
+    } else if(status == FFmpegTask::ConvertStatus::Failed) {
         setTableRowStatusBackground(rowIndex, QColor(Qt::red));
+    } else if(status == FFmpegTask::ConvertStatus::Skipped) {
+        setTableRowStatusBackground(rowIndex, QColor(Qt::blue));
     }
 
     // Check if the was the last file

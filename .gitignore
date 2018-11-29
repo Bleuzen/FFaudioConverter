@@ -45,3 +45,6 @@ CMakeLists.txt.user*
 
 # Build directory
 build
+
+# My todo list
+todo.txt
