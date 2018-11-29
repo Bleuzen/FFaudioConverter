@@ -38,8 +38,6 @@ private slots:
 private:
     Ui::MainWindow *ui;
 
-    void LoadSettings();
-
     QStandardItemModel *model;
     QThreadPool *threadpool_converts;
 

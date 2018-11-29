@@ -1,6 +1,8 @@
 #include "mainwindow.h"
 #include <QApplication>
 
+#include "settings.h"
+
 int main(int argc, char *argv[])
 {
     QApplication a(argc, argv);
@@ -12,6 +14,10 @@ int main(int argc, char *argv[])
     // Register ENUMs
     qRegisterMetaType<FFmpegTask::ConvertStatus>("FFmpegTask::ConvertStatus");
 
+    // Load settings
+    Settings::init();
+
+    // Show GUI
     MainWindow w;
     w.show();
 
