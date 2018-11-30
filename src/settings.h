@@ -13,6 +13,7 @@ public:
 
     static QString FFmpegBinary;
     static QString OutputFormat;
+    static QString OutputSamplerate;
     static QString OutputDirectory;
     static bool ChangeSamplerate;
     static bool Force16bitFLAC;
