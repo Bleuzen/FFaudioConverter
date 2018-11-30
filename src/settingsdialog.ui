@@ -57,7 +57,7 @@
     <rect>
      <x>20</x>
      <y>150</y>
-     <width>350</width>
+     <width>170</width>
      <height>24</height>
     </rect>
    </property>
@@ -65,7 +65,7 @@
     <string>Enable this to resample the output file to 44.1 kHz instead of keeping the samplerate of the input file.</string>
    </property>
    <property name="text">
-    <string>Change samplerate to 44100 Hz</string>
+    <string>Change samplerate</string>
    </property>
   </widget>
   <widget class="QCheckBox" name="checkBox_Multithreading">
@@ -161,6 +161,16 @@ Disable this to reencode and overwrite existing files.</string>
    </property>
    <property name="text">
     <string>Skip existing files</string>
+   </property>
+  </widget>
+  <widget class="QComboBox" name="comboBox_OutputSamplerate">
+   <property name="geometry">
+    <rect>
+     <x>200</x>
+     <y>149</y>
+     <width>170</width>
+     <height>26</height>
+    </rect>
    </property>
   </widget>
  </widget>

@@ -76,11 +76,10 @@ QStringList FFmpegTask::buildArgs() {
         // mp3 options
         ffmpeg_args << "-c:a" << "libmp3lame";
         ffmpeg_args << "-q:a" << "1";
-        if (Settings::ChangeSamplerate) ffmpeg_args << "-ar" << "44100";
+        if (Settings::ChangeSamplerate) ffmpeg_args << "-ar" << Settings::OutputSamplerate;
         ffmpeg_args << "-map_metadata" << "0";
         ffmpeg_args << "-map_metadata" << "0:s:0";
         ffmpeg_args << "-id3v2_version" << "3";
-        ffmpeg_args << outfile;
 
     } else if(Settings::OutputFormat == "ogg") {
         outfile += ".ogg";
@@ -88,33 +87,31 @@ QStringList FFmpegTask::buildArgs() {
         ffmpeg_args << "-vn"; //TODO: remove this to keep album art but without the output is a video, will have to find a solution
         ffmpeg_args << "-c:a" << "libvorbis";
         ffmpeg_args << "-q:a" << "9";
-        if (Settings::ChangeSamplerate) ffmpeg_args << "-ar" << "44100";
+        if (Settings::ChangeSamplerate) ffmpeg_args << "-ar" << Settings::OutputSamplerate;
         ffmpeg_args << "-map_metadata" << "0";
         ffmpeg_args << "-map_metadata" << "0:s:0";
-        ffmpeg_args << outfile;
 
     } else if(Settings::OutputFormat == "flac") {
         outfile += ".flac";
         // flac options
         ffmpeg_args << "-c:a" << "flac";
         if (Settings::Force16bitFLAC) ffmpeg_args << "-sample_fmt" << "s16";
-        if (Settings::ChangeSamplerate) ffmpeg_args << "-ar" << "44100";
+        if (Settings::ChangeSamplerate) ffmpeg_args << "-ar" << Settings::OutputSamplerate;
         ffmpeg_args << "-map_metadata" << "0";
         ffmpeg_args << "-map_metadata" << "0:s:0";
-        ffmpeg_args << outfile;
 
     } else if(Settings::OutputFormat == "wav") {
         outfile += ".wav";
         // wav options
         ffmpeg_args << "-c:a" << "pcm_s16le";
-        if (Settings::ChangeSamplerate) ffmpeg_args << "-ar" << "44100";
-        ffmpeg_args << outfile;
+        if (Settings::ChangeSamplerate) ffmpeg_args << "-ar" << Settings::OutputSamplerate;
 
     } else {
         // unknown format options
         outfile += "." + Settings::OutputFormat;
-        ffmpeg_args << outfile;
     }
+
+    ffmpeg_args << outfile;
 
     return ffmpeg_args;
 }
