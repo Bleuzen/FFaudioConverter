@@ -26,8 +26,9 @@ public:
     ~MainWindow();
 
 private slots:
-    void on_pushButton_Clear_clicked();
     void on_pushButton_Convert_clicked();
+    void on_pushButton_Cancel_clicked();
+    void on_pushButton_Clear_clicked();
     void on_pushButton_Settings_clicked();
     void on_pushButton_About_clicked();
 
@@ -54,6 +55,7 @@ private:
 
     int convert_itemCount;
     void convertItem(int, QString);
+    void cancel();
 
     void addFile(QString);
     void addDirectory(QString);

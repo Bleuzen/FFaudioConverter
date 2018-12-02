@@ -5,6 +5,7 @@
 #include <QDragEnterEvent>
 #include <QMessageBox>
 #include <QMenu>
+#include <QtConcurrent/QtConcurrent>
 
 MainWindow::MainWindow(QWidget *parent) :
     QMainWindow(parent),
@@ -152,6 +153,16 @@ void MainWindow::convertItem(int id, QString path)
     threadpool_converts->start(task);
 }
 
+void MainWindow::cancel() {
+    ui->pushButton_Cancel->setEnabled(false);  // Prevent the user from double-clicking Cancel
+
+    threadpool_converts->clear();  // Clear pending converts
+    QFuture<void> future = QtConcurrent::run([=]() {
+        threadpool_converts->waitForDone();  // Wait until all currently running converts are done
+        setIsConverting(false);  // Enable the buttons again to be able to start a new convert
+    });
+}
+
 void MainWindow::onConvertDone(int id, FFmpegTask::ConvertStatus status)
 {
     int rowIndex = (id - 1);
@@ -198,6 +209,7 @@ void MainWindow::setIsConverting(bool e) {
     isConverting = e;
 
     ui->pushButton_Convert->setEnabled(!e);
+    ui->pushButton_Cancel->setEnabled(e);
     ui->pushButton_Settings->setEnabled(!e);
     ui->pushButton_Clear->setEnabled(!e);
 }
@@ -229,6 +241,11 @@ void MainWindow::on_pushButton_Convert_clicked()
 
         convertItem(index, value);
     }
+}
+
+void MainWindow::on_pushButton_Cancel_clicked()
+{
+    cancel();
 }
 
 void MainWindow::on_pushButton_Clear_clicked()
