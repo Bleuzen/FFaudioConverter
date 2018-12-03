@@ -1,6 +1,5 @@
 #include "dirscan.h"
 
-
 QList<QString> DirScan::ListFiles(QString path)
 {
     files.clear();
