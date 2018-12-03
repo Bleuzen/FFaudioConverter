@@ -28,7 +28,9 @@ private:
     QString outdir;
     QString outfile;
 
-    QStringList buildArgs();
+    QStringList ffmpegArgs;
+
+    void prepare();
 
 signals:
     void ConvertDone(int id, FFmpegTask::ConvertStatus status);
