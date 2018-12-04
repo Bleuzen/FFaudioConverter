@@ -12,6 +12,7 @@
 #include "dirscan.h"
 #include "ffmpegtask.h"
 #include "settingsdialog.h"
+#include "util.h"
 
 namespace Ui {
 class MainWindow;
@@ -48,12 +49,19 @@ private:
     void dropEvent(QDropEvent *event);
 
     void insertTableRow();
-    void updateTableValue(int, int, QString);
-    void setConvertItemStatus(int, FFmpegTask::ConvertStatus);
     void removeTableRows(QList<int>);
     void resetTableModel();
 
-    int convert_itemCount;
+    QModelIndex rowToStatusIndex(int);
+    QModelIndex rowToFileIndex(int);
+
+    void setItemFileValue(int, QString);
+    void setConvertItemStatus(int, FFmpegTask::ConvertStatus);
+    void setConvertItemStatus(QModelIndex, FFmpegTask::ConvertStatus);
+
+    int convert_totalItemsCount;
+    int convert_doneItemsCount;
+    int convert_progress;
     void convertItem(int, QString);
     void cancel();
 

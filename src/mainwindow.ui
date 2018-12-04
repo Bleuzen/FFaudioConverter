@@ -36,6 +36,9 @@
      </widget>
     </item>
     <item>
+     <widget class="QProgressBar" name="progressBar"/>
+    </item>
+    <item>
      <layout class="QHBoxLayout" name="horizontalLayout">
       <item>
        <widget class="QPushButton" name="pushButton_Convert">

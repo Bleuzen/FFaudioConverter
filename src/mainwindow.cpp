@@ -16,10 +16,10 @@ MainWindow::MainWindow(QWidget *parent) :
     setWindowTitle(QCoreApplication::applicationName());
 
     // Init tableView related stuff
+    QStringList tableColumns = QStringList({"Status", "File"});
     model = new QStandardItemModel(this);
-
-    model->setColumnCount(2);
-    model->setHorizontalHeaderLabels(QStringList({"Status", "File"}));
+    model->setColumnCount(tableColumns.size());
+    model->setHorizontalHeaderLabels(tableColumns);
 
     ui->tableView->setModel(model);
     ui->tableView->horizontalHeader()->setStretchLastSection(true);
@@ -30,10 +30,13 @@ MainWindow::MainWindow(QWidget *parent) :
     // Use custom context menu for tableView
     ui->tableView->setContextMenuPolicy(Qt::CustomContextMenu);
 
+    // We are not converting right now (hide progressbar and disable cancel button)
+    setIsConverting(false);
+
     // Allow to drop input files in this window
     setAcceptDrops(true);
 
-    // Disable tableView at the beginning (only display help message)
+    // Hide tableView at the beginning (only display help message)
     ui->tableView->setVisible(false);
 
     // Init own thread pool
@@ -47,6 +50,8 @@ MainWindow::~MainWindow()
 
 void MainWindow::dragEnterEvent(QDragEnterEvent *event)
 {
+    if (isConverting) return;  // Do not accept drops during convert is running
+
     if(event->mimeData()->hasUrls()) {
         event->acceptProposedAction();
     }
@@ -88,9 +93,9 @@ void MainWindow::dropEvent(QDropEvent *event)
 
 void MainWindow::addFile(QString file) {
     insertTableRow();
-    int rowIndex = model->rowCount()-1;
-    updateTableValue(rowIndex, 1, file);
-    setConvertItemStatus(rowIndex, FFmpegTask::ConvertStatus::Pending);
+    int row = model->rowCount()-1;
+    setItemFileValue(row, file);
+    setConvertItemStatus(row, FFmpegTask::ConvertStatus::Pending);
 }
 
 void MainWindow::addDirectory(QString dir) {
@@ -101,20 +106,35 @@ void MainWindow::addDirectory(QString dir) {
     }
 }
 
+QModelIndex MainWindow::rowToStatusIndex(int row) {
+    QModelIndex index = model->index(row, 0, QModelIndex());  // Status is in column 0
+    return index;
+}
+
+QModelIndex MainWindow::rowToFileIndex(int row) {
+    QModelIndex index = model->index(row, 1, QModelIndex());  // File is in column 0
+    return index;
+}
+
 void MainWindow::insertTableRow()
 {
     model->insertRows(model->rowCount(), 1);
 }
 
-void MainWindow::updateTableValue(int row, int column, QString content)
+void MainWindow::setItemFileValue(int row, QString content)
 {
-    QModelIndex index = model->index(row, column, QModelIndex());
+    QModelIndex index = rowToFileIndex(row);
     model->setData(index, content);
 }
 
 void MainWindow::setConvertItemStatus(int row, FFmpegTask::ConvertStatus status)
 {
-    QModelIndex index = model->index(row, 0, QModelIndex()); // Status is column 0
+    QModelIndex index = rowToStatusIndex(row);
+    setConvertItemStatus(index, status);
+}
+
+void MainWindow::setConvertItemStatus(QModelIndex index, FFmpegTask::ConvertStatus status)
+{
     QColor sColor;
 
     if(status == FFmpegTask::ConvertStatus::Pending) {
@@ -145,9 +165,9 @@ void MainWindow::resetTableModel()
     model->removeRows(0, model->rowCount());
 }
 
-void MainWindow::convertItem(int id, QString path)
+void MainWindow::convertItem(int id, QString file)
 {
-    FFmpegTask *task = new FFmpegTask(id, path, Settings::OutputDirectory);
+    FFmpegTask *task = new FFmpegTask(id, file, Settings::OutputDirectory);
     task->setAutoDelete(true);
     connect(task, SIGNAL(ConvertDone(int, FFmpegTask::ConvertStatus)), this, SLOT(onConvertDone(int, FFmpegTask::ConvertStatus)), Qt::QueuedConnection);
     threadpool_converts->start(task);
@@ -165,12 +185,27 @@ void MainWindow::cancel() {
 
 void MainWindow::onConvertDone(int id, FFmpegTask::ConvertStatus status)
 {
-    int rowIndex = (id - 1);
+    convert_doneItemsCount++;
 
-    setConvertItemStatus(rowIndex, status);
+    int row = (id - 1);
+    QModelIndex index = rowToStatusIndex(row);
+
+    // Update status
+    setConvertItemStatus(index, status);
+
+    // Scroll to last item which is done (if no other previous item is still converting)
+    // Disabled for now because it can behave weird in some cases and some users may not want it.
+    //TODO: Maybe implement a setting for this?
+//    if(id <= convert_doneItemsCount) {
+//        ui->tableView->scrollTo(index);
+//    }
+
+    // Update progress and progressbar
+    convert_progress = (convert_doneItemsCount * 100 / convert_totalItemsCount);
+    ui->progressBar->setValue(convert_progress);
 
     // Check if the was the last file
-    if(id == convert_itemCount) {
+    if(id == convert_totalItemsCount) {
         // Convert of all files is done
         qDebug() << "Done";
         setIsConverting(false);
@@ -179,10 +214,7 @@ void MainWindow::onConvertDone(int id, FFmpegTask::ConvertStatus status)
 
 void MainWindow::on_tableView_customContextMenuRequested(const QPoint &pos)
 {
-    // Do not show Remove option during converting
-    if(isConverting) {
-        return;
-    }
+    if (isConverting) return;  // Do not show Remove option during converting
 
     //QModelIndex selectedRow = ui->tableView->indexAt(pos);  // single selected row
     QModelIndexList selectedRows = ui->tableView->selectionModel()->selectedRows();  // all selected rows
@@ -212,13 +244,22 @@ void MainWindow::setIsConverting(bool e) {
     ui->pushButton_Cancel->setEnabled(e);
     ui->pushButton_Settings->setEnabled(!e);
     ui->pushButton_Clear->setEnabled(!e);
+
+    ui->progressBar->setVisible(e);
 }
 
 void MainWindow::on_pushButton_Convert_clicked()
 {
-    convert_itemCount = model->rowCount();
+    if(!Util::isBinary(Settings::FFmpegBinary)) {
+        QMessageBox::warning(this, "Error", "FFmpeg binary is invalid. Please check your settings.");
+        return;
+    }
 
-    if(!(convert_itemCount > 0)) {
+    convert_totalItemsCount = model->rowCount();
+    convert_doneItemsCount = 0;
+    ui->progressBar->setValue(0);
+
+    if(!(convert_totalItemsCount > 0)) {
         return;
     }
 
@@ -232,14 +273,14 @@ void MainWindow::on_pushButton_Convert_clicked()
 
     setIsConverting(true);
 
-    for(int i = 0; i < convert_itemCount; ++i)
+    for(int row = 0; row < convert_totalItemsCount; ++row)
     {
-        QModelIndex modelIndex = model->index(i, 1);
+        QModelIndex modelIndex = rowToFileIndex(row);
         QVariant name = model->data(modelIndex);
-        QString value = name.toString();
-        int index = (i + 1);
+        QString file = name.toString();
+        int id = (row + 1);
 
-        convertItem(index, value);
+        convertItem(id, file);
     }
 }
 
