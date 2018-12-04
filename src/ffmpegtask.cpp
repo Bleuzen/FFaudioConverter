@@ -23,7 +23,7 @@ void FFmpegTask::run()
         }
     }
 
-    qDebug() << "Convert:" << id << "|" << infile << "->" << outfile;
+    qDebug() << "Starting convert job" << id << "|" << infile << "->" << outfile;
 
     // Create output dir if it does not exist
     QDir().mkpath(outdir);
@@ -37,7 +37,7 @@ void FFmpegTask::run()
     ffmpeg->waitForFinished();
     int exitCode = ffmpeg->exitCode();
 
-    qDebug() << id << "FFmpeg exit code:" << exitCode;
+    qDebug() << "Finished job" << id << "with exit code" << exitCode;
 
     bool success = (exitCode == 0);
 
@@ -54,6 +54,10 @@ void FFmpegTask::prepare() {
     QString dir = qdir.path();
     QString name = fileInfo.fileName();
     QString basename = name.left(name.lastIndexOf("."));
+    if (!dir.startsWith(QDir::separator())) dir = QDir::separator() + dir;  // add dir separator if missing
+#ifdef Q_OS_WIN
+    outdir = outdir.replace(":", "");  // Fix path on Windows
+#endif
     outdir = (outdir + dir);  // add dir path of the input file to the outdir to reconstruct directory structure
     outfile = outdir + QDir::separator() + basename;  // output file path without extension (will be added later)
 
