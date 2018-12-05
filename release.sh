@@ -4,4 +4,8 @@ VERSION=${VERSION/QCoreApplication::setApplicationVersion(\"}
 VERSION=${VERSION/\");}
 VERSION=$(echo $VERSION | tr -d '\n')
 
-tar -cJf FFaudioConverter-$VERSION.tar.xz src/ FFaudioConverter.pro build.sh
+tar -cJf FFaudioConverter-$VERSION.tar.xz \
+    src/ \
+    FFaudioConverter.pro \
+    build.sh \
+    ffaudioconverter.desktop
