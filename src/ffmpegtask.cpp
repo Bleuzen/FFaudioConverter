@@ -88,7 +88,7 @@ void FFmpegTask::prepare() {
     } else if(Settings::OutputFormat == "ogg") {
         outfile += ".ogg";
         // ogg options
-        ffmpegArgs << "-vn"; //TODO: remove this to keep album art but without the output is a video, will have to find a solution
+        ffmpegArgs << "-vn"; //TODO: remove this to keep album art but without the output is a video
         ffmpegArgs << "-c:a" << "libvorbis";
         if(Settings::Quality == "Extreme") {
             ffmpegArgs << "-q:a" << "9";
@@ -98,6 +98,22 @@ void FFmpegTask::prepare() {
             ffmpegArgs << "-q:a" << "4";
         }
         if (Settings::ChangeSamplerate) ffmpegArgs << "-ar" << Settings::OutputSamplerate;
+        ffmpegArgs << "-map_metadata" << "0";
+        ffmpegArgs << "-map_metadata" << "0:s:0";
+
+    } else if(Settings::OutputFormat == "opus") {
+        outfile += ".opus";
+        // opus options
+        //TODO: opus currently loses album art (at least with ffmpeg 4.1)
+        ffmpegArgs << "-c:a" << "libopus";
+        if(Settings::Quality == "Extreme") {
+            ffmpegArgs << "-b:a" << "192k";
+        } else if(Settings::Quality == "High") {
+            ffmpegArgs << "-b:a" << "160k";
+        } else if(Settings::Quality == "Medium") {
+            ffmpegArgs << "-b:a" << "128k";
+        }
+        // ChangeSamplerate not possible for opus (always uses 48 kHz)
         ffmpegArgs << "-map_metadata" << "0";
         ffmpegArgs << "-map_metadata" << "0:s:0";
 
