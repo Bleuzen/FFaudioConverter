@@ -8,4 +8,5 @@ tar -cJf FFaudioConverter-$VERSION.tar.xz \
     src/ \
     FFaudioConverter.pro \
     build.sh \
-    ffaudioconverter.desktop
+    ffaudioconverter.desktop \
+    ffaudioconverter.png
