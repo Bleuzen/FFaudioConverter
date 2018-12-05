@@ -1,0 +1,7 @@
+[Desktop Entry]
+Comment=DnD GUI for converting audio files with FFmpeg
+Exec=ffaudioconverter
+Name=FFaudioConverter
+Icon=ffaudioconverter
+StartupNotify=true
+Type=Application
