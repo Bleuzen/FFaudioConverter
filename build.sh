@@ -6,4 +6,4 @@ qmake ../FFaudioConverter.pro -spec linux-g++ CONFIG+=qtquickcompiler
 make
 
 mkdir -p dist
-mv FFaudioConverter dist/
+mv FFaudioConverter dist/ffaudioconverter
