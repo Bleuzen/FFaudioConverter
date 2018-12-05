@@ -5,3 +5,4 @@ Name=FFaudioConverter
 Icon=ffaudioconverter
 StartupNotify=true
 Type=Application
+Categories=Qt;AudioVideo;Audio;
