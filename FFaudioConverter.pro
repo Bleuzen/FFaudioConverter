@@ -49,7 +49,7 @@ exists("/.flatpak-info") {
 } else {
     DEFAULT_FFMPEG_BINARY = /usr/bin/ffmpeg
 }
-DEFINES += DEFAULT_FFMPEG_BINARY
+DEFINES += DEFAULT_FFMPEG_BINARY=\\\"$${DEFAULT_FFMPEG_BINARY}\\\"
 
 # Deployment
 isEmpty(PREFIX) {
