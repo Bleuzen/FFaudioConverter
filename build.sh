@@ -2,8 +2,5 @@
 mkdir -p build
 cd build/
 
-qmake ../FFaudioConverter.pro -spec linux-g++ CONFIG+=qtquickcompiler
+qmake PREFIX=/usr ../FFaudioConverter.pro -spec linux-g++
 make
-
-mkdir -p dist
-mv FFaudioConverter dist/ffaudioconverter
