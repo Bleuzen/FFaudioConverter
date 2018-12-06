@@ -43,6 +43,14 @@ FORMS += \
     src/mainwindow.ui \
     src/settingsdialog.ui
 
+# Set default path for the ffmpeg binary
+exists("/.flatpak-info") {
+    DEFAULT_FFMPEG_BINARY = /app/bin/ffmpeg
+} else {
+    DEFAULT_FFMPEG_BINARY = /usr/bin/ffmpeg
+}
+DEFINES += DEFAULT_FFMPEG_BINARY
+
 # Deployment
 isEmpty(PREFIX) {
     qnx: target.path = /tmp/$${TARGET}/bin

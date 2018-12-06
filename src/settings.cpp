@@ -11,7 +11,7 @@ bool Settings::Multithreading;
 
 void Settings::init() {
     QSettings settings;
-    Settings::FFmpegBinary = settings.value("FFmpegBinary", "/usr/bin/ffmpeg").toString();
+    Settings::FFmpegBinary = settings.value("FFmpegBinary", DEFAULT_FFMPEG_BINARY).toString();
     Settings::OutputFormat = settings.value("OutputFormat", "mp3").toString();
     Settings::Quality = settings.value("Quality", "High").toString();
     Settings::OutputDirectory = settings.value("OutputDirectory", QStandardPaths::writableLocation(QStandardPaths::HomeLocation) + QDir().separator() + QCoreApplication::applicationName()).toString();
