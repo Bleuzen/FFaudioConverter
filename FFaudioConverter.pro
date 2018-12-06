@@ -43,7 +43,22 @@ FORMS += \
     src/mainwindow.ui \
     src/settingsdialog.ui
 
-# Default rules for deployment.
-qnx: target.path = /tmp/$${TARGET}/bin
-else: unix:!android: target.path = /opt/$${TARGET}/bin
-!isEmpty(target.path): INSTALLS += target
+# Deployment
+isEmpty(PREFIX) {
+    qnx: target.path = /tmp/$${TARGET}/bin
+    else: unix:!android: target.path = /opt/$${TARGET}/bin
+    !isEmpty(target.path): INSTALLS += target
+} else:unix {
+    BINDIR = $$PREFIX/bin
+    DATADIR = $$PREFIX/share
+
+    target.path = $$BINDIR
+
+    icon.files = ffaudioconverter.png
+    icon.path = $$DATADIR/icons/hicolor/512x512/apps/
+
+    desktop.files = ffaudioconverter.desktop
+    desktop.path = $$DATADIR/applications/
+
+    INSTALLS += target icon desktop
+}
