@@ -1,5 +1,5 @@
 [Desktop Entry]
-Comment=DnD GUI for converting audio files with FFmpeg
+Comment=DnD GUI for converting audio files
 Exec=ffaudioconverter
 Name=FFaudioConverter
 Icon=ffaudioconverter
