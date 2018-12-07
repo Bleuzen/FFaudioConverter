@@ -4,6 +4,8 @@ VERSION=${VERSION/QCoreApplication::setApplicationVersion(\"}
 VERSION=${VERSION/\");}
 VERSION=$(echo $VERSION | tr -d '\n')
 
+sed -i "/    <release date=/c\    <release date=\"$(date +%Y-%m-%d)\" version=\"$VERSION\"/>" com.github.Bleuzen.FFaudioConverter.appdata.xml
+
 tar -cJf FFaudioConverter-$VERSION.tar.xz \
     src/ \
     FFaudioConverter.pro \
