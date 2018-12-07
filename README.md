@@ -14,6 +14,8 @@ Currently supported output formats are:
 ### Installation
 
 #### Linux
+Flatpak: `flatpak install flathub com.github.Bleuzen.FFaudioConverter`
+
 AUR: https://aur.archlinux.org/packages/ffaudioconverter/
 
 Or you can build it yourself with: `./build.sh`
