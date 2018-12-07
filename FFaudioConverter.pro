@@ -67,6 +67,9 @@ isEmpty(PREFIX) {
 
     desktop.files = com.github.Bleuzen.FFaudioConverter.desktop
     desktop.path = $$DATADIR/applications/
+    
+    appdata.files = com.github.Bleuzen.FFaudioConverter.appdata.xml
+    appdata.path = $$DATADIR/metainfo/
 
-    INSTALLS += target icon desktop
+    INSTALLS += target icon desktop appdata
 }

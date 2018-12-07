@@ -2,7 +2,7 @@
 Comment=DnD GUI for converting audio files
 Exec=ffaudioconverter
 Name=FFaudioConverter
-Icon=ffaudioconverter
+Icon=com.github.Bleuzen.FFaudioConverter
 StartupNotify=true
 Type=Application
 Categories=Qt;AudioVideo;Audio;
