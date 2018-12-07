@@ -62,10 +62,10 @@ isEmpty(PREFIX) {
 
     target.path = $$BINDIR
 
-    icon.files = ffaudioconverter.png
+    icon.files = com.github.Bleuzen.FFaudioConverter.png
     icon.path = $$DATADIR/icons/hicolor/512x512/apps/
 
-    desktop.files = ffaudioconverter.desktop
+    desktop.files = com.github.Bleuzen.FFaudioConverter.desktop
     desktop.path = $$DATADIR/applications/
 
     INSTALLS += target icon desktop

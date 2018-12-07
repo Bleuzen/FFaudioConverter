@@ -8,5 +8,8 @@ tar -cJf FFaudioConverter-$VERSION.tar.xz \
     src/ \
     FFaudioConverter.pro \
     build.sh \
+    com.github.Bleuzen.FFaudioConverter.appdata.xml \
     ffaudioconverter.desktop \
-    ffaudioconverter.png
+    com.github.Bleuzen.FFaudioConverter.desktop \
+    ffaudioconverter.png \
+    com.github.Bleuzen.FFaudioConverter.png

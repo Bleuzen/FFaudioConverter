@@ -1,1 +1,8 @@
-ffaudioconverter.desktop
+[Desktop Entry]
+Comment=DnD GUI for converting audio files
+Exec=ffaudioconverter
+Name=FFaudioConverter
+Icon=ffaudioconverter
+StartupNotify=true
+Type=Application
+Categories=Qt;AudioVideo;Audio;
