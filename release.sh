@@ -14,4 +14,5 @@ tar -cJf FFaudioConverter-$VERSION.tar.xz \
     com.github.Bleuzen.FFaudioConverter.appdata.xml \
     com.github.Bleuzen.FFaudioConverter.desktop \
     com.github.Bleuzen.FFaudioConverter.png \
-    com.github.Bleuzen.FFaudioConverter.ico
+    com.github.Bleuzen.FFaudioConverter.ico \
+    ffaudioconverter.qrc
