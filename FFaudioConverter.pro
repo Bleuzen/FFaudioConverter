@@ -43,6 +43,9 @@ FORMS += \
     src/mainwindow.ui \
     src/settingsdialog.ui
 
+RESOURCES += \
+    ffaudioconverter.qrc
+
 # Set default path for the ffmpeg binary
 exists("/.flatpak-info") {
     DEFAULT_FFMPEG_BINARY = /app/bin/ffmpeg
@@ -50,6 +53,9 @@ exists("/.flatpak-info") {
     DEFAULT_FFMPEG_BINARY = /usr/bin/ffmpeg
 }
 DEFINES += DEFAULT_FFMPEG_BINARY=\\\"$${DEFAULT_FFMPEG_BINARY}\\\"
+
+# Set .exe icon on Windows
+win32:RC_ICONS += com.github.Bleuzen.FFaudioConverter.ico
 
 # Deployment
 isEmpty(PREFIX) {

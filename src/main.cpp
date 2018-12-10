@@ -11,6 +11,8 @@ int main(int argc, char *argv[])
     QCoreApplication::setApplicationName("FFaudioConverter");
     QCoreApplication::setApplicationVersion("0.10.3");
 
+    QApplication::setWindowIcon(QIcon(":/com.github.Bleuzen.FFaudioConverter.ico"));
+
     qDebug() << "Starting" << QCoreApplication::applicationName() + " v" + QCoreApplication::applicationVersion();
 
     // Register ENUMs
