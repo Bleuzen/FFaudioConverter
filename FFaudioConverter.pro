@@ -50,7 +50,8 @@ RESOURCES += \
 exists("/.flatpak-info") {
     DEFAULT_FFMPEG_BINARY = /app/bin/ffmpeg
 } else {
-    DEFAULT_FFMPEG_BINARY = /usr/bin/ffmpeg
+    win32: DEFAULT_FFMPEG_BINARY = ffmpeg/bin/ffmpeg.exe
+    else: DEFAULT_FFMPEG_BINARY = /usr/bin/ffmpeg
 }
 DEFINES += DEFAULT_FFMPEG_BINARY=\\\"$${DEFAULT_FFMPEG_BINARY}\\\"
 
