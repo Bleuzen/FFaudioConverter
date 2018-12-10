@@ -51,14 +51,14 @@ void FFmpegTask::run()
 void FFmpegTask::prepare() {
     QFileInfo fileInfo(infile);
     QDir qdir = fileInfo.absoluteDir();
-    QString dir = qdir.path();
+    QString subdirs = qdir.path();
     QString name = fileInfo.fileName();
     QString basename = name.left(name.lastIndexOf("."));
-    if (!dir.startsWith(QDir::separator())) dir = QDir::separator() + dir;  // add dir separator if missing
+    if (!subdirs.startsWith(QDir::separator())) subdirs = QDir::separator() + subdirs;  // add dir separator if missing
 #ifdef Q_OS_WIN
-    outdir = outdir.replace(":", "");  // Fix path on Windows
+    subdirs = subdirs.replace(":", "");  // Fix path on Windows
 #endif
-    outdir = (outdir + dir);  // add dir path of the input file to the outdir to reconstruct directory structure
+    outdir = (outdir + subdirs);  // add dir path of the input file to the outdir to reconstruct directory structure
     outfile = outdir + QDir::separator() + basename;  // output file path without extension (will be added later)
 
     ffmpegArgs << "-hide_banner";
