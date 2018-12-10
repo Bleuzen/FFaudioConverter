@@ -6,7 +6,9 @@ VERSION=$(echo $VERSION | tr -d '\n')
 
 sed -i "/    <release date=/c\    <release date=\"$(date +%Y-%m-%d)\" version=\"$VERSION\"/>" com.github.Bleuzen.FFaudioConverter.appdata.xml
 
-tar -cJf FFaudioConverter-$VERSION.tar.xz \
+mkdir -p release
+
+tar -cJf release/FFaudioConverter-$VERSION.tar.xz \
     src/ \
     FFaudioConverter.pro \
     build.sh \
@@ -16,3 +18,5 @@ tar -cJf FFaudioConverter-$VERSION.tar.xz \
     com.github.Bleuzen.FFaudioConverter.png \
     com.github.Bleuzen.FFaudioConverter.ico \
     ffaudioconverter.qrc
+
+sha256sum release/FFaudioConverter-$VERSION.tar.xz
