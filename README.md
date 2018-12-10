@@ -21,7 +21,4 @@ AUR: https://aur.archlinux.org/packages/ffaudioconverter/
 
 #### Windows
 An beta build for windows:
-https://github.com/Bleuzen/FFaudioConverter/releases/download/v0.11.0/FFaudioConverter-0.11.0-win64-beta1.zip
-
-You will have to download FFmpeg yourself:
-https://ffmpeg.zeranoe.com/builds/
+https://github.com/Bleuzen/FFaudioConverter/releases/download/v0.11.0/FFaudioConverter-0.11.0-win64-beta2.zip
