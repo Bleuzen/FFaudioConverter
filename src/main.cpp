@@ -9,7 +9,7 @@ int main(int argc, char *argv[])
 
     QCoreApplication::setOrganizationName("Bleuzen");
     QCoreApplication::setApplicationName("FFaudioConverter");
-    QCoreApplication::setApplicationVersion("0.10.3");
+    QCoreApplication::setApplicationVersion("0.11.0");
 
     QApplication::setWindowIcon(QIcon(":/com.github.Bleuzen.FFaudioConverter.ico"));
 
