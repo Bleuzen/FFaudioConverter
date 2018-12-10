@@ -19,4 +19,5 @@ tar -cJf release/FFaudioConverter-$VERSION.tar.xz \
     com.github.Bleuzen.FFaudioConverter.ico \
     ffaudioconverter.qrc
 
-sha256sum release/FFaudioConverter-$VERSION.tar.xz
+cd release/
+sha256sum FFaudioConverter-$VERSION.tar.xz
