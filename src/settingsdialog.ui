@@ -7,7 +7,7 @@
     <x>0</x>
     <y>0</y>
     <width>400</width>
-    <height>300</height>
+    <height>280</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -17,7 +17,7 @@
    <property name="geometry">
     <rect>
      <x>10</x>
-     <y>260</y>
+     <y>240</y>
      <width>380</width>
      <height>30</height>
     </rect>
@@ -35,7 +35,7 @@
      <x>10</x>
      <y>10</y>
      <width>380</width>
-     <height>230</height>
+     <height>220</height>
     </rect>
    </property>
    <property name="currentIndex">
@@ -143,7 +143,7 @@
     <widget class="QToolButton" name="toolButton_SelectOutputDirectory">
      <property name="geometry">
       <rect>
-       <x>335</x>
+       <x>336</x>
        <y>20</y>
        <width>23</width>
        <height>23</height>
