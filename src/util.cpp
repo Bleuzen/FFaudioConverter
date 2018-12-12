@@ -26,8 +26,13 @@ bool Util::isBinary(QString file) {
     return (fileInfo.exists() && fileInfo.isFile() && fileInfo.isExecutable());
 }
 
-bool Util::isDirWritable(QString dir) {
+bool Util::prepareAndCheckDirectory(QString dir) {
     QFileInfo dirInfo(dir);
+    // Create dir if it does not exist
+    if(!dirInfo.exists()) {
+        QDir().mkpath(dir);
+    }
+    // Return if dir could be created and is writable
     return (dirInfo.exists() && dirInfo.isDir() && dirInfo.isWritable());
 }
 
