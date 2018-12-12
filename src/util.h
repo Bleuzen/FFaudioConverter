@@ -24,12 +24,13 @@ along with this program.If not, see <http://www.gnu.org/licenses/>.
 #include <QDebug>
 #include <QString>
 #include <QFileInfo>
+#include <QDir>
 
 class Util
 {
 public:
     static bool isBinary(QString);
-    static bool isDirWritable(QString);
+    static bool prepareAndCheckDirectory(QString dir);
     static bool isNullOrEmpty(QString);
 };
 

@@ -275,8 +275,8 @@ void MainWindow::on_pushButton_Convert_clicked()
         QMessageBox::warning(this, "Error", "FFmpeg binary is invalid. Please check your settings.");
         return;
     }
-    if(!Util::isDirWritable(Settings::OutputDirectory)) {
-        QMessageBox::warning(this, "Error", "Your output directory is not writable.");
+    if(!Util::prepareAndCheckDirectory(Settings::OutputDirectory)) {
+        QMessageBox::warning(this, "Error", "Your output directory is bad. Maybe it is not writable?");
         return;
     }
 
