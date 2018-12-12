@@ -25,6 +25,7 @@ along with this program.If not, see <http://www.gnu.org/licenses/>.
 #include <QSettings>
 
 #include "settings.h"
+#include "util.h"
 
 namespace Ui {
 class SettingsDialog;
@@ -40,6 +41,8 @@ public:
 
 private slots:
     void on_buttonBox_accepted();
+
+    void on_toolButton_SelectOutputDirectory_clicked();
 
 private:
     Ui::SettingsDialog *ui;

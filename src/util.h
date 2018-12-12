@@ -29,6 +29,8 @@ class Util
 {
 public:
     static bool isBinary(QString);
+    static bool isDirWritable(QString);
+    static bool isNullOrEmpty(QString);
 };
 
 #endif // UTIL_H
