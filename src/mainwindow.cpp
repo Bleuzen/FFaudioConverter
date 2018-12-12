@@ -270,8 +270,13 @@ void MainWindow::setIsConverting(bool e) {
 
 void MainWindow::on_pushButton_Convert_clicked()
 {
+    // Check settings
     if(!Util::isBinary(Settings::FFmpegBinary)) {
         QMessageBox::warning(this, "Error", "FFmpeg binary is invalid. Please check your settings.");
+        return;
+    }
+    if(!Util::isDirWritable(Settings::OutputDirectory)) {
+        QMessageBox::warning(this, "Error", "Your output directory is not writable.");
         return;
     }
 

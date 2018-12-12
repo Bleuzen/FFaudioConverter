@@ -22,6 +22,7 @@ along with this program.If not, see <http://www.gnu.org/licenses/>.
 #include "ui_settingsdialog.h"
 
 #include <QDebug>
+#include <QFileDialog>
 
 SettingsDialog::SettingsDialog(QWidget *parent) :
     QDialog(parent),
@@ -95,4 +96,12 @@ void SettingsDialog::LoadSettings()
     ui->comboBox_OutputSamplerate->setCurrentText(Settings::OutputSamplerate);
     ui->checkBox_SkipExistingFiles->setChecked(Settings::SkipExistingFiles);
     ui->checkBox_Multithreading->setChecked(Settings::Multithreading);
+}
+
+void SettingsDialog::on_toolButton_SelectOutputDirectory_clicked()
+{
+    QString dir = QFileDialog::getExistingDirectory(this, tr("Open Directory"), Settings::OutputDirectory, QFileDialog::ShowDirsOnly| QFileDialog::DontResolveSymlinks);
+    if(!Util::isNullOrEmpty(dir)) {
+        ui->lineEdit_OutputDirectory->setText(dir);
+    }
 }

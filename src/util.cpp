@@ -25,3 +25,12 @@ bool Util::isBinary(QString file) {
     QFileInfo fileInfo(file);
     return (fileInfo.exists() && fileInfo.isFile() && fileInfo.isExecutable());
 }
+
+bool Util::isDirWritable(QString dir) {
+    QFileInfo dirInfo(dir);
+    return (dirInfo.exists() && dirInfo.isDir() && dirInfo.isWritable());
+}
+
+bool Util::isNullOrEmpty(QString string) {
+    return string.isNull() || string.isEmpty();
+}
