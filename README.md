@@ -20,5 +20,5 @@ Flatpak: `flatpak install flathub com.github.Bleuzen.FFaudioConverter`
 AUR: https://aur.archlinux.org/packages/ffaudioconverter/
 
 #### Windows
-An beta build for windows:
+Beta build available:
 https://github.com/Bleuzen/FFaudioConverter/releases/download/v0.12.0/FFaudioConverter-0.12.0-win64-beta1.zip
