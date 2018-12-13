@@ -21,6 +21,7 @@ along with this program.If not, see <http://www.gnu.org/licenses/>.
 #include "mainwindow.h"
 #include <QApplication>
 
+#include <QStyleFactory>
 #include "settings.h"
 
 int main(int argc, char *argv[])
@@ -31,9 +32,13 @@ int main(int argc, char *argv[])
     QCoreApplication::setApplicationName("FFaudioConverter");
     QCoreApplication::setApplicationVersion("0.12.1");
 
-    QApplication::setWindowIcon(QIcon(":/com.github.Bleuzen.FFaudioConverter.ico"));
-
     qDebug() << "Starting" << QCoreApplication::applicationName() + " v" + QCoreApplication::applicationVersion();
+
+    a.setWindowIcon(QIcon(":/com.github.Bleuzen.FFaudioConverter.ico"));
+
+#ifdef Q_OS_WIN
+    a.setStyle(QStyleFactory::create("Fusion"));  // Use Fusion style on Windows because it looks better
+#endif
 
     // Register ENUMs
     qRegisterMetaType<FFmpegTask::ConvertStatus>("FFmpegTask::ConvertStatus");
