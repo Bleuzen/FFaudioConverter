@@ -288,13 +288,12 @@ void MainWindow::on_pushButton_Convert_clicked()
         return;
     }
 
-    int threadCount = 1;
-    if(Settings::Multithreading) {
-        threadCount = QThread::idealThreadCount();
-    }
+    int threadCount = Settings::Multithreading ? QThread::idealThreadCount() : 1;
     threadpool_converts->setMaxThreadCount(threadCount);
 
-    qDebug() << "Starting convert with" << threadCount << "thread(s)";
+    qDebug() << "Starting convert..." << "\n"
+             << "Threads:" << threadCount << "\n"
+             << "Items:" << convert_totalItemsCount;
 
     setIsConverting(true);
 
