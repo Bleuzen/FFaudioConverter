@@ -225,7 +225,7 @@ void MainWindow::onConvertDone(int id, FFmpegTask::ConvertStatus status)
     ui->progressBar->setValue(convert_progress);
 
     // Check if the was the last file
-    if(id == convert_totalItemsCount) {
+    if(convert_doneItemsCount == convert_totalItemsCount) {
         // Convert of all files is done
         qDebug() << "Done";
         setIsConverting(false);
