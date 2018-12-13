@@ -11,7 +11,8 @@ mkdir -p release
 tar -cJf release/FFaudioConverter-$VERSION.tar.xz \
     src/ \
     FFaudioConverter.pro \
-    build.sh \
+    build_linux.sh \
+    build_win32.bat \
     LICENSE \
     com.github.Bleuzen.FFaudioConverter.appdata.xml \
     com.github.Bleuzen.FFaudioConverter.desktop \
