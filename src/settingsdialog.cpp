@@ -35,7 +35,7 @@ SettingsDialog::SettingsDialog(QWidget *parent) :
 
     // Init settings elements
     ui->comboBox_OutputFormat->addItem("mp3", "mp3");
-    ui->comboBox_OutputFormat->addItem("ogg", "ogg");
+    ui->comboBox_OutputFormat->addItem("ogg vorbis", "ogg");
     ui->comboBox_OutputFormat->addItem("opus", "opus");
     ui->comboBox_OutputFormat->addItem("flac", "flac");
     ui->comboBox_OutputFormat->addItem("wav", "wav");
@@ -44,6 +44,7 @@ SettingsDialog::SettingsDialog(QWidget *parent) :
     ui->comboBox_Quality->addItem("High", "high");
     ui->comboBox_Quality->addItem("Medium", "medium");
 
+    ui->comboBox_OutputSamplerate->addItem("Keep", "");
     ui->comboBox_OutputSamplerate->addItem("44100 Hz", "44100");
     ui->comboBox_OutputSamplerate->addItem("48000 Hz", "48000");
 
@@ -67,7 +68,6 @@ void SettingsDialog::SaveSettings()
     Settings::OutputFormat = ui->comboBox_OutputFormat->currentData().toString();
     Settings::Quality = ui->comboBox_Quality->currentData().toString();
     Settings::OutputDirectory = ui->lineEdit_OutputDirectory->text().trimmed();
-    Settings::ChangeSamplerate = ui->checkBox_ChangeSamplerate->isChecked();
     Settings::OutputSamplerate = ui->comboBox_OutputSamplerate->currentData().toString();
     Settings::SkipExistingFiles = ui->checkBox_SkipExistingFiles->isChecked();
     Settings::Multithreading = ui->checkBox_Multithreading->isChecked();
@@ -78,7 +78,6 @@ void SettingsDialog::SaveSettings()
     settings.setValue("OutputFormat", Settings::OutputFormat);
     settings.setValue("Quality", Settings::Quality);
     settings.setValue("OutputDirectory", Settings::OutputDirectory);
-    settings.setValue("ChangeSamplerate", Settings::ChangeSamplerate);
     settings.setValue("OutputSamplerate", Settings::OutputSamplerate);
     settings.setValue("SkipExistingFiles", Settings::SkipExistingFiles);
     settings.setValue("Multithreading", Settings::Multithreading);
@@ -92,7 +91,6 @@ void SettingsDialog::LoadSettings()
     ui->comboBox_OutputFormat->setCurrentIndex(ui->comboBox_OutputFormat->findData(Settings::OutputFormat));
     ui->comboBox_Quality->setCurrentIndex(ui->comboBox_Quality->findData(Settings::Quality));
     ui->lineEdit_OutputDirectory->setText(Settings::OutputDirectory);
-    ui->checkBox_ChangeSamplerate->setChecked(Settings::ChangeSamplerate);
     ui->comboBox_OutputSamplerate->setCurrentIndex(ui->comboBox_OutputSamplerate->findData(Settings::OutputSamplerate));
     ui->checkBox_SkipExistingFiles->setChecked(Settings::SkipExistingFiles);
     ui->checkBox_Multithreading->setChecked(Settings::Multithreading);

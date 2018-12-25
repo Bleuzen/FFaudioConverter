@@ -100,7 +100,7 @@ void FFmpegTask::prepare() {
         } else if(Settings::Quality == "medium") {
             ffmpegArgs << "-q:a" << "4";
         }
-        if (Settings::ChangeSamplerate) ffmpegArgs << "-ar" << Settings::OutputSamplerate;
+        if (!Util::isNullOrEmpty(Settings::OutputSamplerate)) ffmpegArgs << "-ar" << Settings::OutputSamplerate;
         ffmpegArgs << "-map_metadata" << "0";
         ffmpegArgs << "-map_metadata" << "0:s:0";
         ffmpegArgs << "-id3v2_version" << "3";
@@ -117,7 +117,7 @@ void FFmpegTask::prepare() {
         } else if(Settings::Quality == "medium") {
             ffmpegArgs << "-q:a" << "4";
         }
-        if (Settings::ChangeSamplerate) ffmpegArgs << "-ar" << Settings::OutputSamplerate;
+        if (!Util::isNullOrEmpty(Settings::OutputSamplerate)) ffmpegArgs << "-ar" << Settings::OutputSamplerate;
         ffmpegArgs << "-map_metadata" << "0";
         ffmpegArgs << "-map_metadata" << "0:s:0";
 
@@ -142,7 +142,7 @@ void FFmpegTask::prepare() {
         // flac options
         ffmpegArgs << "-c:a" << "flac";
         if (Settings::Quality == "medium") ffmpegArgs << "-sample_fmt" << "s16";
-        if (Settings::ChangeSamplerate) ffmpegArgs << "-ar" << Settings::OutputSamplerate;
+        if (!Util::isNullOrEmpty(Settings::OutputSamplerate)) ffmpegArgs << "-ar" << Settings::OutputSamplerate;
         ffmpegArgs << "-map_metadata" << "0";
         ffmpegArgs << "-map_metadata" << "0:s:0";
 
@@ -150,7 +150,7 @@ void FFmpegTask::prepare() {
         outfile += ".wav";
         // wav options
         ffmpegArgs << "-c:a" << "pcm_s16le";
-        if (Settings::ChangeSamplerate) ffmpegArgs << "-ar" << Settings::OutputSamplerate;
+        if (!Util::isNullOrEmpty(Settings::OutputSamplerate)) ffmpegArgs << "-ar" << Settings::OutputSamplerate;
 
     } else {
         // unknown format options
