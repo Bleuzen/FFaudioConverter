@@ -36,7 +36,6 @@ public:
     static QString Quality;
     static QString OutputSamplerate;
     static QString OutputDirectory;
-    static bool ChangeSamplerate;
     static bool SkipExistingFiles;
     static bool Multithreading;
 };
