@@ -4,6 +4,7 @@ is a GUI for converting music or videos to audio files with FFmpeg.
 Features:
  - DnD support
  - Easy convert many files or whole directories
+ - Change of samplerate possible
 
 Currently supported output formats are:
  - mp3
