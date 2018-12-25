@@ -93,11 +93,11 @@ void FFmpegTask::prepare() {
         outfile += ".mp3";
         // mp3 options
         ffmpegArgs << "-c:a" << "libmp3lame";
-        if(Settings::Quality == "Extreme") {
+        if(Settings::Quality == "extreme") {
             ffmpegArgs << "-b:a" << "320k";
-        } else if(Settings::Quality == "High") {
+        } else if(Settings::Quality == "high") {
             ffmpegArgs << "-q:a" << "1";
-        } else if(Settings::Quality == "Medium") {
+        } else if(Settings::Quality == "medium") {
             ffmpegArgs << "-q:a" << "4";
         }
         if (Settings::ChangeSamplerate) ffmpegArgs << "-ar" << Settings::OutputSamplerate;
@@ -110,11 +110,11 @@ void FFmpegTask::prepare() {
         // ogg options
         ffmpegArgs << "-vn"; //TODO: remove this to keep album art but without the output is a video
         ffmpegArgs << "-c:a" << "libvorbis";
-        if(Settings::Quality == "Extreme") {
+        if(Settings::Quality == "extreme") {
             ffmpegArgs << "-q:a" << "9";
-        } else if(Settings::Quality == "High") {
+        } else if(Settings::Quality == "high") {
             ffmpegArgs << "-q:a" << "6";
-        } else if(Settings::Quality == "Medium") {
+        } else if(Settings::Quality == "medium") {
             ffmpegArgs << "-q:a" << "4";
         }
         if (Settings::ChangeSamplerate) ffmpegArgs << "-ar" << Settings::OutputSamplerate;
@@ -126,11 +126,11 @@ void FFmpegTask::prepare() {
         // opus options
         //TODO: opus currently loses album art (at least with ffmpeg 4.1)
         ffmpegArgs << "-c:a" << "libopus";
-        if(Settings::Quality == "Extreme") {
+        if(Settings::Quality == "extreme") {
             ffmpegArgs << "-b:a" << "192k";
-        } else if(Settings::Quality == "High") {
+        } else if(Settings::Quality == "high") {
             ffmpegArgs << "-b:a" << "160k";
-        } else if(Settings::Quality == "Medium") {
+        } else if(Settings::Quality == "medium") {
             ffmpegArgs << "-b:a" << "128k";
         }
         // ChangeSamplerate not possible for opus (always uses 48 kHz)
@@ -141,7 +141,7 @@ void FFmpegTask::prepare() {
         outfile += ".flac";
         // flac options
         ffmpegArgs << "-c:a" << "flac";
-        if (Settings::Quality == "Medium") ffmpegArgs << "-sample_fmt" << "s16";
+        if (Settings::Quality == "medium") ffmpegArgs << "-sample_fmt" << "s16";
         if (Settings::ChangeSamplerate) ffmpegArgs << "-ar" << Settings::OutputSamplerate;
         ffmpegArgs << "-map_metadata" << "0";
         ffmpegArgs << "-map_metadata" << "0:s:0";
