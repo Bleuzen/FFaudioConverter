@@ -22,4 +22,4 @@ AUR: https://aur.archlinux.org/packages/ffaudioconverter/
 
 #### Windows
 Beta build available:
-https://github.com/Bleuzen/FFaudioConverter/releases/download/v0.13.0/FFaudioConverter-0.13.0-win64-beta1.zip
+https://github.com/Bleuzen/FFaudioConverter/releases/download/v0.14.0/FFaudioConverter-0.14.0-win64-beta1.zip
