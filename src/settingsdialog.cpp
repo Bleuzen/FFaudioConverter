@@ -47,6 +47,7 @@ SettingsDialog::SettingsDialog(QWidget *parent) :
     ui->comboBox_OutputSamplerate->addItem("Keep", "");
     ui->comboBox_OutputSamplerate->addItem("44100 Hz", "44100");
     ui->comboBox_OutputSamplerate->addItem("48000 Hz", "48000");
+    ui->comboBox_OutputSamplerate->addItem("96000 Hz", "96000");
 
     // Set settings in GUI
     LoadSettings();
