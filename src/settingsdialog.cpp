@@ -34,18 +34,18 @@ SettingsDialog::SettingsDialog(QWidget *parent) :
     setFixedSize(width(), height());
 
     // Init settings elements
-    ui->comboBox_OutputFormat->addItem("mp3");
-    ui->comboBox_OutputFormat->addItem("ogg");
-    ui->comboBox_OutputFormat->addItem("opus");
-    ui->comboBox_OutputFormat->addItem("flac");
-    ui->comboBox_OutputFormat->addItem("wav");
+    ui->comboBox_OutputFormat->addItem("mp3", "mp3");
+    ui->comboBox_OutputFormat->addItem("ogg", "ogg");
+    ui->comboBox_OutputFormat->addItem("opus", "opus");
+    ui->comboBox_OutputFormat->addItem("flac", "flac");
+    ui->comboBox_OutputFormat->addItem("wav", "wav");
 
-    ui->comboBox_Quality->addItem("Extreme");
-    ui->comboBox_Quality->addItem("High");
-    ui->comboBox_Quality->addItem("Medium");
+    ui->comboBox_Quality->addItem("Extreme", "extreme");
+    ui->comboBox_Quality->addItem("High", "high");
+    ui->comboBox_Quality->addItem("Medium", "medium");
 
-    ui->comboBox_OutputSamplerate->addItem("44100");
-    ui->comboBox_OutputSamplerate->addItem("48000");
+    ui->comboBox_OutputSamplerate->addItem("44100 Hz", "44100");
+    ui->comboBox_OutputSamplerate->addItem("48000 Hz", "48000");
 
     // Set settings in GUI
     LoadSettings();
@@ -64,11 +64,11 @@ void SettingsDialog::on_buttonBox_accepted()
 void SettingsDialog::SaveSettings()
 {
     Settings::FFmpegBinary = ui->lineEdit_FFmpegBinary->text().trimmed();
-    Settings::OutputFormat = ui->comboBox_OutputFormat->currentText();
-    Settings::Quality = ui->comboBox_Quality->currentText();
+    Settings::OutputFormat = ui->comboBox_OutputFormat->currentData().toString();
+    Settings::Quality = ui->comboBox_Quality->currentData().toString();
     Settings::OutputDirectory = ui->lineEdit_OutputDirectory->text().trimmed();
     Settings::ChangeSamplerate = ui->checkBox_ChangeSamplerate->isChecked();
-    Settings::OutputSamplerate = ui->comboBox_OutputSamplerate->currentText();
+    Settings::OutputSamplerate = ui->comboBox_OutputSamplerate->currentData().toString();
     Settings::SkipExistingFiles = ui->checkBox_SkipExistingFiles->isChecked();
     Settings::Multithreading = ui->checkBox_Multithreading->isChecked();
 
@@ -89,11 +89,11 @@ void SettingsDialog::SaveSettings()
 void SettingsDialog::LoadSettings()
 {
     ui->lineEdit_FFmpegBinary->setText(Settings::FFmpegBinary);
-    ui->comboBox_OutputFormat->setCurrentText(Settings::OutputFormat);
-    ui->comboBox_Quality->setCurrentText(Settings::Quality);
+    ui->comboBox_OutputFormat->setCurrentIndex(ui->comboBox_OutputFormat->findData(Settings::OutputFormat));
+    ui->comboBox_Quality->setCurrentIndex(ui->comboBox_Quality->findData(Settings::Quality));
     ui->lineEdit_OutputDirectory->setText(Settings::OutputDirectory);
     ui->checkBox_ChangeSamplerate->setChecked(Settings::ChangeSamplerate);
-    ui->comboBox_OutputSamplerate->setCurrentText(Settings::OutputSamplerate);
+    ui->comboBox_OutputSamplerate->setCurrentIndex(ui->comboBox_OutputSamplerate->findData(Settings::OutputSamplerate));
     ui->checkBox_SkipExistingFiles->setChecked(Settings::SkipExistingFiles);
     ui->checkBox_Multithreading->setChecked(Settings::Multithreading);
 }
