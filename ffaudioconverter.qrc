@@ -1,5 +1,6 @@
 <RCC>
     <qresource prefix="/">
         <file>com.github.Bleuzen.FFaudioConverter.ico</file>
+        <file>translations/i18n_de.qm</file>
     </qresource>
 </RCC>

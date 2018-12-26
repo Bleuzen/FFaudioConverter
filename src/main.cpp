@@ -20,8 +20,8 @@ along with this program.  If not, see <https://www.gnu.org/licenses/>.
 
 #include "mainwindow.h"
 #include <QApplication>
-
 #include <QStyleFactory>
+#include "translator.h"
 #include "settings.h"
 
 int main(int argc, char *argv[])
@@ -42,6 +42,9 @@ int main(int argc, char *argv[])
 
     // Register ENUMs
     qRegisterMetaType<FFmpegTask::ConvertStatus>("FFmpegTask::ConvertStatus");
+
+    // Load translations
+    Translator::init();
 
     // Load settings
     Settings::init();
