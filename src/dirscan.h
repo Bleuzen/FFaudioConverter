@@ -32,6 +32,4 @@ private:
     static void scanDir(QDir dir);
 };
 
-static QList<QString> files;
-
 #endif // DIRSCAN_H
