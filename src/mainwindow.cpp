@@ -272,11 +272,11 @@ void MainWindow::on_pushButton_Convert_clicked()
 {
     // Check settings
     if(!Util::isBinary(Settings::FFmpegBinary)) {
-        QMessageBox::warning(this, "Error", "FFmpeg binary is invalid. Please check your settings.");
+        QMessageBox::warning(this, "Error", tr("FFmpeg binary is invalid. Please check your settings."));
         return;
     }
     if(!Util::prepareAndCheckDirectory(Settings::OutputDirectory)) {
-        QMessageBox::warning(this, "Error", "Your output directory is bad. Maybe it is not writable?");
+        QMessageBox::warning(this, "Error", tr("Your output directory is bad. Maybe it is not writable?"));
         return;
     }
 
