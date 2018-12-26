@@ -27,6 +27,9 @@ class Translator
 {
 public:
     static void init();
+private:
+    static QTranslator qtTranslator;
+    static QTranslator appTranslator;
 };
 
 #endif // TRANSLATOR_H
