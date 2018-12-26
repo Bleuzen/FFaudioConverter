@@ -29,6 +29,7 @@ class DirScan
 public:
     static QList<QString> ListFiles(QString path);
 private:
+    static QList<QString> files;
     static void scanDir(QDir dir);
 };
 
