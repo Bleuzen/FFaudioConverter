@@ -36,7 +36,7 @@ MainWindow::MainWindow(QWidget *parent) :
     setWindowTitle(QCoreApplication::applicationName());
 
     // Init tableView related stuff
-    QStringList tableColumns = QStringList({"Status", "File"});
+    QStringList tableColumns = QStringList({tr("Status"), tr("File")});
     model = new QStandardItemModel(this);
     model->setColumnCount(tableColumns.size());
     model->setHorizontalHeaderLabels(tableColumns);

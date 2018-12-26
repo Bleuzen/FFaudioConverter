@@ -29,7 +29,8 @@ SOURCES += \
     src/ffmpegtask.cpp \
     src/settingsdialog.cpp \
     src/settings.cpp \
-    src/util.cpp
+    src/util.cpp \
+    src/translator.cpp
 
 HEADERS += \
     src/mainwindow.h \
@@ -37,7 +38,8 @@ HEADERS += \
     src/ffmpegtask.h \
     src/settingsdialog.h \
     src/settings.h \
-    src/util.h
+    src/util.h \
+    src/translator.h
 
 FORMS += \
     src/mainwindow.ui \
@@ -45,6 +47,9 @@ FORMS += \
 
 RESOURCES += \
     ffaudioconverter.qrc
+
+TRANSLATIONS += \
+    translations/i18n_de.ts
 
 # Set default path for the ffmpeg binary
 exists("/.flatpak-info") {
@@ -74,7 +79,7 @@ isEmpty(PREFIX) {
 
     desktop.files = com.github.Bleuzen.FFaudioConverter.desktop
     desktop.path = $$DATADIR/applications/
-    
+
     appdata.files = com.github.Bleuzen.FFaudioConverter.appdata.xml
     appdata.path = $$DATADIR/metainfo/
 
