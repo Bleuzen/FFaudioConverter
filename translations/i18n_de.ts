@@ -64,7 +64,7 @@
     <message>
         <location filename="../src/settingsdialog.ui" line="46"/>
         <source>Main</source>
-        <translation type="unfinished"></translation>
+        <translation>Haupt</translation>
     </message>
     <message>
         <location filename="../src/settingsdialog.ui" line="58"/>
@@ -89,7 +89,7 @@
     <message>
         <location filename="../src/settingsdialog.ui" line="156"/>
         <source>Advanced</source>
-        <translation type="unfinished"></translation>
+        <translation>Fortgeschritten</translation>
     </message>
     <message>
         <location filename="../src/settingsdialog.ui" line="168"/>
