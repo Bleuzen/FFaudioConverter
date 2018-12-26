@@ -19,11 +19,6 @@
         <translation>Über Qt</translation>
     </message>
     <message>
-        <location filename="../src/aboutdialog.ui" line="118"/>
-        <source>Source code</source>
-        <translation>Quelltext</translation>
-    </message>
-    <message>
         <location filename="../src/aboutdialog.cpp" line="39"/>
         <source>developed by</source>
         <translation>programmiert von</translation>
@@ -147,6 +142,19 @@ Deaktivieren um alle Dateien neu zu konvertieren und bereits existierende Dateie
         <translation></translation>
     </message>
     <message>
+        <location filename="../src/settingsdialog.ui" line="224"/>
+        <source>Display texts in your language if possible. Disable to force English.
+This needs a restart to take effect.</source>
+        <translation>Zeige Texte in Ihrer Sprache an.
+Deaktivieren um Englisch zu erzwingen.
+Diese Option benötigt einen Neustart um in Kraft zu treten.</translation>
+    </message>
+    <message>
+        <location filename="../src/settingsdialog.ui" line="228"/>
+        <source>Use translations</source>
+        <translation>Übersetzungen verwenden</translation>
+    </message>
+    <message>
         <location filename="../src/settingsdialog.cpp" line="43"/>
         <source>Extreme</source>
         <translation>Extrem</translation>
@@ -167,7 +175,7 @@ Deaktivieren um alle Dateien neu zu konvertieren und bereits existierende Dateie
         <translation>Unverändert lassen</translation>
     </message>
     <message>
-        <location filename="../src/settingsdialog.cpp" line="102"/>
+        <location filename="../src/settingsdialog.cpp" line="105"/>
         <source>Open Directory</source>
         <translation>Verzeichnis öffnen</translation>
     </message>
