@@ -30,13 +30,17 @@ QTranslator Translator::qtTranslator;
 QTranslator Translator::appTranslator;
 
 void Translator::init() {
-    // Load Qt translations
-    qtTranslator.load("qt_" + QLocale::system().name(), QLibraryInfo::location(QLibraryInfo::TranslationsPath));
-    qApp->installTranslator(&qtTranslator);
-    // Load app translations
     QString defaultLocale = QLocale::system().name(); // e.g. "de_DE"
     defaultLocale.truncate(defaultLocale.lastIndexOf("_")); // e.g. "de"
-    bool translationAvailable = appTranslator.load(QString(":/translations/i18n_%1.qm").arg(defaultLocale));
+    loadTranslations(defaultLocale);
+}
+
+void Translator::loadTranslations(QString language) {
+    // Load Qt translation
+    qtTranslator.load("qt_" + language, QLibraryInfo::location(QLibraryInfo::TranslationsPath));
+    qApp->installTranslator(&qtTranslator);
+    // Load app translation
+    bool translationAvailable = appTranslator.load(QString(":/translations/i18n_%1.qm").arg(language));
     if (translationAvailable) qApp->installTranslator(&appTranslator);
     qDebug() << "Translations loaded";
 }

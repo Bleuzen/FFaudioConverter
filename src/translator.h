@@ -30,6 +30,7 @@ public:
 private:
     static QTranslator qtTranslator;
     static QTranslator appTranslator;
+    static void loadTranslations(QString);
 };
 
 #endif // TRANSLATOR_H
