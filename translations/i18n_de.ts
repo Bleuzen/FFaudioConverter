@@ -2,6 +2,34 @@
 <!DOCTYPE TS>
 <TS version="2.1" language="de_DE">
 <context>
+    <name>AboutDialog</name>
+    <message>
+        <location filename="../src/aboutdialog.ui" line="14"/>
+        <source>About</source>
+        <translation>Über</translation>
+    </message>
+    <message>
+        <location filename="../src/aboutdialog.ui" line="26"/>
+        <source>Close</source>
+        <translation>Schließen</translation>
+    </message>
+    <message>
+        <location filename="../src/aboutdialog.ui" line="105"/>
+        <source>About Qt</source>
+        <translation>Über Qt</translation>
+    </message>
+    <message>
+        <location filename="../src/aboutdialog.ui" line="118"/>
+        <source>Source code</source>
+        <translation>Quelltext</translation>
+    </message>
+    <message>
+        <location filename="../src/aboutdialog.cpp" line="39"/>
+        <source>developed by</source>
+        <translation>programmiert von</translation>
+    </message>
+</context>
+<context>
     <name>MainWindow</name>
     <message>
         <location filename="../src/mainwindow.ui" line="18"/>

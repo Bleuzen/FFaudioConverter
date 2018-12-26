@@ -43,7 +43,7 @@
     </font>
    </property>
    <property name="text">
-    <string>TextLabel</string>
+    <string notr="true"/>
    </property>
    <property name="alignment">
     <set>Qt::AlignCenter</set>
@@ -64,7 +64,7 @@
     </font>
    </property>
    <property name="text">
-    <string>TextLabel</string>
+    <string notr="true"/>
    </property>
    <property name="alignment">
     <set>Qt::AlignCenter</set>
@@ -86,7 +86,7 @@
     </font>
    </property>
    <property name="text">
-    <string>TextLabel</string>
+    <string notr="true"/>
    </property>
    <property name="alignment">
     <set>Qt::AlignCenter</set>
