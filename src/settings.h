@@ -38,6 +38,7 @@ public:
     static QString OutputDirectory;
     static bool SkipExistingFiles;
     static bool Multithreading;
+    static bool UseTranslations;
 };
 
 #endif // SETTINGS_H
