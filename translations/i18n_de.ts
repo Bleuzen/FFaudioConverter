@@ -43,6 +43,16 @@
         <source>File</source>
         <translation>Datei</translation>
     </message>
+    <message>
+        <location filename="../src/mainwindow.cpp" line="275"/>
+        <source>FFmpeg binary is invalid. Please check your settings.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/mainwindow.cpp" line="279"/>
+        <source>Your output directory is bad. Maybe it is not writable?</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>SettingsDialog</name>
