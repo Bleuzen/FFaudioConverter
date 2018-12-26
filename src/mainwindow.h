@@ -32,6 +32,7 @@ along with this program.  If not, see <https://www.gnu.org/licenses/>.
 #include "dirscan.h"
 #include "ffmpegtask.h"
 #include "settingsdialog.h"
+#include "aboutdialog.h"
 #include "util.h"
 
 namespace Ui {

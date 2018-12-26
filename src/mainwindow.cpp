@@ -322,26 +322,12 @@ void MainWindow::on_pushButton_Settings_clicked()
 {
     SettingsDialog *settingsDialog = new SettingsDialog();
     settingsDialog->setModal(true);
-    settingsDialog->setVisible(true);
+    settingsDialog->show();
 }
 
 void MainWindow::on_pushButton_About_clicked()
 {
-    QMessageBox msgBox;
-    QPushButton *sourceCodeButton = msgBox.addButton("Source code", QMessageBox::ActionRole);
-    QPushButton *aboutQtButton = msgBox.addButton("About Qt", QMessageBox::ActionRole);
-    QPushButton *closeButton = msgBox.addButton(QMessageBox::Close);
-
-    msgBox.setText("GUI for converting audio files with FFmpeg\n"
-                   "Version: " + QCoreApplication::applicationVersion());
-
-    msgBox.exec();
-
-    if(msgBox.clickedButton() == sourceCodeButton) {
-        QDesktopServices::openUrl(QUrl("https://github.com/Bleuzen/FFaudioConverter"));
-    } else if(msgBox.clickedButton() == aboutQtButton) {
-        QMessageBox::aboutQt(this);
-    } else if(msgBox.clickedButton() == closeButton) {
-        // Do nothing, just close
-    }
+    AboutDialog *aboutDialog = new AboutDialog();
+    aboutDialog->setModal(true);
+    aboutDialog->show();
 }

@@ -30,7 +30,8 @@ SOURCES += \
     src/settingsdialog.cpp \
     src/settings.cpp \
     src/util.cpp \
-    src/translator.cpp
+    src/translator.cpp \
+    src/aboutdialog.cpp
 
 HEADERS += \
     src/mainwindow.h \
@@ -39,11 +40,13 @@ HEADERS += \
     src/settingsdialog.h \
     src/settings.h \
     src/util.h \
-    src/translator.h
+    src/translator.h \
+    src/aboutdialog.h
 
 FORMS += \
     src/mainwindow.ui \
-    src/settingsdialog.ui
+    src/settingsdialog.ui \
+    src/aboutdialog.ui
 
 RESOURCES += \
     ffaudioconverter.qrc
