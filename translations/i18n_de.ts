@@ -6,7 +6,7 @@
     <message>
         <location filename="../src/mainwindow.ui" line="18"/>
         <source>Drop files or a directory here</source>
-        <translation type="unfinished"></translation>
+        <translation>Ziehen Sie Dateien oder Ordner hier hinein</translation>
     </message>
     <message>
         <location filename="../src/mainwindow.ui" line="46"/>
@@ -21,7 +21,7 @@
     <message>
         <location filename="../src/mainwindow.ui" line="63"/>
         <source>Clear</source>
-        <translation type="unfinished"></translation>
+        <translation>Aufräumen</translation>
     </message>
     <message>
         <location filename="../src/mainwindow.ui" line="70"/>
@@ -84,7 +84,7 @@
     <message>
         <location filename="../src/settingsdialog.ui" line="168"/>
         <source>FFmpeg binary:</source>
-        <translation type="unfinished"></translation>
+        <translation>FFmpeg Binary:</translation>
     </message>
     <message>
         <location filename="../src/settingsdialog.ui" line="191"/>
@@ -105,7 +105,27 @@ Disable this to reencode and overwrite existing files.</source>
     <message>
         <location filename="../src/settingsdialog.ui" line="211"/>
         <source>Multithreading</source>
-        <translation type="unfinished"></translation>
+        <translation></translation>
+    </message>
+    <message>
+        <location filename="../src/settingsdialog.cpp" line="43"/>
+        <source>Extreme</source>
+        <translation>Extrem</translation>
+    </message>
+    <message>
+        <location filename="../src/settingsdialog.cpp" line="44"/>
+        <source>High</source>
+        <translation>Hoch</translation>
+    </message>
+    <message>
+        <location filename="../src/settingsdialog.cpp" line="45"/>
+        <source>Medium</source>
+        <translation>Mittel</translation>
+    </message>
+    <message>
+        <location filename="../src/settingsdialog.cpp" line="47"/>
+        <source>Keep</source>
+        <translation>Unverändert lassen</translation>
     </message>
     <message>
         <location filename="../src/settingsdialog.cpp" line="102"/>

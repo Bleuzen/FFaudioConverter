@@ -40,11 +40,11 @@ SettingsDialog::SettingsDialog(QWidget *parent) :
     ui->comboBox_OutputFormat->addItem("flac", "flac");
     ui->comboBox_OutputFormat->addItem("wav", "wav");
 
-    ui->comboBox_Quality->addItem("Extreme", "extreme");
-    ui->comboBox_Quality->addItem("High", "high");
-    ui->comboBox_Quality->addItem("Medium", "medium");
+    ui->comboBox_Quality->addItem(tr("Extreme"), "extreme");
+    ui->comboBox_Quality->addItem(tr("High"), "high");
+    ui->comboBox_Quality->addItem(tr("Medium"), "medium");
 
-    ui->comboBox_OutputSamplerate->addItem("Keep", "");
+    ui->comboBox_OutputSamplerate->addItem(tr("Keep"), "");
     ui->comboBox_OutputSamplerate->addItem("44100 Hz", "44100");
     ui->comboBox_OutputSamplerate->addItem("48000 Hz", "48000");
     ui->comboBox_OutputSamplerate->addItem("96000 Hz", "96000");
