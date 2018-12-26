@@ -14,6 +14,7 @@ sed -i "/    <release date=/c\    <release date=\"$(date +%Y-%m-%d)\" version=\"
 mkdir -p release
 tar -cJf release/FFaudioConverter-$VERSION.tar.xz \
     src/ \
+    translations/ \
     FFaudioConverter.pro \
     build_linux.sh \
     build_win32.bat \

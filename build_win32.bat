@@ -12,7 +12,7 @@ for /f "delims=" %%F in ('dir /b /a-d ^| findstr /vile ".exe"') do del "%%F"
 
 windeployqt.exe --release --compiler-runtime .
 
-rmdir /s /q iconengines imageformats styles translations
+rmdir /s /q iconengines imageformats styles
 del D3Dcompiler_47.dll Qt5Svg.dll opengl32sw.dll libGLESV2.dll libEGL.dll
 
 echo .

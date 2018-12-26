@@ -46,12 +46,12 @@
     <message>
         <location filename="../src/mainwindow.cpp" line="275"/>
         <source>FFmpeg binary is invalid. Please check your settings.</source>
-        <translation type="unfinished"></translation>
+        <translation>Ihre FFmpeg Binary ist ungültig. Bitte überprüfen Sie ihre Einstellungen.</translation>
     </message>
     <message>
         <location filename="../src/mainwindow.cpp" line="279"/>
         <source>Your output directory is bad. Maybe it is not writable?</source>
-        <translation type="unfinished"></translation>
+        <translation>Etwas mit Ihrem Ausgabeverzeichnis stimmt nicht. Haben Sie Schreibrechte?</translation>
     </message>
 </context>
 <context>
@@ -100,7 +100,8 @@
         <location filename="../src/settingsdialog.ui" line="191"/>
         <source>Do not convert already existing converted files again.
 Disable this to reencode and overwrite existing files.</source>
-        <translation type="unfinished"></translation>
+        <translation>Konvertiere bereits existierende Dateien nicht nochmal.
+Deaktivieren um alle Dateien neu zu konvertieren und bereits existierende Dateien zu überschreiben.</translation>
     </message>
     <message>
         <location filename="../src/settingsdialog.ui" line="195"/>
