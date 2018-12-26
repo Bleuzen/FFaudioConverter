@@ -37,10 +37,12 @@ void Translator::init() {
 
 void Translator::loadTranslations(QString language) {
     // Load Qt translation
-    qtTranslator.load("qt_" + language, QLibraryInfo::location(QLibraryInfo::TranslationsPath));
-    qApp->installTranslator(&qtTranslator);
+    if(qtTranslator.load("qt_" + language, QLibraryInfo::location(QLibraryInfo::TranslationsPath))) {
+        qApp->installTranslator(&qtTranslator);
+    }
     // Load app translation
-    bool translationAvailable = appTranslator.load(QString(":/translations/i18n_%1.qm").arg(language));
-    if (translationAvailable) qApp->installTranslator(&appTranslator);
+    if(appTranslator.load(QString(":/translations/i18n_%1.qm").arg(language))) {
+        qApp->installTranslator(&appTranslator);
+    }
     qDebug() << "Translations loaded";
 }
