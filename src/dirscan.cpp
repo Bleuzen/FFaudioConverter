@@ -20,7 +20,7 @@ along with this program.  If not, see <https://www.gnu.org/licenses/>.
 
 #include "dirscan.h"
 
-static QList<QString> files;
+QList<QString> DirScan::files;
 
 QList<QString> DirScan::ListFiles(QString path)
 {
