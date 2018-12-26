@@ -36,7 +36,6 @@ public:
     ~AboutDialog();
 
 private slots:
-    void on_pushButton_Sourcecode_clicked();
     void on_pushButton_AboutQt_clicked();
     void on_pushButton_Close_clicked();
 

@@ -53,8 +53,3 @@ void AboutDialog::on_pushButton_AboutQt_clicked()
 {
     QMessageBox::aboutQt(this);
 }
-
-void AboutDialog::on_pushButton_Sourcecode_clicked()
-{
-    QDesktopServices::openUrl(QUrl("https://github.com/Bleuzen/FFaudioConverter"));
-}
