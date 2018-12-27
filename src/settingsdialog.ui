@@ -78,7 +78,7 @@
       </rect>
      </property>
      <property name="text">
-      <string>Output format:</string>
+      <string>Format:</string>
      </property>
     </widget>
     <widget class="QComboBox" name="comboBox_OutputFormat">

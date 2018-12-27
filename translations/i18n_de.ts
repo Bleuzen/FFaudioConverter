@@ -96,8 +96,8 @@
     </message>
     <message>
         <location filename="../src/settingsdialog.ui" line="81"/>
-        <source>Output format:</source>
-        <translation>Ausgabeformat:</translation>
+        <source>Format:</source>
+        <translation></translation>
     </message>
     <message>
         <location filename="../src/settingsdialog.ui" line="104"/>
