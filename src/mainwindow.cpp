@@ -61,6 +61,13 @@ MainWindow::MainWindow(QWidget *parent) :
 
     // Init own thread pool
     threadpool_converts = new QThreadPool();
+
+    // Add file or directory from last argument from command line
+    if(QCoreApplication::arguments().length() > 1) {
+        QString localPath = QCoreApplication::arguments().last();
+        addFromPath(localPath);
+        showTable();
+    }
 }
 
 MainWindow::~MainWindow()
@@ -79,36 +86,36 @@ void MainWindow::dragEnterEvent(QDragEnterEvent *event)
 
 void MainWindow::dropEvent(QDropEvent *event)
 {
-    // Display tableView if it is still hidden
-    if(!ui->tableView->isVisible()) {
-        ui->tableView->setVisible(true);
-        // Hide help message
-        ui->label_HelpMessage->setVisible(false);
-    }
+    // Display file table if it is still hidden
+    showTable();
 
     // Handle drop
     QList<QUrl> droppedUrls = event->mimeData()->urls();
     int droppedUrlCnt = droppedUrls.size();
     for(int i = 0; i < droppedUrlCnt; i++) {
         QString localPath = droppedUrls[i].toLocalFile();
-        QFileInfo fileInfo(localPath);
-        if(fileInfo.isFile()) {
-// file
-            QString file = fileInfo.absoluteFilePath();
-            qDebug() << "Dropped file:" << file;
-            addFile(file);
-        }
-        else if(fileInfo.isDir()) {
-// directory
-            QString dir = fileInfo.absoluteFilePath();
-            qDebug() << "Dropped dir:" << dir;
-            addDirectory(dir);
-        }
-        else {
-// none
-        }
+        addFromPath(localPath);
     }
     event->acceptProposedAction();
+}
+
+void MainWindow::addFromPath(QString localPath) {
+    QFileInfo fileInfo(localPath);
+    if(fileInfo.isFile()) {
+    // file
+        QString file = fileInfo.absoluteFilePath();
+        qDebug() << "Dropped file:" << file;
+        addFile(file);
+    }
+    else if(fileInfo.isDir()) {
+    // directory
+        QString dir = fileInfo.absoluteFilePath();
+        qDebug() << "Dropped dir:" << dir;
+        addDirectory(dir);
+    }
+    else {
+    // unknown
+    }
 }
 
 void MainWindow::addFile(QString file) {
@@ -255,6 +262,13 @@ void MainWindow::on_tableView_customContextMenuRequested(const QPoint &pos)
     });
 
     menu->popup(ui->tableView->viewport()->mapToGlobal(pos));
+}
+
+void MainWindow::showTable() {
+    if(!ui->tableView->isVisible()) {
+        ui->tableView->setVisible(true);  // Display file table
+        ui->label_HelpMessage->setVisible(false);  // Hide help message
+    }
 }
 
 void MainWindow::setIsConverting(bool e) {
