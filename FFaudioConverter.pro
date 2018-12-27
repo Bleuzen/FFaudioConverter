@@ -54,6 +54,9 @@ RESOURCES += \
 TRANSLATIONS += \
     translations/i18n_de.ts
 
+CONFIG += lrelease
+CONFIG += embed_translations
+
 # Set default path for the ffmpeg binary
 exists("/.flatpak-info") {
     DEFAULT_FFMPEG_BINARY = /app/bin/ffmpeg
