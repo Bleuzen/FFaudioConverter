@@ -86,9 +86,11 @@ private:
     void convertItem(int, QString);
     void cancel();
 
+    void addFromPath(QString);
     void addFile(QString);
     void addDirectory(QString);
 
+    void showTable();
     void setIsConverting(bool);
 };
 
