@@ -182,7 +182,7 @@
      <property name="geometry">
       <rect>
        <x>10</x>
-       <y>60</y>
+       <y>100</y>
        <width>350</width>
        <height>24</height>
       </rect>
@@ -193,22 +193,6 @@ Disable this to reencode and overwrite existing files.</string>
      </property>
      <property name="text">
       <string>Skip existing files</string>
-     </property>
-    </widget>
-    <widget class="QCheckBox" name="checkBox_Multithreading">
-     <property name="geometry">
-      <rect>
-       <x>10</x>
-       <y>100</y>
-       <width>350</width>
-       <height>24</height>
-      </rect>
-     </property>
-     <property name="toolTip">
-      <string>Use all available CPU cores to convert multiple files at the same time.</string>
-     </property>
-     <property name="text">
-      <string>Multithreading</string>
      </property>
     </widget>
     <widget class="QCheckBox" name="checkBox_UseTranslations">
@@ -226,6 +210,36 @@ This needs a restart to take effect.</string>
      </property>
      <property name="text">
       <string>Use translations</string>
+     </property>
+    </widget>
+    <widget class="QLabel" name="label_6">
+     <property name="geometry">
+      <rect>
+       <x>10</x>
+       <y>60</y>
+       <width>130</width>
+       <height>24</height>
+      </rect>
+     </property>
+     <property name="toolTip">
+      <string>How many files to process at the same time.
+Select 0 to use all CPU threads.</string>
+     </property>
+     <property name="text">
+      <string>Threads:</string>
+     </property>
+    </widget>
+    <widget class="QSpinBox" name="spinBox_Threads">
+     <property name="geometry">
+      <rect>
+       <x>150</x>
+       <y>60</y>
+       <width>42</width>
+       <height>24</height>
+      </rect>
+     </property>
+     <property name="correctionMode">
+      <enum>QAbstractSpinBox::CorrectToNearestValue</enum>
      </property>
     </widget>
    </widget>

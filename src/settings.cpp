@@ -26,7 +26,7 @@ QString Settings::Quality;
 QString Settings::OutputDirectory;
 QString Settings::OutputSamplerate;
 bool Settings::SkipExistingFiles;
-bool Settings::Multithreading;
+int Settings::Threads;
 bool Settings::UseTranslations;
 
 void Settings::init() {
@@ -37,7 +37,7 @@ void Settings::init() {
     Settings::OutputDirectory = settings.value("OutputDirectory", QStandardPaths::writableLocation(QStandardPaths::HomeLocation) + QDir().separator() + QCoreApplication::applicationName()).toString();
     Settings::OutputSamplerate = settings.value("OutputSamplerate", "44100").toString();
     Settings::SkipExistingFiles = settings.value("SkipExistingFiles", true).toBool();
-    Settings::Multithreading = settings.value("Multithreading", true).toBool();
+    Settings::Threads = settings.value("Threads", 0).toBool();
     Settings::UseTranslations = settings.value("UseTranslations", true).toBool();
     qDebug() << "Settings loaded";
 }
