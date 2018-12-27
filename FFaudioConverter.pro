@@ -52,7 +52,7 @@ RESOURCES += \
     ffaudioconverter.qrc
 
 TRANSLATIONS += \
-    translations/i18n_de.ts
+    translations/de.ts
 
 CONFIG += lrelease
 CONFIG += embed_translations
