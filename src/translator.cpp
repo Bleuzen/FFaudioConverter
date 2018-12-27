@@ -46,7 +46,7 @@ void Translator::loadTranslations(QString language) {
         qApp->installTranslator(&qtTranslator);
     }
     // Load app translation
-    if(appTranslator.load(QString(":/i18n/%1.qm").arg(language))) {
+    if(appTranslator.load(language, ":/i18n/")) {
         qApp->installTranslator(&appTranslator);
     }
     qDebug() << "Translations loaded";
