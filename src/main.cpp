@@ -30,7 +30,7 @@ int main(int argc, char *argv[])
 
     QCoreApplication::setOrganizationName("Bleuzen");
     QCoreApplication::setApplicationName("FFaudioConverter");
-    QCoreApplication::setApplicationVersion("0.16.1");
+    QCoreApplication::setApplicationVersion("0.17");
 
     qDebug() << "Starting" << QCoreApplication::applicationName() + " v" + QCoreApplication::applicationVersion();
 
