@@ -67,12 +67,12 @@
         <translation>Datei</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="275"/>
+        <location filename="../src/mainwindow.cpp" line="289"/>
         <source>FFmpeg binary is invalid. Please check your settings.</source>
         <translation>Ihre FFmpeg Binary ist ungültig. Bitte überprüfen Sie ihre Einstellungen.</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="279"/>
+        <location filename="../src/mainwindow.cpp" line="293"/>
         <source>Your output directory is bad. Maybe it is not writable?</source>
         <translation>Etwas mit Ihrem Ausgabeverzeichnis stimmt nicht. Haben Sie Schreibrechte?</translation>
     </message>
