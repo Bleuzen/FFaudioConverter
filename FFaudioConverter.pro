@@ -16,7 +16,7 @@ unix: !macx {
 }
 
 # Set program version
-VERSION = 0.17
+VERSION = 0.18
 DEFINES += VERSIONSTR=\\\"$${VERSION}\\\"
 
 # The following define makes your compiler emit warnings if you use
