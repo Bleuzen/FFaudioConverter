@@ -1,7 +1,4 @@
 #!/bin/sh
-# Generate translations
-lrelease FFaudioConverter.pro
-
 VERSION=$(awk '{if(/VERSION = /) print $3}' FFaudioConverter.pro)
 VERSION=${VERSION/QCoreApplication::setApplicationVersion(\"}
 VERSION=${VERSION/\");}
