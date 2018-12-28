@@ -6,3 +6,5 @@ Icon=com.github.Bleuzen.FFaudioConverter
 StartupNotify=true
 Type=Application
 Categories=Qt;AudioVideo;Audio;
+Keywords=audio;video;converter;mp3;
+MimeType=inode/directory;video/x-matroska;video/mp4;audio/mpeg;audio/flac;audio/x-wav;audio/ogg;
