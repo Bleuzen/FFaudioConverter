@@ -7,6 +7,10 @@
 QT       += core gui widgets
 
 TARGET = FFaudioConverter
+
+VERSION = 0.17
+DEFINES += VERSIONSTR=\\\"$${VERSION}\\\"
+
 TEMPLATE = app
 
 # The following define makes your compiler emit warnings if you use
