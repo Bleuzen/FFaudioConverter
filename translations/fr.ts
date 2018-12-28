@@ -6,17 +6,17 @@
     <message>
         <location filename="../src/aboutdialog.ui" line="14"/>
         <source>About</source>
-        <translation type="unfinished"></translation>
+        <translation>À propos</translation>
     </message>
     <message>
         <location filename="../src/aboutdialog.ui" line="26"/>
         <source>Close</source>
-        <translation type="unfinished"></translation>
+        <translation>Fermer</translation>
     </message>
     <message>
         <location filename="../src/aboutdialog.ui" line="105"/>
         <source>About Qt</source>
-        <translation type="unfinished"></translation>
+        <translation>À propos de Qt</translation>
     </message>
     <message>
         <location filename="../src/aboutdialog.cpp" line="39"/>
@@ -39,7 +39,7 @@
     <message>
         <location filename="../src/mainwindow.ui" line="56"/>
         <source>Cancel</source>
-        <translation type="unfinished"></translation>
+        <translation>Annuler</translation>
     </message>
     <message>
         <location filename="../src/mainwindow.ui" line="63"/>
@@ -49,12 +49,12 @@
     <message>
         <location filename="../src/mainwindow.ui" line="70"/>
         <source>Settings</source>
-        <translation type="unfinished"></translation>
+        <translation>Paramètres</translation>
     </message>
     <message>
         <location filename="../src/mainwindow.ui" line="77"/>
         <source>About</source>
-        <translation type="unfinished"></translation>
+        <translation>À propos</translation>
     </message>
     <message>
         <location filename="../src/mainwindow.cpp" line="39"/>
@@ -64,7 +64,7 @@
     <message>
         <location filename="../src/mainwindow.cpp" line="39"/>
         <source>File</source>
-        <translation type="unfinished"></translation>
+        <translation>Fichier</translation>
     </message>
     <message>
         <location filename="../src/mainwindow.cpp" line="289"/>
