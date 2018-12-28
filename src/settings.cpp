@@ -36,6 +36,6 @@ void Settings::init() {
     Settings::OutputDirectory = settings.value("OutputDirectory", QStandardPaths::writableLocation(QStandardPaths::HomeLocation) + QDir().separator() + QCoreApplication::applicationName()).toString();
     Settings::OutputSamplerate = settings.value("OutputSamplerate", "44100").toString();
     Settings::SkipExistingFiles = settings.value("SkipExistingFiles", true).toBool();
-    Settings::Threads = settings.value("Threads", 0).toBool();
+    Settings::Threads = settings.value("Threads", 0).toInt();
     qDebug() << "Settings loaded";
 }
