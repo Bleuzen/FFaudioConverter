@@ -32,9 +32,6 @@ QTranslator Translator::qtTranslator;
 QTranslator Translator::appTranslator;
 
 void Translator::init() {
-    if(!Settings::UseTranslations) {
-        return;
-    }
     QString defaultLocale = QLocale::system().name(); // e.g. "de_DE"
     defaultLocale.truncate(defaultLocale.lastIndexOf("_")); // e.g. "de"
     loadTranslations(defaultLocale);

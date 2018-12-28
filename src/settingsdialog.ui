@@ -195,23 +195,6 @@ Disable this to reencode and overwrite existing files.</string>
       <string>Skip existing files</string>
      </property>
     </widget>
-    <widget class="QCheckBox" name="checkBox_UseTranslations">
-     <property name="geometry">
-      <rect>
-       <x>10</x>
-       <y>140</y>
-       <width>350</width>
-       <height>24</height>
-      </rect>
-     </property>
-     <property name="toolTip">
-      <string>Display texts in your language if possible. Disable to force English.
-This needs a restart to take effect.</string>
-     </property>
-     <property name="text">
-      <string>Use translations</string>
-     </property>
-    </widget>
     <widget class="QLabel" name="label_6">
      <property name="geometry">
       <rect>
