@@ -61,18 +61,18 @@ MainWindow::MainWindow(QWidget *parent) :
 
     // Init own thread pool
     threadpool_converts = new QThreadPool();
-
-    // Add file or directory from last argument from command line
-    if(QCoreApplication::arguments().length() > 1) {
-        QString localPath = QCoreApplication::arguments().last();
-        addFromPath(localPath);
-        showTable();
-    }
 }
 
 MainWindow::~MainWindow()
 {
     delete ui;
+}
+
+void MainWindow::processCommandLine(QStringList positionalArguments) {
+    // Add file or directory from positional argument from command line
+    QString localPath = positionalArguments.first();
+    addFromPath(localPath);
+    showTable();
 }
 
 void MainWindow::dragEnterEvent(QDragEnterEvent *event)

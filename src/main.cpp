@@ -32,6 +32,14 @@ int main(int argc, char *argv[])
     QCoreApplication::setApplicationName("FFaudioConverter");
     QCoreApplication::setApplicationVersion("0.17");
 
+    QCommandLineParser commandLine;
+    commandLine.addHelpOption();
+    commandLine.addVersionOption();
+    commandLine.addPositionalArgument("path", "Open with files or directories added");
+    QCommandLineOption noTranslationsOption("no-translations", "Do not load translations");
+    commandLine.addOption(noTranslationsOption);
+    commandLine.process(a);
+
     qDebug() << "Starting" << QCoreApplication::applicationName() + " v" + QCoreApplication::applicationVersion();
 
     a.setWindowIcon(QIcon(":/com.github.Bleuzen.FFaudioConverter.ico"));
@@ -47,11 +55,15 @@ int main(int argc, char *argv[])
     Settings::init();
 
     // Load translations
-    Translator::init();
+    if (!commandLine.isSet(noTranslationsOption)) Translator::init();
 
     // Show GUI
     MainWindow w;
     w.show();
+
+    if(commandLine.positionalArguments().length() > 0) {
+        w.processCommandLine(commandLine.positionalArguments());
+    }
 
     return a.exec();
 }

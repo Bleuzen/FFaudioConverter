@@ -46,6 +46,7 @@ class MainWindow : public QMainWindow
 public:
     explicit MainWindow(QWidget *parent = nullptr);
     ~MainWindow();
+    void processCommandLine(QStringList);
 
 private slots:
     void on_pushButton_Convert_clicked();

@@ -72,7 +72,6 @@ void SettingsDialog::SaveSettings()
     Settings::OutputSamplerate = ui->comboBox_OutputSamplerate->currentData().toString();
     Settings::SkipExistingFiles = ui->checkBox_SkipExistingFiles->isChecked();
     Settings::Threads = ui->spinBox_Threads->value();
-    Settings::UseTranslations = ui->checkBox_UseTranslations->isChecked();
 
     QSettings settings;
 
@@ -83,7 +82,6 @@ void SettingsDialog::SaveSettings()
     settings.setValue("OutputSamplerate", Settings::OutputSamplerate);
     settings.setValue("SkipExistingFiles", Settings::SkipExistingFiles);
     settings.setValue("Threads", Settings::Threads);
-    settings.setValue("UseTranslations", Settings::UseTranslations);
 
     qDebug() << "Settings saved";
 }
@@ -97,7 +95,6 @@ void SettingsDialog::LoadSettings()
     ui->comboBox_OutputSamplerate->setCurrentIndex(ui->comboBox_OutputSamplerate->findData(Settings::OutputSamplerate));
     ui->checkBox_SkipExistingFiles->setChecked(Settings::SkipExistingFiles);
     ui->spinBox_Threads->setValue(Settings::Threads);
-    ui->checkBox_UseTranslations->setChecked(Settings::UseTranslations);
 }
 
 void SettingsDialog::on_toolButton_SelectOutputDirectory_clicked()
