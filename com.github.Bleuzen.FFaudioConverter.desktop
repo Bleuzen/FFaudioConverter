@@ -1,6 +1,6 @@
 [Desktop Entry]
 Comment=DnD GUI for converting audio files
-Exec=FFaudioConverter %f
+Exec=ffaudioconverter %f
 Name=FFaudioConverter
 Icon=com.github.Bleuzen.FFaudioConverter
 StartupNotify=true

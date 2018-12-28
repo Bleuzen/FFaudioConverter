@@ -6,12 +6,18 @@
 
 QT       += core gui widgets
 
-TARGET = FFaudioConverter
+TEMPLATE = app
 
+# Set program name
+unix: !macx {
+    TARGET = ffaudioconverter
+} else {
+    TARGET = FFaudioConverter
+}
+
+# Set program version
 VERSION = 0.17
 DEFINES += VERSIONSTR=\\\"$${VERSION}\\\"
-
-TEMPLATE = app
 
 # The following define makes your compiler emit warnings if you use
 # any feature of Qt which has been marked as deprecated (the exact warnings
