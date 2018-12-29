@@ -82,7 +82,7 @@
     <message>
         <location filename="../src/settingsdialog.ui" line="14"/>
         <source>Settings</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Paramètres</translation>
     </message>
     <message>
         <location filename="../src/settingsdialog.ui" line="46"/>
@@ -132,23 +132,12 @@ Disable this to reencode and overwrite existing files.</source>
     </message>
     <message>
         <location filename="../src/settingsdialog.ui" line="208"/>
-        <source>Display texts in your language if possible. Disable to force English.
-This needs a restart to take effect.</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../src/settingsdialog.ui" line="212"/>
-        <source>Use translations</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../src/settingsdialog.ui" line="225"/>
         <source>How many files to process at the same time.
 Select 0 to use all CPU threads.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/settingsdialog.ui" line="229"/>
+        <location filename="../src/settingsdialog.ui" line="212"/>
         <source>Threads:</source>
         <translation type="unfinished"></translation>
     </message>
@@ -173,7 +162,7 @@ Select 0 to use all CPU threads.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/settingsdialog.cpp" line="105"/>
+        <location filename="../src/settingsdialog.cpp" line="102"/>
         <source>Open Directory</source>
         <translation type="unfinished"></translation>
     </message>

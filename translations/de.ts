@@ -132,29 +132,16 @@ Deaktivieren um alle Dateien neu zu konvertieren und bereits existierende Dateie
         <translation>Überspringe existierende Dateien</translation>
     </message>
     <message>
-        <location filename="../src/settingsdialog.ui" line="225"/>
+        <location filename="../src/settingsdialog.ui" line="208"/>
         <source>How many files to process at the same time.
 Select 0 to use all CPU threads.</source>
         <translation>Wie viele Dateien gleichzeitig konvertiert werden.
 Stellen Sie 0 ein, um alle CPU Threads zu verwenden.</translation>
     </message>
     <message>
-        <location filename="../src/settingsdialog.ui" line="229"/>
+        <location filename="../src/settingsdialog.ui" line="212"/>
         <source>Threads:</source>
         <translation></translation>
-    </message>
-    <message>
-        <location filename="../src/settingsdialog.ui" line="208"/>
-        <source>Display texts in your language if possible. Disable to force English.
-This needs a restart to take effect.</source>
-        <translation>Zeige Texte in Ihrer Sprache an.
-Deaktivieren um Englisch zu erzwingen.
-Diese Option benötigt einen Neustart um in Kraft zu treten.</translation>
-    </message>
-    <message>
-        <location filename="../src/settingsdialog.ui" line="212"/>
-        <source>Use translations</source>
-        <translation>Übersetzungen verwenden</translation>
     </message>
     <message>
         <location filename="../src/settingsdialog.cpp" line="43"/>
@@ -177,7 +164,7 @@ Diese Option benötigt einen Neustart um in Kraft zu treten.</translation>
         <translation>Unverändert lassen</translation>
     </message>
     <message>
-        <location filename="../src/settingsdialog.cpp" line="105"/>
+        <location filename="../src/settingsdialog.cpp" line="102"/>
         <source>Open Directory</source>
         <translation>Verzeichnis öffnen</translation>
     </message>
