@@ -32,7 +32,7 @@ void Settings::init() {
     QSettings settings;
     Settings::FFmpegBinary = settings.value("FFmpegBinary", DEFAULT_FFMPEG_BINARY).toString();
     Settings::OutputFormat = settings.value("OutputFormat", "mp3").toString();
-    Settings::Quality = settings.value("Quality", "High").toString();
+    Settings::Quality = settings.value("Quality", "high").toString();
     Settings::OutputDirectory = settings.value("OutputDirectory", QStandardPaths::writableLocation(QStandardPaths::HomeLocation) + QDir().separator() + QCoreApplication::applicationName()).toString();
     Settings::OutputSamplerate = settings.value("OutputSamplerate", "44100").toString();
     Settings::SkipExistingFiles = settings.value("SkipExistingFiles", true).toBool();
