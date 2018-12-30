@@ -234,7 +234,7 @@ Select 0 to use all CPU threads.</string>
       </rect>
      </property>
      <property name="toolTip">
-      <string>Use the SoX Resampler. It is slower, but results in higher quality. This option requires FFmpeg compiled with libsoxr.</string>
+      <string>SoX is slower, but results in higher quality. This option requires FFmpeg compiled with libsoxr.</string>
      </property>
      <property name="text">
       <string>Use SoX resampler</string>
