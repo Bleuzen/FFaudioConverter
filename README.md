@@ -24,7 +24,7 @@ Flatpak: `flatpak install flathub com.github.Bleuzen.FFaudioConverter`
 AUR: https://aur.archlinux.org/packages/ffaudioconverter/
 
 #### Windows
-You can find the latest version for Windows here: https://github.com/Bleuzen/FFaudioConverter/releases/download/v0.18.2/FFaudioConverter-0.18.2-win64.zip
+You can find the latest version for Windows here: https://github.com/Bleuzen/FFaudioConverter/releases/download/v0.19/FFaudioConverter-0.19-win64.zip
 
 Just extract the zip file and run the .exe file in it.
 
