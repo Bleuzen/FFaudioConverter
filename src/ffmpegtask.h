@@ -44,9 +44,9 @@ public:
 
 private:
     int id;
-    QString infile;
     QString outdir;
-    QString outfile;
+    QString infile, infileExt;
+    QString outfile, outfileExt;
 
     QStringList ffmpegArgs;
 

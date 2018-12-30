@@ -121,25 +121,23 @@
     </message>
     <message>
         <location filename="../src/settingsdialog.ui" line="191"/>
-        <source>Do not convert already existing converted files again.
-Disable this to reencode and overwrite existing files.</source>
-        <translation>Konvertiere bereits existierende Dateien nicht nochmal.
-Deaktivieren um alle Dateien neu zu konvertieren und bereits existierende Dateien zu überschreiben.</translation>
+        <source>This option may speed up the process in some cases by copying files which are already in the output format and skipping files which has already been converted. This will not change the bitrate or samplerate of the output file!</source>
+        <translation type="unfinished">Diese Option könnte den Prozess beschleunigen, indem Dateien, die bereits im Ausgabeformat sind, kopiert werden und Dateien, die bereits konvertiert wurden, übersprungen werden. Die Bitrate und Samplerate wird dabei nicht geändert!</translation>
     </message>
     <message>
-        <location filename="../src/settingsdialog.ui" line="195"/>
-        <source>Skip existing files</source>
-        <translation>Überspringe existierende Dateien</translation>
+        <location filename="../src/settingsdialog.ui" line="194"/>
+        <source>Quick mode</source>
+        <translation>Schneller Modus</translation>
     </message>
     <message>
-        <location filename="../src/settingsdialog.ui" line="208"/>
+        <location filename="../src/settingsdialog.ui" line="207"/>
         <source>How many files to process at the same time.
 Select 0 to use all CPU threads.</source>
         <translation>Wie viele Dateien gleichzeitig konvertiert werden.
 Stellen Sie 0 ein, um alle CPU Threads zu verwenden.</translation>
     </message>
     <message>
-        <location filename="../src/settingsdialog.ui" line="212"/>
+        <location filename="../src/settingsdialog.ui" line="211"/>
         <source>Threads:</source>
         <translation></translation>
     </message>

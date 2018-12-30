@@ -30,23 +30,33 @@ FFmpegTask::FFmpegTask(int id, QString inpath, QString outdir)
 
 void FFmpegTask::run()
 {
-    // Prepare some stuff (output filename and ffmpeg arguments...)
+    // Prepare some stuff (fill variables and ffmpeg arguments...)
     prepare();
 
-    // Skip file if it has already been converted
-    if(Settings::SkipExistingFiles) {
-        QFileInfo outfileinfo(outfile);
-        if(outfileinfo.exists()) {
-            // File already exists, no need to convert it again
-            emit ConvertDone(id, ConvertStatus::Skipped);
-            return;
-        }
-    }
-
-    qDebug() << "Starting convert job" << id << "|" << infile << "->" << outfile;
+    qDebug() << "Starting job" << id << "|" << infile << "->" << outfile;
 
     // Create output dir if it does not exist
     QDir().mkpath(outdir);
+
+    // Skip this convert job under some conditions in fast mode
+    if(Settings::QuickConvertMode) {
+        // Skip file if it has already been converted
+        if(QFile::exists(outfile)) {
+            qDebug() << "Skipping job" << id;
+            emit ConvertDone(id, ConvertStatus::Skipped);
+            return;
+        }
+        // Copy file if input and output format are the same
+        if(infileExt.toLower() == outfileExt) {
+            qDebug() << "Copy file of job" << id;
+            if(QFile::copy(infile, outfile)) {
+                emit ConvertDone(id, ConvertStatus::Done);
+            } else {
+                emit ConvertDone(id, ConvertStatus::Failed);
+            }
+            return;
+        }
+    }
 
     // Create FFmpeg process
     QProcess *ffmpeg = new QProcess();
@@ -69,11 +79,11 @@ void FFmpegTask::run()
 }
 
 void FFmpegTask::prepare() {
-    QFileInfo fileInfo(infile);
-    QDir qdir = fileInfo.absoluteDir();
+    QFileInfo infileInfo(infile);
+    QDir qdir = infileInfo.absoluteDir();
     QString subdirs = qdir.path();
-    QString name = fileInfo.fileName();
-    QString basename = name.left(name.lastIndexOf("."));
+    QString basename = infileInfo.completeBaseName();
+    infileExt = infileInfo.suffix();
     if (!subdirs.startsWith(QDir::separator())) subdirs = QDir::separator() + subdirs;  // add dir separator if missing
 #ifdef Q_OS_WIN
     subdirs = subdirs.replace(":", "");  // Fix path on Windows
@@ -82,7 +92,7 @@ void FFmpegTask::prepare() {
     outfile = outdir + QDir::separator() + basename;  // output file path without extension (will be added later)
 
     ffmpegArgs << "-hide_banner";
-    if(Settings::SkipExistingFiles) {
+    if(Settings::QuickConvertMode) {
         ffmpegArgs<< "-n";  // Not overwrite (keep existing file)
     } else {
         ffmpegArgs<< "-y";  // Overwrite (reconvert if file exists)
@@ -90,7 +100,7 @@ void FFmpegTask::prepare() {
     ffmpegArgs << "-i" << infile;
 
     if(Settings::OutputFormat == "mp3") {
-        outfile += ".mp3";
+        outfileExt = "mp3";
         // mp3 options
         ffmpegArgs << "-c:a" << "libmp3lame";
         if(Settings::Quality == "extreme") {
@@ -106,7 +116,7 @@ void FFmpegTask::prepare() {
         ffmpegArgs << "-id3v2_version" << "3";
 
     } else if(Settings::OutputFormat == "ogg") {
-        outfile += ".ogg";
+        outfileExt = "ogg";
         // ogg options
         ffmpegArgs << "-vn"; //TODO: remove this to keep album art but without the output is a video
         ffmpegArgs << "-c:a" << "libvorbis";
@@ -122,7 +132,7 @@ void FFmpegTask::prepare() {
         ffmpegArgs << "-map_metadata" << "0:s:0";
 
     } else if(Settings::OutputFormat == "opus") {
-        outfile += ".opus";
+        outfileExt = "opus";
         // opus options
         //TODO: opus currently loses album art (at least with ffmpeg 4.1)
         ffmpegArgs << "-c:a" << "libopus";
@@ -138,7 +148,7 @@ void FFmpegTask::prepare() {
         ffmpegArgs << "-map_metadata" << "0:s:0";
 
     } else if(Settings::OutputFormat == "flac") {
-        outfile += ".flac";
+        outfileExt = "flac";
         // flac options
         ffmpegArgs << "-c:a" << "flac";
         if (Settings::Quality == "medium") ffmpegArgs << "-sample_fmt" << "s16";
@@ -147,15 +157,17 @@ void FFmpegTask::prepare() {
         ffmpegArgs << "-map_metadata" << "0:s:0";
 
     } else if(Settings::OutputFormat == "wav") {
-        outfile += ".wav";
+        outfileExt = "wav";
         // wav options
         ffmpegArgs << "-c:a" << "pcm_s16le";
         if (!Util::isNullOrEmpty(Settings::OutputSamplerate)) ffmpegArgs << "-ar" << Settings::OutputSamplerate;
 
     } else {
         // unknown format options
-        outfile += "." + Settings::OutputFormat;
+        outfileExt = Settings::OutputFormat;
     }
+
+    outfile += "." + outfileExt;
 
     ffmpegArgs << outfile;
 }
