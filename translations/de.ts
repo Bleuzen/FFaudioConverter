@@ -122,7 +122,7 @@
     <message>
         <location filename="../src/settingsdialog.ui" line="191"/>
         <source>This option may speed up the process in some cases by copying files which are already in the output format and skipping files which has already been converted. This will not change the bitrate or samplerate of the output file!</source>
-        <translation type="unfinished">Diese Option könnte den Prozess beschleunigen, indem Dateien, die bereits im Ausgabeformat sind, kopiert werden und Dateien, die bereits konvertiert wurden, übersprungen werden. Die Bitrate und Samplerate wird dabei nicht geändert!</translation>
+        <translation>Diese Option könnte den Prozess beschleunigen, indem Dateien, die bereits im Ausgabeformat sind, kopiert werden und Dateien, die bereits konvertiert wurden, übersprungen werden. Die Bitrate und Samplerate wird dabei nicht geändert!</translation>
     </message>
     <message>
         <location filename="../src/settingsdialog.ui" line="194"/>
