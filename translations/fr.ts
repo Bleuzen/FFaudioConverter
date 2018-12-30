@@ -141,6 +141,16 @@ Select 0 to use all CPU threads.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
+        <location filename="../src/settingsdialog.ui" line="237"/>
+        <source>SoX is slower, but results in higher quality. This option requires FFmpeg compiled with libsoxr.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/settingsdialog.ui" line="240"/>
+        <source>Use SoX resampler</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <location filename="../src/settingsdialog.cpp" line="43"/>
         <source>Extreme</source>
         <translation type="unfinished"></translation>
@@ -161,7 +171,7 @@ Select 0 to use all CPU threads.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/settingsdialog.cpp" line="102"/>
+        <location filename="../src/settingsdialog.cpp" line="105"/>
         <source>Open Directory</source>
         <translation type="unfinished"></translation>
     </message>
