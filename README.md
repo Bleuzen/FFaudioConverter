@@ -6,6 +6,8 @@ Features:
  - Multithreading (use the full power of your cpu)
  - Convert many files or whole directories very fast
  - Change of samplerate possible
+ - High quality resampling with SoX possible
+ - Quick mode for copying files in same format and skip already converted files
 
 Currently supported output formats are:
  - mp3
