@@ -110,7 +110,7 @@ void FFmpegTask::prepare() {
         } else if(Settings::Quality == "medium") {
             ffmpegArgs << "-q:a" << "4";
         }
-        if (!Util::isNullOrEmpty(Settings::OutputSamplerate)) ffmpegArgs << "-ar" << Settings::OutputSamplerate;
+        addSamplerateArgs();
         ffmpegArgs << "-map_metadata" << "0";
         ffmpegArgs << "-map_metadata" << "0:s:0";
         ffmpegArgs << "-id3v2_version" << "3";
@@ -127,7 +127,7 @@ void FFmpegTask::prepare() {
         } else if(Settings::Quality == "medium") {
             ffmpegArgs << "-q:a" << "4";
         }
-        if (!Util::isNullOrEmpty(Settings::OutputSamplerate)) ffmpegArgs << "-ar" << Settings::OutputSamplerate;
+        addSamplerateArgs();
         ffmpegArgs << "-map_metadata" << "0";
         ffmpegArgs << "-map_metadata" << "0:s:0";
 
@@ -152,7 +152,7 @@ void FFmpegTask::prepare() {
         // flac options
         ffmpegArgs << "-c:a" << "flac";
         if (Settings::Quality == "medium") ffmpegArgs << "-sample_fmt" << "s16";
-        if (!Util::isNullOrEmpty(Settings::OutputSamplerate)) ffmpegArgs << "-ar" << Settings::OutputSamplerate;
+        addSamplerateArgs();
         ffmpegArgs << "-map_metadata" << "0";
         ffmpegArgs << "-map_metadata" << "0:s:0";
 
@@ -160,7 +160,7 @@ void FFmpegTask::prepare() {
         outfileExt = "wav";
         // wav options
         ffmpegArgs << "-c:a" << "pcm_s16le";
-        if (!Util::isNullOrEmpty(Settings::OutputSamplerate)) ffmpegArgs << "-ar" << Settings::OutputSamplerate;
+        addSamplerateArgs();
 
     } else {
         // unknown format options
@@ -170,4 +170,11 @@ void FFmpegTask::prepare() {
     outfile += "." + outfileExt;
 
     ffmpegArgs << outfile;
+}
+
+void FFmpegTask::addSamplerateArgs() {
+    if(!Util::isNullOrEmpty(Settings::OutputSamplerate)) {
+        if (Settings::UseSoXresampler) ffmpegArgs << "-af" << "aresample=resampler=soxr";
+        ffmpegArgs << "-ar" << Settings::OutputSamplerate;
+    }
 }

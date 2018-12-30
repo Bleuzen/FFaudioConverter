@@ -51,6 +51,7 @@ private:
     QStringList ffmpegArgs;
 
     void prepare();
+    void addSamplerateArgs();
 
 signals:
     void ConvertDone(int id, FFmpegTask::ConvertStatus status);
