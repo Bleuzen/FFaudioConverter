@@ -178,7 +178,7 @@
       </rect>
      </property>
     </widget>
-    <widget class="QCheckBox" name="checkBox_SkipExistingFiles">
+    <widget class="QCheckBox" name="checkBox_QuickConvertMode">
      <property name="geometry">
       <rect>
        <x>10</x>
@@ -188,11 +188,10 @@
       </rect>
      </property>
      <property name="toolTip">
-      <string>Do not convert already existing converted files again.
-Disable this to reencode and overwrite existing files.</string>
+      <string>This option may speed up the process in some cases by copying files which are already in the output format and skipping files which has already been converted. This will not change the bitrate or samplerate of the output file!</string>
      </property>
      <property name="text">
-      <string>Skip existing files</string>
+      <string>Quick mode</string>
      </property>
     </widget>
     <widget class="QLabel" name="label_6">

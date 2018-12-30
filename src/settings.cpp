@@ -25,7 +25,7 @@ QString Settings::OutputFormat;
 QString Settings::Quality;
 QString Settings::OutputDirectory;
 QString Settings::OutputSamplerate;
-bool Settings::SkipExistingFiles;
+bool Settings::QuickConvertMode;
 int Settings::Threads;
 
 void Settings::init() {
@@ -35,7 +35,7 @@ void Settings::init() {
     Settings::Quality = settings.value("Quality", "high").toString();
     Settings::OutputDirectory = settings.value("OutputDirectory", QStandardPaths::writableLocation(QStandardPaths::HomeLocation) + QDir().separator() + QCoreApplication::applicationName()).toString();
     Settings::OutputSamplerate = settings.value("OutputSamplerate", "44100").toString();
-    Settings::SkipExistingFiles = settings.value("SkipExistingFiles", true).toBool();
+    Settings::QuickConvertMode = settings.value("QuickConvertMode", false).toBool();
     Settings::Threads = settings.value("Threads", 0).toInt();
     qDebug() << "Settings loaded";
 }
