@@ -224,6 +224,22 @@ Select 0 to use all CPU threads.</string>
       <enum>QAbstractSpinBox::CorrectToNearestValue</enum>
      </property>
     </widget>
+    <widget class="QCheckBox" name="checkBox_UseSoXresampler">
+     <property name="geometry">
+      <rect>
+       <x>10</x>
+       <y>140</y>
+       <width>350</width>
+       <height>24</height>
+      </rect>
+     </property>
+     <property name="toolTip">
+      <string>Use the SoX Resampler. It is slower, but results in higher quality. This option requires FFmpeg compiled with libsoxr.</string>
+     </property>
+     <property name="text">
+      <string>Use SoX resampler</string>
+     </property>
+    </widget>
    </widget>
   </widget>
  </widget>

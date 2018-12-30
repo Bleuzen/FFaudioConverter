@@ -70,6 +70,7 @@ void SettingsDialog::SaveSettings()
     Settings::Quality = ui->comboBox_Quality->currentData().toString();
     Settings::OutputDirectory = ui->lineEdit_OutputDirectory->text().trimmed();
     Settings::OutputSamplerate = ui->comboBox_OutputSamplerate->currentData().toString();
+    Settings::UseSoXresampler = ui->checkBox_UseSoXresampler->isChecked();
     Settings::QuickConvertMode = ui->checkBox_QuickConvertMode->isChecked();
     Settings::Threads = ui->spinBox_Threads->value();
 
@@ -80,6 +81,7 @@ void SettingsDialog::SaveSettings()
     settings.setValue("Quality", Settings::Quality);
     settings.setValue("OutputDirectory", Settings::OutputDirectory);
     settings.setValue("OutputSamplerate", Settings::OutputSamplerate);
+    settings.setValue("UseSoXresampler", Settings::UseSoXresampler);
     settings.setValue("QuickConvertMode", Settings::QuickConvertMode);
     settings.setValue("Threads", Settings::Threads);
 
@@ -93,6 +95,7 @@ void SettingsDialog::LoadSettings()
     ui->comboBox_Quality->setCurrentIndex(ui->comboBox_Quality->findData(Settings::Quality));
     ui->lineEdit_OutputDirectory->setText(Settings::OutputDirectory);
     ui->comboBox_OutputSamplerate->setCurrentIndex(ui->comboBox_OutputSamplerate->findData(Settings::OutputSamplerate));
+    ui->checkBox_UseSoXresampler->setChecked(Settings::UseSoXresampler);
     ui->checkBox_QuickConvertMode->setChecked(Settings::QuickConvertMode);
     ui->spinBox_Threads->setValue(Settings::Threads);
 }
