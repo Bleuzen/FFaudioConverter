@@ -251,7 +251,7 @@ Select 0 to use all CPU threads.</string>
        <x>10</x>
        <y>60</y>
        <width>354</width>
-       <height>120</height>
+       <height>110</height>
       </rect>
      </property>
     </widget>

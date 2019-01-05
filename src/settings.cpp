@@ -25,6 +25,7 @@ QString Settings::OutputFormat;
 QString Settings::Quality;
 QString Settings::OutputDirectory;
 QString Settings::OutputSamplerate;
+QString Settings::Filters;
 bool Settings::UseSoXresampler;
 bool Settings::QuickConvertMode;
 int Settings::Threads;
@@ -36,6 +37,7 @@ void Settings::init() {
     Settings::Quality = settings.value("Quality", "high").toString();
     Settings::OutputDirectory = settings.value("OutputDirectory", QStandardPaths::writableLocation(QStandardPaths::HomeLocation) + QDir().separator() + QCoreApplication::applicationName()).toString();
     Settings::OutputSamplerate = settings.value("OutputSamplerate", "44100").toString();
+    Settings::Filters = settings.value("Filters", "").toString();
     Settings::UseSoXresampler = settings.value("UseSoXresampler", false).toBool();
     Settings::QuickConvertMode = settings.value("QuickConvertMode", false).toBool();
     Settings::Threads = settings.value("Threads", 0).toInt();
