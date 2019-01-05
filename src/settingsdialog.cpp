@@ -53,6 +53,7 @@ SettingsDialog::SettingsDialog(QWidget *parent) :
     ui->comboBox_AudioFiltersPresets->addItem(tr("Increase volume"), "volume=10dB");
     ui->comboBox_AudioFiltersPresets->addItem(tr("Reduce volume"), "volume=-5dB");
     ui->comboBox_AudioFiltersPresets->addItem(tr("Fade-in and fade-out"), "afade=duration=5\nareverse\nafade=duration=5\nareverse");
+    ui->comboBox_AudioFiltersPresets->addItem(tr("Bass boost"), "volume=-10dB\nbass=gain=10");
     ui->comboBox_AudioFiltersPresets->setCurrentIndex(-1);
 
     // Set settings in GUI
