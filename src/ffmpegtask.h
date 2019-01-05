@@ -48,10 +48,11 @@ private:
     QString infile, infileExt;
     QString outfile, outfileExt;
 
+    void prepare();
+
     QStringList ffmpegArgs;
 
-    void prepare();
-    void addSamplerateArgs();
+    QString audioFilters;
 
 signals:
     void ConvertDone(int id, FFmpegTask::ConvertStatus status);

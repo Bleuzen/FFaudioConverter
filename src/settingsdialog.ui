@@ -39,7 +39,7 @@
     </rect>
    </property>
    <property name="currentIndex">
-    <number>0</number>
+    <number>2</number>
    </property>
    <widget class="QWidget" name="tab_Main">
     <attribute name="title">
@@ -245,7 +245,7 @@ Select 0 to use all CPU threads.</string>
     <attribute name="title">
      <string>Filters</string>
     </attribute>
-    <widget class="QPlainTextEdit" name="plainTextEdit_Filters">
+    <widget class="QPlainTextEdit" name="plainTextEdit_AudioFilters">
      <property name="geometry">
       <rect>
        <x>10</x>
@@ -268,7 +268,7 @@ Select 0 to use all CPU threads.</string>
       <string>Preset:</string>
      </property>
     </widget>
-    <widget class="QComboBox" name="comboBox_FiltersPreset">
+    <widget class="QComboBox" name="comboBox_AudioFiltersPresets">
      <property name="geometry">
       <rect>
        <x>144</x>

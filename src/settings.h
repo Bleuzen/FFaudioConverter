@@ -36,7 +36,7 @@ public:
     static QString Quality;
     static QString OutputSamplerate;
     static QString OutputDirectory;
-    static QString Filters;
+    static QString AudioFilters;
     static bool UseSoXresampler;
     static bool QuickConvertMode;
     static int Threads;
