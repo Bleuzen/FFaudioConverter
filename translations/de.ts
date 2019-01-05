@@ -202,7 +202,12 @@ Stellen Sie 0 ein, um alle CPU Threads zu verwenden.</translation>
         <translation>Ein- und Ausblenden</translation>
     </message>
     <message>
-        <location filename="../src/settingsdialog.cpp" line="114"/>
+        <location filename="../src/settingsdialog.cpp" line="56"/>
+        <source>Bass boost</source>
+        <translation>Bassverstärkung</translation>
+    </message>
+    <message>
+        <location filename="../src/settingsdialog.cpp" line="115"/>
         <source>Open Directory</source>
         <translation>Verzeichnis öffnen</translation>
     </message>
