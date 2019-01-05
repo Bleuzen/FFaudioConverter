@@ -50,8 +50,8 @@ SettingsDialog::SettingsDialog(QWidget *parent) :
     ui->comboBox_OutputSamplerate->addItem("96000 Hz", "96000");
 
     ui->comboBox_FiltersPreset->addItem(tr("Disabled"), "");
-    ui->comboBox_FiltersPreset->addItem(tr("Increase volume"), "-af \"volume=10dB\"");
-    ui->comboBox_FiltersPreset->addItem(tr("Reduce volume"), "-af \"volume=-5dB\"");
+    ui->comboBox_FiltersPreset->addItem(tr("Increase volume"), "-af volume=10dB");
+    ui->comboBox_FiltersPreset->addItem(tr("Reduce volume"), "-af volume=-5dB");
     ui->comboBox_FiltersPreset->setCurrentIndex(-1);
 
     // Set settings in GUI
