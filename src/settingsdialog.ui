@@ -50,7 +50,7 @@
       <rect>
        <x>10</x>
        <y>20</y>
-       <width>120</width>
+       <width>130</width>
        <height>24</height>
       </rect>
      </property>
@@ -61,7 +61,7 @@
     <widget class="QLineEdit" name="lineEdit_OutputDirectory">
      <property name="geometry">
       <rect>
-       <x>140</x>
+       <x>144</x>
        <y>19</y>
        <width>190</width>
        <height>26</height>
@@ -73,7 +73,7 @@
       <rect>
        <x>10</x>
        <y>60</y>
-       <width>120</width>
+       <width>130</width>
        <height>24</height>
       </rect>
      </property>
@@ -84,7 +84,7 @@
     <widget class="QComboBox" name="comboBox_OutputFormat">
      <property name="geometry">
       <rect>
-       <x>140</x>
+       <x>144</x>
        <y>59</y>
        <width>220</width>
        <height>26</height>
@@ -96,7 +96,7 @@
       <rect>
        <x>10</x>
        <y>100</y>
-       <width>120</width>
+       <width>130</width>
        <height>24</height>
       </rect>
      </property>
@@ -107,7 +107,7 @@
     <widget class="QComboBox" name="comboBox_Quality">
      <property name="geometry">
       <rect>
-       <x>140</x>
+       <x>144</x>
        <y>99</y>
        <width>220</width>
        <height>26</height>
@@ -117,7 +117,7 @@
     <widget class="QComboBox" name="comboBox_OutputSamplerate">
      <property name="geometry">
       <rect>
-       <x>140</x>
+       <x>144</x>
        <y>140</y>
        <width>220</width>
        <height>26</height>
@@ -127,7 +127,7 @@
     <widget class="QToolButton" name="toolButton_SelectOutputDirectory">
      <property name="geometry">
       <rect>
-       <x>336</x>
+       <x>340</x>
        <y>20</y>
        <width>24</width>
        <height>24</height>
@@ -142,7 +142,7 @@
       <rect>
        <x>10</x>
        <y>140</y>
-       <width>120</width>
+       <width>130</width>
        <height>24</height>
       </rect>
      </property>
@@ -171,9 +171,9 @@
     <widget class="QLineEdit" name="lineEdit_FFmpegBinary">
      <property name="geometry">
       <rect>
-       <x>150</x>
+       <x>144</x>
        <y>19</y>
-       <width>210</width>
+       <width>220</width>
        <height>26</height>
       </rect>
      </property>
@@ -214,7 +214,7 @@ Select 0 to use all CPU threads.</string>
     <widget class="QSpinBox" name="spinBox_Threads">
      <property name="geometry">
       <rect>
-       <x>150</x>
+       <x>144</x>
        <y>60</y>
        <width>42</width>
        <height>24</height>
@@ -238,6 +238,44 @@ Select 0 to use all CPU threads.</string>
      </property>
      <property name="text">
       <string>Use SoX resampler</string>
+     </property>
+    </widget>
+   </widget>
+   <widget class="QWidget" name="tab_Filters">
+    <attribute name="title">
+     <string>Filters</string>
+    </attribute>
+    <widget class="QPlainTextEdit" name="plainTextEdit_Filters">
+     <property name="geometry">
+      <rect>
+       <x>10</x>
+       <y>60</y>
+       <width>354</width>
+       <height>120</height>
+      </rect>
+     </property>
+    </widget>
+    <widget class="QLabel" name="label_7">
+     <property name="geometry">
+      <rect>
+       <x>10</x>
+       <y>20</y>
+       <width>120</width>
+       <height>24</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>Preset:</string>
+     </property>
+    </widget>
+    <widget class="QComboBox" name="comboBox_FiltersPreset">
+     <property name="geometry">
+      <rect>
+       <x>144</x>
+       <y>19</y>
+       <width>220</width>
+       <height>26</height>
+      </rect>
      </property>
     </widget>
    </widget>
