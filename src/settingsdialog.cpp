@@ -49,6 +49,11 @@ SettingsDialog::SettingsDialog(QWidget *parent) :
     ui->comboBox_OutputSamplerate->addItem("48000 Hz", "48000");
     ui->comboBox_OutputSamplerate->addItem("96000 Hz", "96000");
 
+    ui->comboBox_FiltersPreset->addItem(tr("Disabled"), "");
+    ui->comboBox_FiltersPreset->addItem(tr("Increase volume"), "-af \"volume=10dB\"");
+    ui->comboBox_FiltersPreset->addItem(tr("Reduce volume"), "-af \"volume=-5dB\"");
+    ui->comboBox_FiltersPreset->setCurrentIndex(-1);
+
     // Set settings in GUI
     LoadSettings();
 }
@@ -70,6 +75,7 @@ void SettingsDialog::SaveSettings()
     Settings::Quality = ui->comboBox_Quality->currentData().toString();
     Settings::OutputDirectory = ui->lineEdit_OutputDirectory->text().trimmed();
     Settings::OutputSamplerate = ui->comboBox_OutputSamplerate->currentData().toString();
+    Settings::Filters = ui->plainTextEdit_Filters->toPlainText().trimmed();
     Settings::UseSoXresampler = ui->checkBox_UseSoXresampler->isChecked();
     Settings::QuickConvertMode = ui->checkBox_QuickConvertMode->isChecked();
     Settings::Threads = ui->spinBox_Threads->value();
@@ -81,6 +87,7 @@ void SettingsDialog::SaveSettings()
     settings.setValue("Quality", Settings::Quality);
     settings.setValue("OutputDirectory", Settings::OutputDirectory);
     settings.setValue("OutputSamplerate", Settings::OutputSamplerate);
+    settings.setValue("Filters", Settings::Filters);
     settings.setValue("UseSoXresampler", Settings::UseSoXresampler);
     settings.setValue("QuickConvertMode", Settings::QuickConvertMode);
     settings.setValue("Threads", Settings::Threads);
@@ -95,6 +102,7 @@ void SettingsDialog::LoadSettings()
     ui->comboBox_Quality->setCurrentIndex(ui->comboBox_Quality->findData(Settings::Quality));
     ui->lineEdit_OutputDirectory->setText(Settings::OutputDirectory);
     ui->comboBox_OutputSamplerate->setCurrentIndex(ui->comboBox_OutputSamplerate->findData(Settings::OutputSamplerate));
+    ui->plainTextEdit_Filters->setPlainText(Settings::Filters);
     ui->checkBox_UseSoXresampler->setChecked(Settings::UseSoXresampler);
     ui->checkBox_QuickConvertMode->setChecked(Settings::QuickConvertMode);
     ui->spinBox_Threads->setValue(Settings::Threads);
@@ -106,4 +114,9 @@ void SettingsDialog::on_toolButton_SelectOutputDirectory_clicked()
     if(!Util::isNullOrEmpty(dir)) {
         ui->lineEdit_OutputDirectory->setText(dir);
     }
+}
+
+void SettingsDialog::on_comboBox_FiltersPreset_activated(int index)
+{
+    ui->plainTextEdit_Filters->setPlainText(ui->comboBox_FiltersPreset->itemData(index).toString());
 }
