@@ -40,7 +40,7 @@ int main(int argc, char *argv[])
     commandLine.addOption(noTranslationsOption);
     commandLine.process(a);
 
-    qDebug() << "Starting" << QCoreApplication::applicationName() + " v" + QCoreApplication::applicationVersion();
+    qDebug().noquote() << "Starting" << QCoreApplication::applicationName() + " v" + QCoreApplication::applicationVersion();
 
     a.setWindowIcon(QIcon(":/com.github.Bleuzen.FFaudioConverter.ico"));
 
