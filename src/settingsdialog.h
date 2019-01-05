@@ -42,7 +42,7 @@ public:
 private slots:
     void on_buttonBox_accepted();
     void on_toolButton_SelectOutputDirectory_clicked();
-    void on_comboBox_FiltersPreset_activated(int index);
+    void on_comboBox_AudioFiltersPresets_activated(int index);
 
 private:
     Ui::SettingsDialog *ui;

@@ -110,7 +110,7 @@ void FFmpegTask::prepare() {
         } else if(Settings::Quality == "medium") {
             ffmpegArgs << "-q:a" << "4";
         }
-        addSamplerateArgs();
+        if (!Util::isNullOrEmpty(Settings::OutputSamplerate)) ffmpegArgs << "-ar" << Settings::OutputSamplerate;
         ffmpegArgs << "-map_metadata" << "0";
         ffmpegArgs << "-map_metadata" << "0:s:0";
         ffmpegArgs << "-id3v2_version" << "3";
@@ -127,7 +127,7 @@ void FFmpegTask::prepare() {
         } else if(Settings::Quality == "medium") {
             ffmpegArgs << "-q:a" << "4";
         }
-        addSamplerateArgs();
+        if (!Util::isNullOrEmpty(Settings::OutputSamplerate)) ffmpegArgs << "-ar" << Settings::OutputSamplerate;
         ffmpegArgs << "-map_metadata" << "0";
         ffmpegArgs << "-map_metadata" << "0:s:0";
 
@@ -152,7 +152,7 @@ void FFmpegTask::prepare() {
         // flac options
         ffmpegArgs << "-c:a" << "flac";
         if (Settings::Quality == "medium") ffmpegArgs << "-sample_fmt" << "s16";
-        addSamplerateArgs();
+        if (!Util::isNullOrEmpty(Settings::OutputSamplerate)) ffmpegArgs << "-ar" << Settings::OutputSamplerate;
         ffmpegArgs << "-map_metadata" << "0";
         ffmpegArgs << "-map_metadata" << "0:s:0";
 
@@ -160,28 +160,28 @@ void FFmpegTask::prepare() {
         outfileExt = "wav";
         // wav options
         ffmpegArgs << "-c:a" << "pcm_s16le";
-        addSamplerateArgs();
+        if (!Util::isNullOrEmpty(Settings::OutputSamplerate)) ffmpegArgs << "-ar" << Settings::OutputSamplerate;
 
     } else {
         // unknown format options
         outfileExt = Settings::OutputFormat;
     }
 
+    // Add SoX
+    if(Settings::UseSoXresampler) {
+        audioFilters.append("aresample=resampler=soxr ");  // Space at the end is important to allow further audio filters
+    }
+
+    // Add user audio filters
+    audioFilters.append(Settings::AudioFilters);
+
     // Apply audio filters
-    if(!Util::isNullOrEmpty(Settings::Filters)) {
-        QString filters = Settings::Filters.simplified();  // Convert newlines to spaces
-        QStringList filtersArgs = filters.split(" ");  //TODO: really needed?
-        ffmpegArgs << filtersArgs;
+    QString audioFiltersArg = audioFilters.simplified().replace(" ", ",");  // Convert newlines to spaces and spaces to commas
+    if(!Util::isNullOrEmpty(audioFiltersArg)) {
+        ffmpegArgs << "-af" << audioFiltersArg;
     }
 
     // Set output file
     outfile += "." + outfileExt;
     ffmpegArgs << outfile;
-}
-
-void FFmpegTask::addSamplerateArgs() {
-    if(!Util::isNullOrEmpty(Settings::OutputSamplerate)) {
-        if (Settings::UseSoXresampler) ffmpegArgs << "-af" << "aresample=resampler=soxr";
-        ffmpegArgs << "-ar" << Settings::OutputSamplerate;
-    }
 }
