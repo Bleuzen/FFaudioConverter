@@ -201,7 +201,12 @@ Select 0 to use all CPU threads.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/settingsdialog.cpp" line="114"/>
+        <location filename="../src/settingsdialog.cpp" line="56"/>
+        <source>Bass boost</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/settingsdialog.cpp" line="115"/>
         <source>Open Directory</source>
         <translation type="unfinished"></translation>
     </message>
