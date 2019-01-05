@@ -19,6 +19,11 @@ unix: !macx {
 VERSION = 0.19
 DEFINES += VERSIONSTR=\\\"$${VERSION}\\\"
 
+# Disable debug output in release
+CONFIG(release, debug|release) {
+    DEFINES += QT_NO_DEBUG_OUTPUT
+}
+
 # The following define makes your compiler emit warnings if you use
 # any feature of Qt which has been marked as deprecated (the exact warnings
 # depend on your compiler). Please consult the documentation of the
