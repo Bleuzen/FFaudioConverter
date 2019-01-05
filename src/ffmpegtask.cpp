@@ -167,8 +167,15 @@ void FFmpegTask::prepare() {
         outfileExt = Settings::OutputFormat;
     }
 
-    outfile += "." + outfileExt;
+    // Apply audio filters
+    if(!Util::isNullOrEmpty(Settings::Filters)) {
+        QString filters = Settings::Filters.simplified();  // Convert newlines to spaces
+        QStringList filtersArgs = filters.split(" ");  //TODO: really needed?
+        ffmpegArgs << filtersArgs;
+    }
 
+    // Set output file
+    outfile += "." + outfileExt;
     ffmpegArgs << outfile;
 }
 
