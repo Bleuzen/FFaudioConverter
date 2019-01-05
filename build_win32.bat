@@ -3,7 +3,7 @@ SET PATH=%PATH%;C:\Qt\5.12.0\mingw73_64\bin;C:\Qt\Tools\mingw730_64\bin
 mkdir build
 cd build
 
-qmake.exe ..\FFaudioConverter.pro -spec win32-g++
+qmake.exe ..\FFaudioConverter.pro -spec win32-g++ CONFIG+=release
 mingw32-make.exe -j4
 
 cd release
