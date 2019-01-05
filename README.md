@@ -5,6 +5,7 @@ Features:
  - DnD support
  - Multithreading (use the full power of your cpu)
  - Convert many files or whole directories very fast
+ - Audio filters possible (bass boost your music or do fade-ins/outs…)
  - Change of samplerate possible
  - High quality resampling with SoX possible
  - Quick mode for copying files in same format and skip already converted files
