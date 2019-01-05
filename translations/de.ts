@@ -152,6 +152,16 @@ Stellen Sie 0 ein, um alle CPU Threads zu verwenden.</translation>
         <translation>Benutze den SoX Resampler</translation>
     </message>
     <message>
+        <location filename="../src/settingsdialog.ui" line="246"/>
+        <source>Filters</source>
+        <translation>Filter</translation>
+    </message>
+    <message>
+        <location filename="../src/settingsdialog.ui" line="268"/>
+        <source>Preset:</source>
+        <translation>Voreinstellung:</translation>
+    </message>
+    <message>
         <location filename="../src/settingsdialog.cpp" line="43"/>
         <source>Extreme</source>
         <translation>Extrem</translation>
@@ -172,7 +182,27 @@ Stellen Sie 0 ein, um alle CPU Threads zu verwenden.</translation>
         <translation>Unverändert lassen</translation>
     </message>
     <message>
-        <location filename="../src/settingsdialog.cpp" line="105"/>
+        <location filename="../src/settingsdialog.cpp" line="52"/>
+        <source>Disabled</source>
+        <translation>Deaktiviert</translation>
+    </message>
+    <message>
+        <location filename="../src/settingsdialog.cpp" line="53"/>
+        <source>Increase volume</source>
+        <translation>Erhöhe Lautstärke</translation>
+    </message>
+    <message>
+        <location filename="../src/settingsdialog.cpp" line="54"/>
+        <source>Reduce volume</source>
+        <translation>Reduziere Lautstärke</translation>
+    </message>
+    <message>
+        <location filename="../src/settingsdialog.cpp" line="55"/>
+        <source>Fade-in and fade-out</source>
+        <translation>Ein- und Ausblenden</translation>
+    </message>
+    <message>
+        <location filename="../src/settingsdialog.cpp" line="114"/>
         <source>Open Directory</source>
         <translation>Verzeichnis öffnen</translation>
     </message>
