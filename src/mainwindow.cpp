@@ -248,7 +248,7 @@ void MainWindow::on_tableView_customContextMenuRequested(const QPoint &pos)
 
     QMenu *menu = new QMenu(this);
 
-    QAction *action_Remove = new QAction("Remove", this);
+    QAction *action_Remove = new QAction(tr("Remove"), this);
     menu->addAction(action_Remove);
     connect(action_Remove, &QAction::triggered, this, [=]() {
         // Collect all selected rows

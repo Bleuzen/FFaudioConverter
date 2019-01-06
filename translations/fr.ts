@@ -67,6 +67,11 @@
         <translation>Fichier</translation>
     </message>
     <message>
+        <location filename="../src/mainwindow.cpp" line="251"/>
+        <source>Remove</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <location filename="../src/mainwindow.cpp" line="289"/>
         <source>FFmpeg binary is invalid. Please check your settings.</source>
         <translation type="unfinished"></translation>
