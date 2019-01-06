@@ -87,7 +87,7 @@
     <message>
         <location filename="../src/settingsdialog.ui" line="46"/>
         <source>Main</source>
-        <translation>Haupt</translation>
+        <translation>Allgemein</translation>
     </message>
     <message>
         <location filename="../src/settingsdialog.ui" line="58"/>
