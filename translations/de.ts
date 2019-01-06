@@ -67,6 +67,11 @@
         <translation>Datei</translation>
     </message>
     <message>
+        <location filename="../src/mainwindow.cpp" line="251"/>
+        <source>Remove</source>
+        <translation>Entfernen</translation>
+    </message>
+    <message>
         <location filename="../src/mainwindow.cpp" line="289"/>
         <source>FFmpeg binary is invalid. Please check your settings.</source>
         <translation>Ihre FFmpeg Binary ist ungültig. Bitte überprüfen Sie ihre Einstellungen.</translation>
