@@ -212,7 +212,12 @@ Stellen Sie 0 ein, um alle CPU Threads zu verwenden.</translation>
         <translation>Bassverstärkung</translation>
     </message>
     <message>
-        <location filename="../src/settingsdialog.cpp" line="115"/>
+        <location filename="../src/settingsdialog.cpp" line="57"/>
+        <source>Speed up</source>
+        <translation>Geschwindigkeit erhöhen</translation>
+    </message>
+    <message>
+        <location filename="../src/settingsdialog.cpp" line="116"/>
         <source>Open Directory</source>
         <translation>Verzeichnis öffnen</translation>
     </message>
