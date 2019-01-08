@@ -25,13 +25,15 @@ along with this program.  If not, see <https://www.gnu.org/licenses/>.
 #include <QString>
 #include <QFileInfo>
 #include <QDir>
+#include <QMimeDatabase>
 
 class Util
 {
 public:
-    static bool isBinary(QString);
+    static bool isBinary(QString file);
     static bool prepareAndCheckDirectory(QString dir);
-    static bool isNullOrEmpty(QString);
+    static bool isNullOrEmpty(QString string);
+    static bool mayBeAudioOrVideoFile(QString file);
 };
 
 #endif // UTIL_H

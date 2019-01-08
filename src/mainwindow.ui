@@ -15,7 +15,7 @@
     <item>
      <widget class="QLabel" name="label_HelpMessage">
       <property name="text">
-       <string>Drop files or a directory here</string>
+       <string>Drop files or directories here</string>
       </property>
       <property name="alignment">
        <set>Qt::AlignCenter</set>

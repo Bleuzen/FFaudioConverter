@@ -30,6 +30,13 @@ FFmpegTask::FFmpegTask(int id, QString inpath, QString outdir)
 
 void FFmpegTask::run()
 {
+    // Skip if input file can not be an audio or video file
+    if(!Util::mayBeAudioOrVideoFile(infile)) {
+        qDebug() << "Skipping job" << id;
+        emit ConvertDone(id, ConvertStatus::Skipped);
+        return;
+    }
+
     // Prepare some stuff (fill variables and ffmpeg arguments...)
     prepare();
 
