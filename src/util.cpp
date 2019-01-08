@@ -39,3 +39,13 @@ bool Util::prepareAndCheckDirectory(QString dir) {
 bool Util::isNullOrEmpty(QString string) {
     return string.isNull() || string.isEmpty();
 }
+
+bool Util::mayBeAudioOrVideoFile(QString file) {
+    QMimeDatabase db;
+    QMimeType mime = db.mimeTypeForFile(file);
+    QString type = mime.name().split("/")[0];
+    if(isNullOrEmpty(type) || type == "audio" || type == "video") {
+        return true;
+    }
+    return false;
+}
