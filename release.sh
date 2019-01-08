@@ -9,7 +9,7 @@ sed -i "/    <release date=/c\    <release date=\"$(date +%Y-%m-%d)\" version=\"
 
 # Package
 mkdir -p release
-tar -cJf release/FFaudioConverter-$VERSION.tar.xz \
+tar -cJf release/FFaudioConverter-$VERSION-src.tar.xz \
     src/ \
     translations/ \
     FFaudioConverter.pro \
@@ -23,4 +23,4 @@ tar -cJf release/FFaudioConverter-$VERSION.tar.xz \
     ffaudioconverter.qrc
 
 cd release/
-sha256sum FFaudioConverter-$VERSION.tar.xz
+sha256sum FFaudioConverter-$VERSION-src.tar.xz

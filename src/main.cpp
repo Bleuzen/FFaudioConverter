@@ -26,7 +26,7 @@ along with this program.  If not, see <https://www.gnu.org/licenses/>.
 
 int main(int argc, char *argv[])
 {
-    QApplication a(argc, argv);
+    QApplication app(argc, argv);
 
     QCoreApplication::setOrganizationName("Bleuzen");
     QCoreApplication::setApplicationName("FFaudioConverter");
@@ -38,11 +38,11 @@ int main(int argc, char *argv[])
     commandLine.addPositionalArgument("path", "Open with files or directories added");
     QCommandLineOption noTranslationsOption("no-translations", "Do not load translations");
     commandLine.addOption(noTranslationsOption);
-    commandLine.process(a);
+    commandLine.process(app);
 
     qDebug().noquote() << "Starting" << QCoreApplication::applicationName() + " v" + QCoreApplication::applicationVersion();
 
-    a.setWindowIcon(QIcon(":/com.github.Bleuzen.FFaudioConverter.ico"));
+    app.setWindowIcon(QIcon(":/com.github.Bleuzen.FFaudioConverter.ico"));
 
 #ifdef Q_OS_WIN
     a.setStyle(QStyleFactory::create("Fusion"));  // Use Fusion style on Windows because it looks better
@@ -65,5 +65,5 @@ int main(int argc, char *argv[])
         w.processCommandLine(commandLine.positionalArguments());
     }
 
-    return a.exec();
+    return app.exec();
 }
