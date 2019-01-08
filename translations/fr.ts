@@ -28,7 +28,7 @@
     <name>MainWindow</name>
     <message>
         <location filename="../src/mainwindow.ui" line="18"/>
-        <source>Drop files or a directory here</source>
+        <source>Drop files or directories here</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
