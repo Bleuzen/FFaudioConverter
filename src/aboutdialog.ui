@@ -150,17 +150,6 @@ p, li { white-space: pre-wrap; }
     <bool>true</bool>
    </property>
   </widget>
-  <widget class="QWidget" name="formLayoutWidget">
-   <property name="geometry">
-    <rect>
-     <x>130</x>
-     <y>170</y>
-     <width>160</width>
-     <height>80</height>
-    </rect>
-   </property>
-   <layout class="QFormLayout" name="formLayout"/>
-  </widget>
  </widget>
  <resources/>
  <connections/>
