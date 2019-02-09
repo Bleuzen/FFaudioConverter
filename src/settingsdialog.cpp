@@ -34,11 +34,12 @@ SettingsDialog::SettingsDialog(QWidget *parent) :
     setFixedSize(width(), height());
 
     // Init settings elements
-    ui->comboBox_OutputFormat->addItem("mp3", "mp3");
-    ui->comboBox_OutputFormat->addItem("ogg vorbis", "ogg");
-    ui->comboBox_OutputFormat->addItem("opus", "opus");
-    ui->comboBox_OutputFormat->addItem("flac", "flac");
-    ui->comboBox_OutputFormat->addItem("wav", "wav");
+    ui->comboBox_OutputFormat->addItem("MP3 (.mp3)", "mp3");
+    ui->comboBox_OutputFormat->addItem("AAC (.m4a)", "m4a");
+    ui->comboBox_OutputFormat->addItem("Ogg Vorbis (.ogg)", "ogg");
+    ui->comboBox_OutputFormat->addItem("Opus (.opus)", "opus");
+    ui->comboBox_OutputFormat->addItem("FLAC (.flac)", "flac");
+    ui->comboBox_OutputFormat->addItem("WAV (.wav)", "wav");
 
     ui->comboBox_Quality->addItem(tr("Medium"), "medium");
     ui->comboBox_Quality->addItem(tr("High"), "high");
