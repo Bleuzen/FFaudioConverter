@@ -108,7 +108,6 @@ void FFmpegTask::prepare() {
 
     if(Settings::OutputFormat == "mp3") {
         outfileExt = "mp3";
-        // mp3 options
         ffmpegArgs << "-c:a" << "libmp3lame";
         if(Settings::Quality == "extreme") {
             ffmpegArgs << "-b:a" << "320k";
@@ -122,9 +121,23 @@ void FFmpegTask::prepare() {
         ffmpegArgs << "-map_metadata" << "0:s:0";
         ffmpegArgs << "-id3v2_version" << "3";
 
+    } else if(Settings::OutputFormat == "m4a") {
+        outfileExt = "m4a";
+        ffmpegArgs << "-c:a" << "aac";
+        ffmpegArgs << "-vn";  // removes cover art but is the only way I know to get m4a working
+        if(Settings::Quality == "extreme") {
+            ffmpegArgs << "-b:a" << "256k";
+        } else if(Settings::Quality == "high") {
+            ffmpegArgs << "-b:a" << "192k";
+        } else if(Settings::Quality == "medium") {
+            ffmpegArgs << "-b:a" << "128k";
+        }
+        if (!Util::isNullOrEmpty(Settings::OutputSamplerate)) ffmpegArgs << "-ar" << Settings::OutputSamplerate;
+        ffmpegArgs << "-map_metadata" << "0";
+        ffmpegArgs << "-map_metadata" << "0:s:0";
+
     } else if(Settings::OutputFormat == "ogg") {
         outfileExt = "ogg";
-        // ogg options
         ffmpegArgs << "-vn"; //TODO: remove this to keep album art but without the output is a video
         ffmpegArgs << "-c:a" << "libvorbis";
         if(Settings::Quality == "extreme") {
@@ -140,9 +153,7 @@ void FFmpegTask::prepare() {
 
     } else if(Settings::OutputFormat == "opus") {
         outfileExt = "opus";
-        // opus options
-        //TODO: opus currently loses album art (at least with ffmpeg 4.1)
-        ffmpegArgs << "-c:a" << "libopus";
+        ffmpegArgs << "-c:a" << "libopus";  //TODO: opus currently loses album art (at least with ffmpeg 4.1)
         if(Settings::Quality == "extreme") {
             ffmpegArgs << "-b:a" << "192k";
         } else if(Settings::Quality == "high") {
@@ -156,7 +167,6 @@ void FFmpegTask::prepare() {
 
     } else if(Settings::OutputFormat == "flac") {
         outfileExt = "flac";
-        // flac options
         ffmpegArgs << "-c:a" << "flac";
         if (Settings::Quality == "medium") ffmpegArgs << "-sample_fmt" << "s16";
         if (!Util::isNullOrEmpty(Settings::OutputSamplerate)) ffmpegArgs << "-ar" << Settings::OutputSamplerate;
@@ -165,7 +175,6 @@ void FFmpegTask::prepare() {
 
     } else if(Settings::OutputFormat == "wav") {
         outfileExt = "wav";
-        // wav options
         ffmpegArgs << "-c:a" << "pcm_s16le";
         if (!Util::isNullOrEmpty(Settings::OutputSamplerate)) ffmpegArgs << "-ar" << Settings::OutputSamplerate;
 
