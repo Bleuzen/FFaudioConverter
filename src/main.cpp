@@ -31,6 +31,7 @@ int main(int argc, char *argv[])
     QCoreApplication::setOrganizationName("Bleuzen");
     QCoreApplication::setApplicationName("FFaudioConverter");
     QCoreApplication::setApplicationVersion(VERSIONSTR);
+    QGuiApplication::setDesktopFileName("com.github.Bleuzen.FFaudioConverter");
 
     QCommandLineParser commandLine;
     commandLine.addHelpOption();
