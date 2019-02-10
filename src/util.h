@@ -30,7 +30,6 @@ public:
     static bool prepareAndCheckDirectory(QString dir);
     static bool isNullOrEmpty(QString string);
     static bool mayBeAudioOrVideoFile(QString file);
-    //static bool ffmpegBinarySupportsOutputFormat();
 };
 
 #endif // UTIL_H
