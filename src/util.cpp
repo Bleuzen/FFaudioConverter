@@ -24,8 +24,7 @@ along with this program.  If not, see <https://www.gnu.org/licenses/>.
 #include <QFileInfo>
 #include <QDir>
 #include <QMimeDatabase>
-#include <QProcess>
-
+//#include <QProcess>
 //#include "settings.h"
 
 bool Util::isBinary(QString file) {
