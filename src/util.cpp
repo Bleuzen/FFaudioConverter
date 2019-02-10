@@ -24,8 +24,6 @@ along with this program.  If not, see <https://www.gnu.org/licenses/>.
 #include <QFileInfo>
 #include <QDir>
 #include <QMimeDatabase>
-//#include <QProcess>
-//#include "settings.h"
 
 bool Util::isBinary(QString file) {
     if (file.length() <= 0) return false;
@@ -57,6 +55,14 @@ bool Util::mayBeAudioOrVideoFile(QString file) {
     return false;
 }
 
+// This method would require these includes:
+//#include <QProcess>
+//#include "settings.h"
+// And this line in header:
+//static bool ffmpegBinarySupportsOutputFormat();
+// It is commented out and unused because:
+// - I am not sure if it works on all systems
+// - It is slow
 /*bool Util::ffmpegBinarySupportsOutputFormat() {
     QProcess *ffmpeg = new QProcess();
     ffmpeg->setProgram(Settings::FFmpegBinary);
