@@ -20,6 +20,14 @@ along with this program.  If not, see <https://www.gnu.org/licenses/>.
 
 #include "util.h"
 
+#include <QDebug>
+#include <QFileInfo>
+#include <QDir>
+#include <QMimeDatabase>
+#include <QProcess>
+
+#include "settings.h"
+
 bool Util::isBinary(QString file) {
     if (file.length() <= 0) return false;
     QFileInfo fileInfo(file);
@@ -49,3 +57,38 @@ bool Util::mayBeAudioOrVideoFile(QString file) {
     }
     return false;
 }
+
+/*bool Util::ffmpegBinarySupportsOutputFormat() {
+    QProcess *ffmpeg = new QProcess();
+    ffmpeg->setProgram(Settings::FFmpegBinary);
+    ffmpeg->setArguments(QStringList() << "-hide_banner" << "-encoders");
+    ffmpeg->start();
+    ffmpeg->waitForFinished();
+    int exitCode = ffmpeg->exitCode();
+
+    if(exitCode != 0) return false;
+
+    QString output(ffmpeg->readAllStandardOutput());
+
+    if(Settings::OutputFormat == "mp3") {
+        return output.contains("libmp3lame");
+
+    } else if(Settings::OutputFormat == "m4a") {
+        return output.contains("aac");
+
+    } else if(Settings::OutputFormat == "ogg") {
+        return output.contains("libvorbis");
+
+    } else if(Settings::OutputFormat == "opus") {
+        return output.contains("libopus");
+
+    } else if(Settings::OutputFormat == "flac") {
+        return output.contains("flac");
+
+    } else if(Settings::OutputFormat == "wav") {
+        return output.contains("pcm_s16le");
+
+    } else {
+        return false;
+    }
+}*/

@@ -21,11 +21,7 @@ along with this program.  If not, see <https://www.gnu.org/licenses/>.
 #ifndef UTIL_H
 #define UTIL_H
 
-#include <QDebug>
 #include <QString>
-#include <QFileInfo>
-#include <QDir>
-#include <QMimeDatabase>
 
 class Util
 {
@@ -34,6 +30,7 @@ public:
     static bool prepareAndCheckDirectory(QString dir);
     static bool isNullOrEmpty(QString string);
     static bool mayBeAudioOrVideoFile(QString file);
+    //static bool ffmpegBinarySupportsOutputFormat();
 };
 
 #endif // UTIL_H

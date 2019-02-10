@@ -179,7 +179,7 @@ void FFmpegTask::prepare() {
         if (!Util::isNullOrEmpty(Settings::OutputSamplerate)) ffmpegArgs << "-ar" << Settings::OutputSamplerate;
 
     } else {
-        // unknown format options
+        // unknown format options (this should never happen)
         outfileExt = Settings::OutputFormat;
     }
 
