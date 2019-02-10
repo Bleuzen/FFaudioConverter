@@ -166,57 +166,57 @@ Select 0 to use all CPU threads.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/settingsdialog.cpp" line="43"/>
+        <location filename="../src/settingsdialog.cpp" line="46"/>
         <source>Extreme</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/settingsdialog.cpp" line="44"/>
+        <location filename="../src/settingsdialog.cpp" line="45"/>
         <source>High</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/settingsdialog.cpp" line="45"/>
+        <location filename="../src/settingsdialog.cpp" line="44"/>
         <source>Medium</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/settingsdialog.cpp" line="47"/>
+        <location filename="../src/settingsdialog.cpp" line="48"/>
         <source>Keep</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/settingsdialog.cpp" line="52"/>
+        <location filename="../src/settingsdialog.cpp" line="53"/>
         <source>Disabled</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/settingsdialog.cpp" line="53"/>
+        <location filename="../src/settingsdialog.cpp" line="54"/>
         <source>Increase volume</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/settingsdialog.cpp" line="54"/>
+        <location filename="../src/settingsdialog.cpp" line="55"/>
         <source>Reduce volume</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/settingsdialog.cpp" line="55"/>
+        <location filename="../src/settingsdialog.cpp" line="56"/>
         <source>Fade-in and fade-out</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/settingsdialog.cpp" line="56"/>
+        <location filename="../src/settingsdialog.cpp" line="57"/>
         <source>Bass boost</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/settingsdialog.cpp" line="57"/>
+        <location filename="../src/settingsdialog.cpp" line="58"/>
         <source>Speed up</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/settingsdialog.cpp" line="116"/>
+        <location filename="../src/settingsdialog.cpp" line="117"/>
         <source>Open Directory</source>
         <translation type="unfinished"></translation>
     </message>
