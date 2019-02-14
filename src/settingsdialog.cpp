@@ -138,7 +138,7 @@ void SettingsDialog::on_comboBox_Quality_activated(int index)
                                                  Settings::CustomQualityArguments.isEmpty() ? "" : Settings::CustomQualityArguments,
                                                  &ok);
             if(ok && !text.isEmpty()) {
-                Settings::CustomQualityArguments = text;
+                Settings::CustomQualityArguments = text.trimmed();
             } else {
                 ui->comboBox_Quality->setCurrentIndex(ui->comboBox_Quality->findData(Settings::Quality));
             }
