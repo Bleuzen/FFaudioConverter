@@ -110,7 +110,7 @@ void FFmpegTask::prepare() {
         outfileExt = "mp3";
         ffmpegArgs << "-c:a" << "libmp3lame";
         if(wantCustomQualityOptions()) {
-            ffmpegArgs << Settings::CustomQualityArguments;
+            addCustomQualityOptions();
         } else if(Settings::Quality == "extreme") {
             ffmpegArgs << "-b:a" << "320k";
         } else if(Settings::Quality == "high") {
@@ -128,7 +128,7 @@ void FFmpegTask::prepare() {
         ffmpegArgs << "-c:a" << "aac";
         ffmpegArgs << "-vn";  // removes cover art but is the only way I know to get m4a working
         if(wantCustomQualityOptions()) {
-            ffmpegArgs << Settings::CustomQualityArguments;
+            addCustomQualityOptions();
         } else if(Settings::Quality == "extreme") {
             ffmpegArgs << "-b:a" << "256k";
         } else if(Settings::Quality == "high") {
@@ -145,7 +145,7 @@ void FFmpegTask::prepare() {
         ffmpegArgs << "-vn"; //TODO: remove this to keep album art but without the output is a video
         ffmpegArgs << "-c:a" << "libvorbis";
         if(wantCustomQualityOptions()) {
-            ffmpegArgs << Settings::CustomQualityArguments;
+            addCustomQualityOptions();
         } else if(Settings::Quality == "extreme") {
             ffmpegArgs << "-q:a" << "9";
         } else if(Settings::Quality == "high") {
@@ -161,7 +161,7 @@ void FFmpegTask::prepare() {
         outfileExt = "opus";
         ffmpegArgs << "-c:a" << "libopus";  //TODO: opus currently loses album art (at least with ffmpeg 4.1)
         if(wantCustomQualityOptions()) {
-            ffmpegArgs << Settings::CustomQualityArguments;
+            addCustomQualityOptions();
         } else if(Settings::Quality == "extreme") {
             ffmpegArgs << "-b:a" << "192k";
         } else if(Settings::Quality == "high") {
@@ -177,7 +177,7 @@ void FFmpegTask::prepare() {
         outfileExt = "flac";
         ffmpegArgs << "-c:a" << "flac";
         if(wantCustomQualityOptions()) {
-            ffmpegArgs << Settings::CustomQualityArguments;
+            addCustomQualityOptions();
         } else if (Settings::Quality == "medium") {
             ffmpegArgs << "-sample_fmt" << "s16";
         }
@@ -226,4 +226,8 @@ void FFmpegTask::prepare() {
 
 bool FFmpegTask::wantCustomQualityOptions() {
     return Settings::Quality == "custom" && !Settings::CustomQualityArguments.isEmpty();
+}
+
+void FFmpegTask::addCustomQualityOptions() {
+    ffmpegArgs << Settings::CustomQualityArguments.split(" ");
 }
