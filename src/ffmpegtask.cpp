@@ -168,14 +168,28 @@ void FFmpegTask::prepare() {
     } else if(Settings::OutputFormat == "flac") {
         outfileExt = "flac";
         ffmpegArgs << "-c:a" << "flac";
-        if (Settings::Quality == "medium") ffmpegArgs << "-sample_fmt" << "s16";
+        if(wantCustomQualityOption()) {
+            ffmpegArgs << Settings::CustomQualityArguments;
+        } else if (Settings::Quality == "medium") {
+            ffmpegArgs << "-sample_fmt" << "s16";
+        }
         if (!Util::isNullOrEmpty(Settings::OutputSamplerate)) ffmpegArgs << "-ar" << Settings::OutputSamplerate;
         ffmpegArgs << "-map_metadata" << "0";
         ffmpegArgs << "-map_metadata" << "0:s:0";
 
     } else if(Settings::OutputFormat == "wav") {
         outfileExt = "wav";
-        ffmpegArgs << "-c:a" << "pcm_s16le";
+        if(wantCustomQualityOption()) {
+            if(Settings::CustomQualityArguments == "32") {
+                ffmpegArgs << "-c:a" << "pcm_s32le";
+            } else if(Settings::CustomQualityArguments == "24") {
+                ffmpegArgs << "-c:a" << "pcm_s24le";
+            } else {
+                ffmpegArgs << "-c:a" << "pcm_s16le";
+            }
+        } else {
+            ffmpegArgs << "-c:a" << "pcm_s16le";
+        }
         if (!Util::isNullOrEmpty(Settings::OutputSamplerate)) ffmpegArgs << "-ar" << Settings::OutputSamplerate;
 
     } else {
@@ -200,4 +214,8 @@ void FFmpegTask::prepare() {
     // Set output file
     outfile += "." + outfileExt;
     ffmpegArgs << outfile;
+}
+
+bool FFmpegTask::wantCustomQualityOption() {
+    return Settings::Quality == "custom" && !Settings::CustomQualityArguments.isEmpty();
 }

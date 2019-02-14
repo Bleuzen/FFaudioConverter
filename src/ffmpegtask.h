@@ -51,8 +51,9 @@ private:
     void prepare();
 
     QStringList ffmpegArgs;
-
     QString audioFilters;
+
+    bool wantCustomQualityOption();
 
 signals:
     void ConvertDone(int id, FFmpegTask::ConvertStatus status);

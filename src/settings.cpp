@@ -23,6 +23,7 @@ along with this program.  If not, see <https://www.gnu.org/licenses/>.
 QString Settings::FFmpegBinary;
 QString Settings::OutputFormat;
 QString Settings::Quality;
+QString Settings::CustomQualityArguments;
 QString Settings::OutputDirectory;
 QString Settings::OutputSamplerate;
 QString Settings::AudioFilters;
@@ -32,14 +33,34 @@ int Settings::Threads;
 
 void Settings::init() {
     QSettings settings;
+
     Settings::FFmpegBinary = settings.value("FFmpegBinary", DEFAULT_FFMPEG_BINARY).toString();
     Settings::OutputFormat = settings.value("OutputFormat", "mp3").toString();
     Settings::Quality = settings.value("Quality", "high").toString();
+    Settings::CustomQualityArguments = settings.value("CustomQualityArguments", "").toString();
     Settings::OutputDirectory = settings.value("OutputDirectory", QStandardPaths::writableLocation(QStandardPaths::HomeLocation) + QDir().separator() + QCoreApplication::applicationName()).toString();
     Settings::OutputSamplerate = settings.value("OutputSamplerate", "44100").toString();
     Settings::AudioFilters = settings.value("AudioFilters", "").toString();
     Settings::UseSoXresampler = settings.value("UseSoXresampler", false).toBool();
     Settings::QuickConvertMode = settings.value("QuickConvertMode", false).toBool();
     Settings::Threads = settings.value("Threads", 0).toInt();
+
     qDebug() << "Settings loaded";
+}
+
+void Settings::save() {
+    QSettings settings;
+
+    settings.setValue("FFmpegBinary", Settings::FFmpegBinary);
+    settings.setValue("OutputFormat", Settings::OutputFormat);
+    settings.setValue("Quality", Settings::Quality);
+    settings.setValue("CustomQualityArguments", Settings::CustomQualityArguments);
+    settings.setValue("OutputDirectory", Settings::OutputDirectory);
+    settings.setValue("OutputSamplerate", Settings::OutputSamplerate);
+    settings.setValue("AudioFilters", Settings::AudioFilters);
+    settings.setValue("UseSoXresampler", Settings::UseSoXresampler);
+    settings.setValue("QuickConvertMode", Settings::QuickConvertMode);
+    settings.setValue("Threads", Settings::Threads);
+
+    qDebug() << "Settings saved";
 }
