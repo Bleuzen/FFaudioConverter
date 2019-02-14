@@ -109,7 +109,9 @@ void FFmpegTask::prepare() {
     if(Settings::OutputFormat == "mp3") {
         outfileExt = "mp3";
         ffmpegArgs << "-c:a" << "libmp3lame";
-        if(Settings::Quality == "extreme") {
+        if(wantCustomQualityOptions()) {
+            ffmpegArgs << Settings::CustomQualityArguments;
+        } else if(Settings::Quality == "extreme") {
             ffmpegArgs << "-b:a" << "320k";
         } else if(Settings::Quality == "high") {
             ffmpegArgs << "-q:a" << "1";
@@ -125,7 +127,9 @@ void FFmpegTask::prepare() {
         outfileExt = "m4a";
         ffmpegArgs << "-c:a" << "aac";
         ffmpegArgs << "-vn";  // removes cover art but is the only way I know to get m4a working
-        if(Settings::Quality == "extreme") {
+        if(wantCustomQualityOptions()) {
+            ffmpegArgs << Settings::CustomQualityArguments;
+        } else if(Settings::Quality == "extreme") {
             ffmpegArgs << "-b:a" << "256k";
         } else if(Settings::Quality == "high") {
             ffmpegArgs << "-b:a" << "192k";
@@ -140,7 +144,9 @@ void FFmpegTask::prepare() {
         outfileExt = "ogg";
         ffmpegArgs << "-vn"; //TODO: remove this to keep album art but without the output is a video
         ffmpegArgs << "-c:a" << "libvorbis";
-        if(Settings::Quality == "extreme") {
+        if(wantCustomQualityOptions()) {
+            ffmpegArgs << Settings::CustomQualityArguments;
+        } else if(Settings::Quality == "extreme") {
             ffmpegArgs << "-q:a" << "9";
         } else if(Settings::Quality == "high") {
             ffmpegArgs << "-q:a" << "6";
@@ -154,7 +160,9 @@ void FFmpegTask::prepare() {
     } else if(Settings::OutputFormat == "opus") {
         outfileExt = "opus";
         ffmpegArgs << "-c:a" << "libopus";  //TODO: opus currently loses album art (at least with ffmpeg 4.1)
-        if(Settings::Quality == "extreme") {
+        if(wantCustomQualityOptions()) {
+            ffmpegArgs << Settings::CustomQualityArguments;
+        } else if(Settings::Quality == "extreme") {
             ffmpegArgs << "-b:a" << "192k";
         } else if(Settings::Quality == "high") {
             ffmpegArgs << "-b:a" << "160k";
@@ -168,7 +176,7 @@ void FFmpegTask::prepare() {
     } else if(Settings::OutputFormat == "flac") {
         outfileExt = "flac";
         ffmpegArgs << "-c:a" << "flac";
-        if(wantCustomQualityOption()) {
+        if(wantCustomQualityOptions()) {
             ffmpegArgs << Settings::CustomQualityArguments;
         } else if (Settings::Quality == "medium") {
             ffmpegArgs << "-sample_fmt" << "s16";
@@ -179,7 +187,7 @@ void FFmpegTask::prepare() {
 
     } else if(Settings::OutputFormat == "wav") {
         outfileExt = "wav";
-        if(wantCustomQualityOption()) {
+        if(wantCustomQualityOptions()) {
             if(Settings::CustomQualityArguments == "32") {
                 ffmpegArgs << "-c:a" << "pcm_s32le";
             } else if(Settings::CustomQualityArguments == "24") {
@@ -216,6 +224,6 @@ void FFmpegTask::prepare() {
     ffmpegArgs << outfile;
 }
 
-bool FFmpegTask::wantCustomQualityOption() {
+bool FFmpegTask::wantCustomQualityOptions() {
     return Settings::Quality == "custom" && !Settings::CustomQualityArguments.isEmpty();
 }
