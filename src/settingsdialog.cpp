@@ -125,7 +125,7 @@ void SettingsDialog::on_comboBox_Quality_activated(int index)
         QString title = ui->label_Quality->text().replace(":", "");
 
         if(format == "wav") {
-            QStringList bitdepths;  //TODO: rename?
+            QStringList bitdepths;
             bitdepths << "16" << "24" << "32";
             bool ok;
             QString item = QInputDialog::getItem(this, title, tr("Bit depth:"), bitdepths, bitdepths.indexOf(Settings::CustomQualityArguments), false, &ok);
