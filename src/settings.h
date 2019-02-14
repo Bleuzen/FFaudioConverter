@@ -30,10 +30,12 @@ class Settings
 {
 public:
     static void init();
+    static void save();
 
     static QString FFmpegBinary;
     static QString OutputFormat;
     static QString Quality;
+    static QString CustomQualityArguments;
     static QString OutputSamplerate;
     static QString OutputDirectory;
     static QString AudioFilters;

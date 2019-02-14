@@ -25,7 +25,6 @@ along with this program.  If not, see <https://www.gnu.org/licenses/>.
 #include <QSettings>
 
 #include "settings.h"
-#include "util.h"
 
 namespace Ui {
 class SettingsDialog;
@@ -43,12 +42,14 @@ private slots:
     void on_buttonBox_accepted();
     void on_toolButton_SelectOutputDirectory_clicked();
     void on_comboBox_AudioFiltersPresets_activated(int index);
+    void on_comboBox_Quality_activated(int index);
+    void on_comboBox_OutputFormat_activated(int index);
 
 private:
     Ui::SettingsDialog *ui;
 
-    void SaveSettings();
     void LoadSettings();
+    void ApplySettings();
 };
 
 #endif // SETTINGSDIALOG_H

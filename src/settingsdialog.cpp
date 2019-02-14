@@ -23,6 +23,9 @@ along with this program.  If not, see <https://www.gnu.org/licenses/>.
 
 #include <QDebug>
 #include <QFileDialog>
+#include <QInputDialog>
+
+#include "util.h"
 
 SettingsDialog::SettingsDialog(QWidget *parent) :
     QDialog(parent),
@@ -44,6 +47,7 @@ SettingsDialog::SettingsDialog(QWidget *parent) :
     ui->comboBox_Quality->addItem(tr("Medium"), "medium");
     ui->comboBox_Quality->addItem(tr("High"), "high");
     ui->comboBox_Quality->addItem(tr("Extreme"), "extreme");
+    ui->comboBox_Quality->addItem(tr("Custom"), "custom");
 
     ui->comboBox_OutputSamplerate->addItem(tr("Keep"), "");
     ui->comboBox_OutputSamplerate->addItem("44100 Hz", "44100");
@@ -69,10 +73,10 @@ SettingsDialog::~SettingsDialog()
 
 void SettingsDialog::on_buttonBox_accepted()
 {
-    SaveSettings();
+    ApplySettings();
 }
 
-void SettingsDialog::SaveSettings()
+void SettingsDialog::ApplySettings()
 {
     Settings::FFmpegBinary = ui->lineEdit_FFmpegBinary->text().trimmed();
     Settings::OutputFormat = ui->comboBox_OutputFormat->currentData().toString();
@@ -84,19 +88,7 @@ void SettingsDialog::SaveSettings()
     Settings::QuickConvertMode = ui->checkBox_QuickConvertMode->isChecked();
     Settings::Threads = ui->spinBox_Threads->value();
 
-    QSettings settings;
-
-    settings.setValue("FFmpegBinary", Settings::FFmpegBinary);
-    settings.setValue("OutputFormat", Settings::OutputFormat);
-    settings.setValue("Quality", Settings::Quality);
-    settings.setValue("OutputDirectory", Settings::OutputDirectory);
-    settings.setValue("OutputSamplerate", Settings::OutputSamplerate);
-    settings.setValue("AudioFilters", Settings::AudioFilters);
-    settings.setValue("UseSoXresampler", Settings::UseSoXresampler);
-    settings.setValue("QuickConvertMode", Settings::QuickConvertMode);
-    settings.setValue("Threads", Settings::Threads);
-
-    qDebug() << "Settings saved";
+    Settings::save();
 }
 
 void SettingsDialog::LoadSettings()
@@ -123,4 +115,44 @@ void SettingsDialog::on_toolButton_SelectOutputDirectory_clicked()
 void SettingsDialog::on_comboBox_AudioFiltersPresets_activated(int index)
 {
     ui->plainTextEdit_AudioFilters->setPlainText(ui->comboBox_AudioFiltersPresets->itemData(index).toString());
+}
+
+void SettingsDialog::on_comboBox_Quality_activated(int index)
+{
+    // Show the Quality tab if custom quality is selected or hide it if a preset is used
+    if(index == ui->comboBox_Quality->findData("custom")) {
+        QString format = ui->comboBox_OutputFormat->currentData().toString();
+        QString title = ui->label_Quality->text().replace(":", "");
+
+        if(format == "wav") {
+            QStringList bitdepths;  //TODO: rename?
+            bitdepths << "16" << "24" << "32";
+            bool ok;
+            QString item = QInputDialog::getItem(this, title, tr("Bit depth:"), bitdepths, bitdepths.indexOf(Settings::CustomQualityArguments), false, &ok);
+            if(ok && !item.isEmpty()) {
+                Settings::CustomQualityArguments = item;
+            }
+        } else {
+            bool ok;
+            QString text = QInputDialog::getText(this, title, tr("FFmpeg arguments:"), QLineEdit::Normal,
+                                                 Settings::CustomQualityArguments.isEmpty() ? "" : Settings::CustomQualityArguments,
+                                                 &ok);
+            if(ok && !text.isEmpty()) {
+                Settings::CustomQualityArguments = text;
+            } else {
+                ui->comboBox_Quality->setCurrentIndex(ui->comboBox_Quality->findData(Settings::Quality));
+            }
+        }
+
+    } else {
+        Settings::CustomQualityArguments = "";
+    }
+}
+
+void SettingsDialog::on_comboBox_OutputFormat_activated(int /* unused */)
+{
+    Settings::CustomQualityArguments = "";
+    if(ui->comboBox_Quality->currentData().toString() == "custom") {
+        ui->comboBox_Quality->setCurrentIndex(ui->comboBox_Quality->findData("high"));
+    }
 }
