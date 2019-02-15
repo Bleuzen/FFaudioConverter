@@ -12,6 +12,7 @@ Features:
 
 Currently supported output formats are:
  - mp3
+ - aac
  - ogg
  - opus
  - flac
