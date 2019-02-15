@@ -167,59 +167,74 @@ Stellen Sie 0 ein, um alle CPU Threads zu verwenden.</translation>
         <translation>Voreinstellung:</translation>
     </message>
     <message>
-        <location filename="../src/settingsdialog.cpp" line="46"/>
+        <location filename="../src/settingsdialog.cpp" line="49"/>
         <source>Extreme</source>
         <translation>Extrem</translation>
     </message>
     <message>
-        <location filename="../src/settingsdialog.cpp" line="45"/>
+        <location filename="../src/settingsdialog.cpp" line="48"/>
         <source>High</source>
         <translation>Hoch</translation>
     </message>
     <message>
-        <location filename="../src/settingsdialog.cpp" line="44"/>
+        <location filename="../src/settingsdialog.cpp" line="47"/>
         <source>Medium</source>
         <translation>Mittel</translation>
     </message>
     <message>
-        <location filename="../src/settingsdialog.cpp" line="48"/>
+        <location filename="../src/settingsdialog.cpp" line="50"/>
+        <source>Custom</source>
+        <translation>Benutzerdefiniert</translation>
+    </message>
+    <message>
+        <location filename="../src/settingsdialog.cpp" line="52"/>
         <source>Keep</source>
         <translation>Unverändert lassen</translation>
     </message>
     <message>
-        <location filename="../src/settingsdialog.cpp" line="53"/>
+        <location filename="../src/settingsdialog.cpp" line="57"/>
         <source>Disabled</source>
         <translation>Deaktiviert</translation>
     </message>
     <message>
-        <location filename="../src/settingsdialog.cpp" line="54"/>
+        <location filename="../src/settingsdialog.cpp" line="58"/>
         <source>Increase volume</source>
         <translation>Erhöhe Lautstärke</translation>
     </message>
     <message>
-        <location filename="../src/settingsdialog.cpp" line="55"/>
+        <location filename="../src/settingsdialog.cpp" line="59"/>
         <source>Reduce volume</source>
         <translation>Reduziere Lautstärke</translation>
     </message>
     <message>
-        <location filename="../src/settingsdialog.cpp" line="56"/>
+        <location filename="../src/settingsdialog.cpp" line="60"/>
         <source>Fade-in and fade-out</source>
         <translation>Ein- und Ausblenden</translation>
     </message>
     <message>
-        <location filename="../src/settingsdialog.cpp" line="57"/>
+        <location filename="../src/settingsdialog.cpp" line="61"/>
         <source>Bass boost</source>
         <translation>Bassverstärkung</translation>
     </message>
     <message>
-        <location filename="../src/settingsdialog.cpp" line="58"/>
+        <location filename="../src/settingsdialog.cpp" line="62"/>
         <source>Speed up</source>
         <translation>Geschwindigkeit erhöhen</translation>
     </message>
     <message>
-        <location filename="../src/settingsdialog.cpp" line="117"/>
+        <location filename="../src/settingsdialog.cpp" line="109"/>
         <source>Open Directory</source>
         <translation>Verzeichnis öffnen</translation>
+    </message>
+    <message>
+        <location filename="../src/settingsdialog.cpp" line="131"/>
+        <source>Bit depth:</source>
+        <translation>Bittiefe:</translation>
+    </message>
+    <message>
+        <location filename="../src/settingsdialog.cpp" line="137"/>
+        <source>FFmpeg arguments:</source>
+        <translation>FFmpeg Parameter:</translation>
     </message>
 </context>
 </TS>
