@@ -71,7 +71,7 @@ void FFmpegTask::run()
     ffmpeg->setArguments(ffmpegArgs);
     // Run FFmpeg process
     ffmpeg->start();
-    ffmpeg->waitForFinished();
+    ffmpeg->waitForFinished(-1);
     int exitCode = ffmpeg->exitCode();
 
     qDebug() << "Finished job" << id << "with exit code" << exitCode;
