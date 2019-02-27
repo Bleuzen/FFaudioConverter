@@ -92,7 +92,10 @@ void FFmpegTask::prepare() {
     QString basename = infileInfo.completeBaseName();
     infileExt = infileInfo.suffix();
 #ifdef Q_OS_WIN
-    sourcedir = sourcedir.replace(":", "");  // Fix path on Windows
+    // Fix path on Windows
+    if(!outdir.startsWith("{sourcedir}")) {
+        sourcedir = sourcedir.replace(":", "");
+    }
 #endif
     outdir = outdir.replace("{sourcedir}", sourcedir);  // Allow to use source directory as variable in output directory
     outfile = outdir + QDir::separator() + basename;  // Output file path without extension (will be added later)
