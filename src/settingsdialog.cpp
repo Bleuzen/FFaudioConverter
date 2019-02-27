@@ -64,6 +64,9 @@ SettingsDialog::SettingsDialog(QWidget *parent) :
 
     // Set settings in GUI
     LoadSettings();
+
+    // Fix cursor position in output directory textfield
+    ui->lineEdit_OutputDirectory->setCursorPosition(0);
 }
 
 SettingsDialog::~SettingsDialog()
@@ -108,7 +111,7 @@ void SettingsDialog::on_toolButton_SelectOutputDirectory_clicked()
 {
     QString dir = QFileDialog::getExistingDirectory(this, tr("Open Directory"), Settings::OutputDirectory, QFileDialog::ShowDirsOnly| QFileDialog::DontResolveSymlinks);
     if(!Util::isNullOrEmpty(dir)) {
-        ui->lineEdit_OutputDirectory->setText(dir);
+        ui->lineEdit_OutputDirectory->setText(dir + QDir::separator() + "{sourcedir}");
     }
 }
 

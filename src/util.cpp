@@ -32,6 +32,15 @@ bool Util::isBinary(QString file) {
 }
 
 bool Util::prepareAndCheckDirectory(QString dir) {
+    if(dir.startsWith("{sourcedir}")) {
+        return true;
+    }
+
+    int sourcedirIndex = dir.indexOf("{sourcedir}");
+    if(sourcedirIndex != -1) {
+        dir = dir.left(sourcedirIndex);
+    }
+
     QFileInfo dirInfo(dir);
     // Create dir if it does not exist
     if(!dirInfo.exists()) {

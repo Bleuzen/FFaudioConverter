@@ -33,7 +33,7 @@ class FFmpegTask : public QObject, public QRunnable
     Q_OBJECT
 
 public:
-    FFmpegTask(int id, QString inpath, QString outdir);
+    FFmpegTask(int id, QString inpath);
 
     enum ConvertStatus {  // registered in "main.cpp"
         Pending,

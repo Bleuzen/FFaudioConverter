@@ -21,11 +21,11 @@ along with this program.  If not, see <https://www.gnu.org/licenses/>.
 #include "ffmpegtask.h"
 #include "mainwindow.h"
 
-FFmpegTask::FFmpegTask(int id, QString inpath, QString outdir)
+FFmpegTask::FFmpegTask(int id, QString inpath)
 {
     this->id = id;
     this->infile = inpath;
-    this->outdir = outdir;
+    this->outdir = Settings::OutputDirectory;
 }
 
 void FFmpegTask::run()
@@ -88,15 +88,14 @@ void FFmpegTask::run()
 void FFmpegTask::prepare() {
     QFileInfo infileInfo(infile);
     QDir qdir = infileInfo.absoluteDir();
-    QString subdirs = qdir.path();
+    QString sourcedir = qdir.path();
     QString basename = infileInfo.completeBaseName();
     infileExt = infileInfo.suffix();
-    if (!subdirs.startsWith(QDir::separator())) subdirs = QDir::separator() + subdirs;  // add dir separator if missing
 #ifdef Q_OS_WIN
-    subdirs = subdirs.replace(":", "");  // Fix path on Windows
+    sourcedir = sourcedir.replace(":", "");  // Fix path on Windows
 #endif
-    outdir = (outdir + subdirs);  // add dir path of the input file to the outdir to reconstruct directory structure
-    outfile = outdir + QDir::separator() + basename;  // output file path without extension (will be added later)
+    outdir = outdir.replace("{sourcedir}", sourcedir);  // Allow to use source directory as variable in output directory
+    outfile = outdir + QDir::separator() + basename;  // Output file path without extension (will be added later)
 
     ffmpegArgs << "-hide_banner";
     if(Settings::QuickConvertMode) {
