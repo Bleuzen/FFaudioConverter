@@ -194,7 +194,7 @@ void MainWindow::resetTableModel()
 
 void MainWindow::convertItem(int id, QString file)
 {
-    FFmpegTask *task = new FFmpegTask(id, file, Settings::OutputDirectory);
+    FFmpegTask *task = new FFmpegTask(id, file);
     task->setAutoDelete(true);
     connect(task, SIGNAL(ConvertDone(int, FFmpegTask::ConvertStatus)), this, SLOT(onConvertDone(int, FFmpegTask::ConvertStatus)), Qt::QueuedConnection);
     threadpool_converts->start(task);

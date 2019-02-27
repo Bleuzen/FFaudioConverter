@@ -38,7 +38,7 @@ void Settings::init() {
     Settings::OutputFormat = settings.value("OutputFormat", "mp3").toString();
     Settings::Quality = settings.value("Quality", "high").toString();
     Settings::CustomQualityArguments = settings.value("CustomQualityArguments", "").toString();
-    Settings::OutputDirectory = settings.value("OutputDirectory", QStandardPaths::writableLocation(QStandardPaths::HomeLocation) + QDir().separator() + QCoreApplication::applicationName()).toString();
+    Settings::OutputDirectory = settings.value("OutputDirectory", QStandardPaths::writableLocation(QStandardPaths::HomeLocation) + QDir().separator() + QCoreApplication::applicationName()+ QDir().separator() + "{sourcedir}").toString();
     Settings::OutputSamplerate = settings.value("OutputSamplerate", "44100").toString();
     Settings::AudioFilters = settings.value("AudioFilters", "").toString();
     Settings::UseSoXresampler = settings.value("UseSoXresampler", false).toBool();
