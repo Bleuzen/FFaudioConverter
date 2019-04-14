@@ -45,10 +45,6 @@ int main(int argc, char *argv[])
 
     app.setWindowIcon(QIcon(":/com.github.Bleuzen.FFaudioConverter.ico"));
 
-#ifdef Q_OS_WIN
-    app.setStyle(QStyleFactory::create("Fusion"));  // Use Fusion style on Windows because it looks better
-#endif
-
     // Register ENUMs
     qRegisterMetaType<FFmpegTask::ConvertStatus>("FFmpegTask::ConvertStatus");
 
