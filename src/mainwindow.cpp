@@ -145,7 +145,14 @@ QModelIndex MainWindow::rowToFileIndex(int row) {
 
 void MainWindow::insertTableRow()
 {
-    model->insertRows(model->rowCount(), 1);
+    // Add row
+    int row = model->rowCount();
+    model->insertRows(row, 1);
+
+    // Center status text
+    QModelIndex index = rowToStatusIndex(row);
+    model->setData(index, Qt::AlignCenter, Qt::TextAlignmentRole);
+    model->setData(index, Qt::AlignHCenter, Qt::TextAlignmentRole);
 }
 
 void MainWindow::setItemFileValue(int row, QString content)
@@ -165,12 +172,16 @@ void MainWindow::setConvertItemStatus(QModelIndex index, FFmpegTask::ConvertStat
     QColor sColor;
 
     if(status == FFmpegTask::ConvertStatus::Pending) {
+        model->setData(index, tr("Pending"));
         model->setData(index, QColor(Qt::yellow), Qt::BackgroundRole);
     } else if(status == FFmpegTask::ConvertStatus::Done) {
+        model->setData(index, tr("Done"));
         model->setData(index, QColor(Qt::green), Qt::BackgroundRole);
     } else if(status == FFmpegTask::ConvertStatus::Failed) {
+        model->setData(index, tr("Failed"));
         model->setData(index, QColor(Qt::red), Qt::BackgroundRole);
     } else if(status == FFmpegTask::ConvertStatus::Skipped) {
+        model->setData(index, tr("Skipped"));
         model->setData(index, QColor(Qt::blue), Qt::BackgroundRole);
     }
 }
