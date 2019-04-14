@@ -21,6 +21,8 @@ along with this program.  If not, see <https://www.gnu.org/licenses/>.
 #include "ffmpegtask.h"
 #include "mainwindow.h"
 
+#include <QMessageBox>
+
 FFmpegTask::FFmpegTask(int id, QString inpath)
 {
     this->id = id;
@@ -67,17 +69,23 @@ void FFmpegTask::run()
 
     // Create FFmpeg process
     QProcess *ffmpeg = new QProcess();
+
     ffmpeg->setProgram(Settings::FFmpegBinary);
     ffmpeg->setArguments(ffmpegArgs);
+
+    QString result;
+    ffmpeg->setProcessChannelMode(QProcess::MergedChannels);
+    QObject::connect(ffmpeg, &QProcess::readyReadStandardOutput, [ffmpeg,&result]()->void{result+=ffmpeg->readAllStandardOutput();});
+
     // Run FFmpeg process
     ffmpeg->start();
     ffmpeg->waitForFinished(-1);
     int exitCode = ffmpeg->exitCode();
 
+    qDebug() << "Result of job" << id << "|" << result;
     qDebug() << "Finished job" << id << "with exit code" << exitCode;
 
     bool success = (exitCode == 0);
-
     if(success) {
         emit ConvertDone(id, ConvertStatus::Done);
     } else {
