@@ -152,7 +152,6 @@ void MainWindow::insertTableRow()
     // Center status text
     QModelIndex index = rowToStatusIndex(row);
     model->setData(index, Qt::AlignCenter, Qt::TextAlignmentRole);
-    model->setData(index, Qt::AlignHCenter, Qt::TextAlignmentRole);
 }
 
 void MainWindow::setItemFileValue(int row, QString content)
