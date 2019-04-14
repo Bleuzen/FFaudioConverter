@@ -67,17 +67,37 @@
         <translation>Datei</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="251"/>
+        <location filename="../src/mainwindow.cpp" line="175"/>
+        <source>Pending</source>
+        <translation>Ausstehend</translation>
+    </message>
+    <message>
+        <location filename="../src/mainwindow.cpp" line="178"/>
+        <source>Done</source>
+        <translation>Fertig</translation>
+    </message>
+    <message>
+        <location filename="../src/mainwindow.cpp" line="181"/>
+        <source>Failed</source>
+        <translation>Gescheitert</translation>
+    </message>
+    <message>
+        <location filename="../src/mainwindow.cpp" line="184"/>
+        <source>Skipped</source>
+        <translation>Übersprungen</translation>
+    </message>
+    <message>
+        <location filename="../src/mainwindow.cpp" line="262"/>
         <source>Remove</source>
         <translation>Entfernen</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="289"/>
+        <location filename="../src/mainwindow.cpp" line="300"/>
         <source>FFmpeg binary is invalid. Please check your settings.</source>
         <translation>Ihre FFmpeg Binary ist ungültig. Bitte überprüfen Sie ihre Einstellungen.</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="293"/>
+        <location filename="../src/mainwindow.cpp" line="304"/>
         <source>Your output directory is bad. Maybe it is not writable?</source>
         <translation>Etwas mit Ihrem Ausgabeverzeichnis stimmt nicht. Haben Sie Schreibrechte?</translation>
     </message>
@@ -222,17 +242,17 @@ Stellen Sie 0 ein, um alle CPU Threads zu verwenden.</translation>
         <translation>Geschwindigkeit erhöhen</translation>
     </message>
     <message>
-        <location filename="../src/settingsdialog.cpp" line="109"/>
+        <location filename="../src/settingsdialog.cpp" line="112"/>
         <source>Open Directory</source>
         <translation>Verzeichnis öffnen</translation>
     </message>
     <message>
-        <location filename="../src/settingsdialog.cpp" line="131"/>
+        <location filename="../src/settingsdialog.cpp" line="134"/>
         <source>Bit depth:</source>
         <translation>Bittiefe:</translation>
     </message>
     <message>
-        <location filename="../src/settingsdialog.cpp" line="137"/>
+        <location filename="../src/settingsdialog.cpp" line="140"/>
         <source>FFmpeg arguments:</source>
         <translation>FFmpeg Parameter:</translation>
     </message>

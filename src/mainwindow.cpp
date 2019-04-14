@@ -169,8 +169,6 @@ void MainWindow::setConvertItemStatus(int row, FFmpegTask::ConvertStatus status)
 
 void MainWindow::setConvertItemStatus(QModelIndex index, FFmpegTask::ConvertStatus status)
 {
-    QColor sColor;
-
     if(status == FFmpegTask::ConvertStatus::Pending) {
         model->setData(index, tr("Pending"));
         model->setData(index, QColor(Qt::yellow), Qt::BackgroundRole);
