@@ -21,8 +21,6 @@ along with this program.  If not, see <https://www.gnu.org/licenses/>.
 #include "ffmpegtask.h"
 #include "mainwindow.h"
 
-#include <QMessageBox>
-
 FFmpegTask::FFmpegTask(int id, QString inpath)
 {
     this->id = id;
