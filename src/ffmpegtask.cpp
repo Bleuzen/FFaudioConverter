@@ -149,7 +149,7 @@ void FFmpegTask::prepare() {
         if(wantCustomQualityOptions()) {
             addCustomQualityOptions();
         } else if(Settings::Quality == "extreme") {
-            ffmpegArgs << "-q:a" << "9";
+            ffmpegArgs << "-q:a" << "8";
         } else if(Settings::Quality == "high") {
             ffmpegArgs << "-q:a" << "6";
         } else if(Settings::Quality == "medium") {
