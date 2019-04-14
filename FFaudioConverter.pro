@@ -86,11 +86,11 @@ DEFINES += DEFAULT_FFMPEG_BINARY=\\\"$${DEFAULT_FFMPEG_BINARY}\\\"
 win32:RC_ICONS += com.github.Bleuzen.FFaudioConverter.ico
 
 # Deployment
-isEmpty(PREFIX) {
-    qnx: target.path = /tmp/$${TARGET}/bin
-    else: unix:!android: target.path = /opt/$${TARGET}/bin
-    !isEmpty(target.path): INSTALLS += target
-} else:unix {
+unix {
+    isEmpty(PREFIX) {
+        PREFIX = /usr
+    }
+
     BINDIR = $$PREFIX/bin
     DATADIR = $$PREFIX/share
 
