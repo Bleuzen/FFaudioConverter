@@ -57,7 +57,8 @@ private slots:
 
     void on_tableView_customContextMenuRequested(const QPoint &pos);
 
-    void onConvertDone(int id, FFmpegTask::ConvertStatus status);
+    void onStatusChange(int id, FFmpegTask::ConvertStatus status);
+    void onConvertDone(int id);
 
 private:
     Ui::MainWindow *ui;

@@ -33,7 +33,8 @@ void FFmpegTask::run()
     // Skip if input file can not be an audio or video file
     if(!Util::mayBeAudioOrVideoFile(infile)) {
         qDebug() << "Skipping job" << id;
-        emit ConvertDone(id, ConvertStatus::Skipped);
+        emit StatusChange(id, ConvertStatus::Skipped);
+        emit ConvertDone(id);
         return;
     }
 
@@ -50,20 +51,24 @@ void FFmpegTask::run()
         // Skip file if it has already been converted
         if(QFile::exists(outfile)) {
             qDebug() << "Skipping job" << id;
-            emit ConvertDone(id, ConvertStatus::Skipped);
+            emit StatusChange(id, ConvertStatus::Skipped);
+            emit ConvertDone(id);
             return;
         }
         // Copy file if input and output format are the same
         if(infileExt.toLower() == outfileExt) {
             qDebug() << "Copy file of job" << id;
             if(QFile::copy(infile, outfile)) {
-                emit ConvertDone(id, ConvertStatus::Done);
+                emit StatusChange(id, ConvertStatus::Done);
             } else {
-                emit ConvertDone(id, ConvertStatus::Failed);
+                emit StatusChange(id, ConvertStatus::Failed);
             }
+            emit ConvertDone(id);
             return;
         }
     }
+
+    emit StatusChange(id, ConvertStatus::Converting);
 
     // Create FFmpeg process
     QProcess *ffmpeg = new QProcess();
@@ -85,10 +90,11 @@ void FFmpegTask::run()
 
     bool success = (exitCode == 0);
     if(success) {
-        emit ConvertDone(id, ConvertStatus::Done);
+        emit StatusChange(id, ConvertStatus::Done);
     } else {
-        emit ConvertDone(id, ConvertStatus::Failed);
+        emit StatusChange(id, ConvertStatus::Failed);
     }
+    emit ConvertDone(id);
 }
 
 void FFmpegTask::prepare() {

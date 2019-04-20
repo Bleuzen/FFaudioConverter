@@ -37,6 +37,7 @@ public:
 
     enum ConvertStatus {  // registered in "main.cpp"
         Pending,
+        Converting,
         Failed,
         Skipped,
         Done
@@ -57,7 +58,8 @@ private:
     void addCustomQualityOptions();
 
 signals:
-    void ConvertDone(int id, FFmpegTask::ConvertStatus status);
+    void StatusChange(int id, FFmpegTask::ConvertStatus status);
+    void ConvertDone(int id);
 
 protected:
     void run();

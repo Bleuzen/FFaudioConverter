@@ -171,6 +171,9 @@ void MainWindow::setConvertItemStatus(QModelIndex index, FFmpegTask::ConvertStat
     if(status == FFmpegTask::ConvertStatus::Pending) {
         model->setData(index, tr("Pending"));
         model->setData(index, QColor(Qt::yellow), Qt::BackgroundRole);
+    } else if(status == FFmpegTask::ConvertStatus::Converting) {
+        model->setData(index, tr("Converting"));
+        model->setData(index, QColor(Qt::darkYellow), Qt::BackgroundRole);
     } else if(status == FFmpegTask::ConvertStatus::Done) {
         model->setData(index, tr("Done"));
         model->setData(index, QColor(Qt::green), Qt::BackgroundRole);
@@ -204,7 +207,8 @@ void MainWindow::convertItem(int id, QString file)
 {
     FFmpegTask *task = new FFmpegTask(id, file);
     task->setAutoDelete(true);
-    connect(task, SIGNAL(ConvertDone(int, FFmpegTask::ConvertStatus)), this, SLOT(onConvertDone(int, FFmpegTask::ConvertStatus)), Qt::QueuedConnection);
+    connect(task, SIGNAL(StatusChange(int, FFmpegTask::ConvertStatus)), this, SLOT(onStatusChange(int, FFmpegTask::ConvertStatus)), Qt::QueuedConnection);
+    connect(task, SIGNAL(ConvertDone(int)), this, SLOT(onConvertDone(int)), Qt::QueuedConnection);
     threadpool_converts->start(task);
 }
 
@@ -218,28 +222,22 @@ void MainWindow::cancel() {
     });
 }
 
-void MainWindow::onConvertDone(int id, FFmpegTask::ConvertStatus status)
+void MainWindow::onStatusChange(int id, FFmpegTask::ConvertStatus status)
 {
-    convert_doneItemsCount++;
-
     int row = (id - 1);
     QModelIndex index = rowToStatusIndex(row);
-
-    // Update status
     setConvertItemStatus(index, status);
+}
 
-    // Scroll to last item which is done (if no other previous item is still converting)
-    // Disabled for now because it can behave weird in some cases and some users may not want it.
-    //TODO: Maybe implement a setting for this?
-//    if(id <= convert_doneItemsCount) {
-//        ui->tableView->scrollTo(index);
-//    }
+void MainWindow::onConvertDone(int /* id */)
+{
+    convert_doneItemsCount++;
 
     // Update progress and progressbar
     convert_progress = (convert_doneItemsCount * 100 / convert_totalItemsCount);
     ui->progressBar->setValue(convert_progress);
 
-    // Check if the was the last file
+    // Check if this was the last file
     if(convert_doneItemsCount == convert_totalItemsCount) {
         // Convert of all files is done
         qDebug() << "Done";
