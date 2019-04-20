@@ -39,7 +39,7 @@ void Settings::init() {
     Settings::Quality = settings.value("Quality", "high").toString();
     Settings::CustomQualityArguments = settings.value("CustomQualityArguments", "").toString();
     Settings::OutputDirectory = settings.value("OutputDirectory", QStandardPaths::writableLocation(QStandardPaths::HomeLocation) + "/" + QCoreApplication::applicationName() + "/{sourcedir}").toString();
-    Settings::OutputSamplerate = settings.value("OutputSamplerate", "44100").toString();
+    Settings::OutputSamplerate = settings.value("OutputSamplerate", "").toString();
     Settings::AudioFilters = settings.value("AudioFilters", "").toString();
     Settings::UseSoXresampler = settings.value("UseSoXresampler", false).toBool();
     Settings::QuickConvertMode = settings.value("QuickConvertMode", false).toBool();
