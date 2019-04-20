@@ -73,31 +73,36 @@
     </message>
     <message>
         <location filename="../src/mainwindow.cpp" line="175"/>
+        <source>Converting</source>
+        <translation>Konvertiere</translation>
+    </message>
+    <message>
+        <location filename="../src/mainwindow.cpp" line="178"/>
         <source>Done</source>
         <translation>Fertig</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="178"/>
+        <location filename="../src/mainwindow.cpp" line="181"/>
         <source>Failed</source>
         <translation>Fehlgeschlagen</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="181"/>
+        <location filename="../src/mainwindow.cpp" line="184"/>
         <source>Skipped</source>
         <translation>Übersprungen</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="259"/>
+        <location filename="../src/mainwindow.cpp" line="257"/>
         <source>Remove</source>
         <translation>Entfernen</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="297"/>
+        <location filename="../src/mainwindow.cpp" line="295"/>
         <source>FFmpeg binary is invalid. Please check your settings.</source>
         <translation>Ihre FFmpeg Binary ist ungültig. Bitte überprüfen Sie ihre Einstellungen.</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="301"/>
+        <location filename="../src/mainwindow.cpp" line="299"/>
         <source>Your output directory is bad. Maybe it is not writable?</source>
         <translation>Etwas mit Ihrem Ausgabeverzeichnis stimmt nicht. Haben Sie Schreibrechte?</translation>
     </message>
