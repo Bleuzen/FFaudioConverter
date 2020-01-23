@@ -1,6 +1,6 @@
 /* ----------------------------------------------------------------------
 FFaudioConverter
-Copyright (C) 2018-2019  Bleuzen
+Copyright (C) 2018-2020  Bleuzen
 https://github.com/Bleuzen/FFaudioConverter
 supgesu@gmail.com
 
@@ -123,14 +123,8 @@ void FFmpegTask::prepare() {
     if(Settings::OutputFormat == "mp3") {
         outfileExt = "mp3";
         ffmpegArgs << "-c:a" << "libmp3lame";
-        if(wantCustomQualityOptions()) {
-            addCustomQualityOptions();
-        } else if(Settings::Quality == "extreme") {
-            ffmpegArgs << "-b:a" << "320k";
-        } else if(Settings::Quality == "high") {
-            ffmpegArgs << "-q:a" << "1";
-        } else if(Settings::Quality == "medium") {
-            ffmpegArgs << "-q:a" << "4";
+        foreach (const QString &arg, Settings::OutputQualityArguments.split(" ")) {
+            if (arg.length() > 0) ffmpegArgs << arg;
         }
         if (!Util::isNullOrEmpty(Settings::OutputSamplerate)) ffmpegArgs << "-ar" << Settings::OutputSamplerate;
         ffmpegArgs << "-map_metadata" << "0";
@@ -141,14 +135,8 @@ void FFmpegTask::prepare() {
         outfileExt = "m4a";
         ffmpegArgs << "-c:a" << "aac";
         ffmpegArgs << "-vn";  // removes cover art but is the only way I know to get m4a working
-        if(wantCustomQualityOptions()) {
-            addCustomQualityOptions();
-        } else if(Settings::Quality == "extreme") {
-            ffmpegArgs << "-b:a" << "256k";
-        } else if(Settings::Quality == "high") {
-            ffmpegArgs << "-b:a" << "192k";
-        } else if(Settings::Quality == "medium") {
-            ffmpegArgs << "-b:a" << "128k";
+        foreach (const QString &arg, Settings::OutputQualityArguments.split(" ")) {
+            if (arg.length() > 0) ffmpegArgs << arg;
         }
         if (!Util::isNullOrEmpty(Settings::OutputSamplerate)) ffmpegArgs << "-ar" << Settings::OutputSamplerate;
         ffmpegArgs << "-map_metadata" << "0";
@@ -158,14 +146,8 @@ void FFmpegTask::prepare() {
         outfileExt = "ogg";
         ffmpegArgs << "-vn"; //TODO: remove this to keep album art but without the output is a video
         ffmpegArgs << "-c:a" << "libvorbis";
-        if(wantCustomQualityOptions()) {
-            addCustomQualityOptions();
-        } else if(Settings::Quality == "extreme") {
-            ffmpegArgs << "-q:a" << "8";
-        } else if(Settings::Quality == "high") {
-            ffmpegArgs << "-q:a" << "6";
-        } else if(Settings::Quality == "medium") {
-            ffmpegArgs << "-q:a" << "4";
+        foreach (const QString &arg, Settings::OutputQualityArguments.split(" ")) {
+            if (arg.length() > 0) ffmpegArgs << arg;
         }
         if (!Util::isNullOrEmpty(Settings::OutputSamplerate)) ffmpegArgs << "-ar" << Settings::OutputSamplerate;
         ffmpegArgs << "-map_metadata" << "0";
@@ -174,14 +156,8 @@ void FFmpegTask::prepare() {
     } else if(Settings::OutputFormat == "opus") {
         outfileExt = "opus";
         ffmpegArgs << "-c:a" << "libopus";  //TODO: opus currently loses album art (at least with ffmpeg 4.1)
-        if(wantCustomQualityOptions()) {
-            addCustomQualityOptions();
-        } else if(Settings::Quality == "extreme") {
-            ffmpegArgs << "-b:a" << "192k";
-        } else if(Settings::Quality == "high") {
-            ffmpegArgs << "-b:a" << "160k";
-        } else if(Settings::Quality == "medium") {
-            ffmpegArgs << "-b:a" << "128k";
+        foreach (const QString &arg, Settings::OutputQualityArguments.split(" ")) {
+            if (arg.length() > 0) ffmpegArgs << arg;
         }
         // ChangeSamplerate not possible for opus (always uses 48 kHz)
         ffmpegArgs << "-map_metadata" << "0";
@@ -190,10 +166,8 @@ void FFmpegTask::prepare() {
     } else if(Settings::OutputFormat == "flac") {
         outfileExt = "flac";
         ffmpegArgs << "-c:a" << "flac";
-        if(wantCustomQualityOptions()) {
-            addCustomQualityOptions();
-        } else if (Settings::Quality == "medium") {
-            ffmpegArgs << "-sample_fmt" << "s16";
+        foreach (const QString &arg, Settings::OutputQualityArguments.split(" ")) {
+            if (arg.length() > 0) ffmpegArgs << arg;
         }
         if (!Util::isNullOrEmpty(Settings::OutputSamplerate)) ffmpegArgs << "-ar" << Settings::OutputSamplerate;
         ffmpegArgs << "-map_metadata" << "0";
@@ -201,16 +175,8 @@ void FFmpegTask::prepare() {
 
     } else if(Settings::OutputFormat == "wav") {
         outfileExt = "wav";
-        if(wantCustomQualityOptions()) {
-            if(Settings::CustomQualityArguments == "32") {
-                ffmpegArgs << "-c:a" << "pcm_s32le";
-            } else if(Settings::CustomQualityArguments == "24") {
-                ffmpegArgs << "-c:a" << "pcm_s24le";
-            } else {
-                ffmpegArgs << "-c:a" << "pcm_s16le";
-            }
-        } else {
-            ffmpegArgs << "-c:a" << "pcm_s16le";
+        foreach (const QString &arg, Settings::OutputQualityArguments.split(" ")) {
+            if (arg.length() > 0) ffmpegArgs << arg;
         }
         if (!Util::isNullOrEmpty(Settings::OutputSamplerate)) ffmpegArgs << "-ar" << Settings::OutputSamplerate;
 
@@ -236,12 +202,4 @@ void FFmpegTask::prepare() {
     // Set output file
     outfile += "." + outfileExt;
     ffmpegArgs << outfile;
-}
-
-bool FFmpegTask::wantCustomQualityOptions() {
-    return Settings::Quality == "custom" && !Settings::CustomQualityArguments.isEmpty();
-}
-
-void FFmpegTask::addCustomQualityOptions() {
-    ffmpegArgs << Settings::CustomQualityArguments.split(" ");
 }

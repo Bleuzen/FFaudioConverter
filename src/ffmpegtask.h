@@ -1,6 +1,6 @@
 /* ----------------------------------------------------------------------
 FFaudioConverter
-Copyright (C) 2018-2019  Bleuzen
+Copyright (C) 2018-2020  Bleuzen
 https://github.com/Bleuzen/FFaudioConverter
 supgesu@gmail.com
 
@@ -53,9 +53,6 @@ private:
 
     QStringList ffmpegArgs;
     QString audioFilters;
-
-    bool wantCustomQualityOptions();
-    void addCustomQualityOptions();
 
 signals:
     void StatusChange(int id, FFmpegTask::ConvertStatus status);

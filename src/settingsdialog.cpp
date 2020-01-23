@@ -1,6 +1,6 @@
 /* ----------------------------------------------------------------------
 FFaudioConverter
-Copyright (C) 2018-2019  Bleuzen
+Copyright (C) 2018-2020  Bleuzen
 https://github.com/Bleuzen/FFaudioConverter
 supgesu@gmail.com
 
@@ -44,11 +44,6 @@ SettingsDialog::SettingsDialog(QWidget *parent) :
     ui->comboBox_OutputFormat->addItem("FLAC (.flac)", "flac");
     ui->comboBox_OutputFormat->addItem("WAV (.wav)", "wav");
 
-    ui->comboBox_Quality->addItem(tr("Medium"), "medium");
-    ui->comboBox_Quality->addItem(tr("High"), "high");
-    ui->comboBox_Quality->addItem(tr("Extreme"), "extreme");
-    ui->comboBox_Quality->addItem(tr("Custom"), "custom");
-
     ui->comboBox_OutputSamplerate->addItem(tr("Keep"), "");
     ui->comboBox_OutputSamplerate->addItem("44100 Hz", "44100");
     ui->comboBox_OutputSamplerate->addItem("48000 Hz", "48000");
@@ -83,7 +78,7 @@ void SettingsDialog::ApplySettings()
 {
     Settings::FFmpegBinary = ui->lineEdit_FFmpegBinary->text().trimmed();
     Settings::OutputFormat = ui->comboBox_OutputFormat->currentData().toString();
-    Settings::Quality = ui->comboBox_Quality->currentData().toString();
+    Settings::OutputQualityArguments = ui->comboBox_Quality->currentData().toString();
     Settings::OutputDirectory = ui->lineEdit_OutputDirectory->text().trimmed();
     Settings::OutputSamplerate = ui->comboBox_OutputSamplerate->currentData().toString();
     Settings::AudioFilters = ui->plainTextEdit_AudioFilters->toPlainText().trimmed();
@@ -98,7 +93,8 @@ void SettingsDialog::LoadSettings()
 {
     ui->lineEdit_FFmpegBinary->setText(Settings::FFmpegBinary);
     ui->comboBox_OutputFormat->setCurrentIndex(ui->comboBox_OutputFormat->findData(Settings::OutputFormat));
-    ui->comboBox_Quality->setCurrentIndex(ui->comboBox_Quality->findData(Settings::Quality));
+    updateQualityComboBox(); // Fill quality options depending on output format
+    ui->comboBox_Quality->setCurrentIndex(ui->comboBox_Quality->findData(Settings::OutputQualityArguments));
     ui->lineEdit_OutputDirectory->setText(Settings::OutputDirectory);
     ui->comboBox_OutputSamplerate->setCurrentIndex(ui->comboBox_OutputSamplerate->findData(Settings::OutputSamplerate));
     ui->plainTextEdit_AudioFilters->setPlainText(Settings::AudioFilters);
@@ -120,42 +116,73 @@ void SettingsDialog::on_comboBox_AudioFiltersPresets_activated(int index)
     ui->plainTextEdit_AudioFilters->setPlainText(ui->comboBox_AudioFiltersPresets->itemData(index).toString());
 }
 
-void SettingsDialog::on_comboBox_Quality_activated(int index)
-{
-    // Show the Quality tab if custom quality is selected or hide it if a preset is used
-    if(index == ui->comboBox_Quality->findData("custom")) {
-        QString format = ui->comboBox_OutputFormat->currentData().toString();
-        QString title = ui->label_Quality->text().replace(":", "");
-
-        if(format == "wav") {
-            QStringList bitdepths;
-            bitdepths << "16" << "24" << "32";
-            bool ok;
-            QString item = QInputDialog::getItem(this, title, tr("Bit depth:"), bitdepths, bitdepths.indexOf(Settings::CustomQualityArguments), false, &ok);
-            if(ok && !item.isEmpty()) {
-                Settings::CustomQualityArguments = item;
-            }
-        } else {
-            bool ok;
-            QString text = QInputDialog::getText(this, title, tr("FFmpeg arguments:"), QLineEdit::Normal,
-                                                 Settings::CustomQualityArguments.isEmpty() ? "" : Settings::CustomQualityArguments,
-                                                 &ok);
-            if(ok && !text.isEmpty()) {
-                Settings::CustomQualityArguments = text.trimmed();
-            } else {
-                ui->comboBox_Quality->setCurrentIndex(ui->comboBox_Quality->findData(Settings::Quality));
-            }
-        }
-
-    } else {
-        Settings::CustomQualityArguments = "";
-    }
-}
-
 void SettingsDialog::on_comboBox_OutputFormat_activated(int /* unused */)
 {
-    Settings::CustomQualityArguments = "";
-    if(ui->comboBox_Quality->currentData().toString() == "custom") {
-        ui->comboBox_Quality->setCurrentIndex(ui->comboBox_Quality->findData("high"));
+    updateQualityComboBox();
+}
+
+void SettingsDialog::updateQualityComboBox() // Fill quality options (depending on output format)
+{
+    QString format = ui->comboBox_OutputFormat->currentData().toString();
+
+    ui->comboBox_Quality->clear();
+
+    if (format == "mp3") {
+        ui->comboBox_Quality->addItem("VBR, 0, (~245 kbps)", "-q:a 0");
+        ui->comboBox_Quality->addItem("VBR, 2, (~190 kbps)", "-q:a 2");
+        ui->comboBox_Quality->addItem("VBR, 4, (~165 kbps)", "-q:a 4");
+        ui->comboBox_Quality->addItem("VBR, 6, (~115 kbps)", "-q:a 6");
+        ui->comboBox_Quality->addItem("VBR, 8, (~85 kbps)", "-q:a 8");
+        ui->comboBox_Quality->addItem("CBR, 320 kbps", "-b:a 320k");
+        ui->comboBox_Quality->addItem("CBR, 256 kbps", "-b:a 256k");
+        ui->comboBox_Quality->addItem("CBR, 192 kbps", "-b:a 192k");
+        ui->comboBox_Quality->addItem("CBR, 128 kbps", "-b:a 128k");
+        ui->comboBox_Quality->addItem("CBR, 64 kbps", "-b:a 64k");
+
+        ui->comboBox_Quality->setCurrentIndex(1);
+
+    } else if (format == "m4a") {
+        ui->comboBox_Quality->addItem("CBR, 256 kbps", "-b:a 256k");
+        ui->comboBox_Quality->addItem("CBR, 192 kbps", "-b:a 192k");
+        ui->comboBox_Quality->addItem("CBR, 128 kbps", "-b:a 128k");
+
+        ui->comboBox_Quality->setCurrentIndex(1);
+
+    } else if (format == "ogg") {
+        ui->comboBox_Quality->addItem("VBR, 8, (~256 kbps)", "-q:a 8");
+        ui->comboBox_Quality->addItem("VBR, 6, (~192 kbps)", "-q:a 6");
+        ui->comboBox_Quality->addItem("VBR, 4, (~128 kbps)", "-q:a 4");
+        ui->comboBox_Quality->addItem("VBR, 2, (~96 kbps)", "-q:a 2");
+        ui->comboBox_Quality->addItem("VBR, 0, (~64 kbps)", "-q:a 0");
+        ui->comboBox_Quality->addItem("CBR, 320 kbps", "-b:a 320k");
+        ui->comboBox_Quality->addItem("CBR, 256 kbps", "-b:a 256k");
+        ui->comboBox_Quality->addItem("CBR, 192 kbps", "-b:a 192k");
+        ui->comboBox_Quality->addItem("CBR, 128 kbps", "-b:a 128k");
+        ui->comboBox_Quality->addItem("CBR, 64 kbps", "-b:a 64k");
+
+        ui->comboBox_Quality->setCurrentIndex(1);
+
+    } else if (format == "opus") {
+        ui->comboBox_Quality->addItem("ABR, 192 kbps", "-b:a 192k");
+        ui->comboBox_Quality->addItem("ABR, 160 kbps", "-b:a 160k");
+        ui->comboBox_Quality->addItem("ABR, 128 kbps", "-b:a 128k");
+        ui->comboBox_Quality->addItem("ABR, 96 kbps", "-b:a 96k");
+        ui->comboBox_Quality->addItem("ABR, 64 kbps", "-b:a 64k");
+
+        ui->comboBox_Quality->setCurrentIndex(1);
+
+    } else if (format == "flac") {
+        ui->comboBox_Quality->addItem("auto", "");
+        ui->comboBox_Quality->addItem("16 bit", "-sample_fmt s16");
+
+        ui->comboBox_Quality->setCurrentIndex(0);
+
+    } else if (format == "wav") {
+        ui->comboBox_Quality->addItem("32 bit", "-c:a pcm_s32le");
+        ui->comboBox_Quality->addItem("24 bit", "-c:a pcm_s24le");
+        ui->comboBox_Quality->addItem("16 bit", "-c:a pcm_s16le");
+
+        ui->comboBox_Quality->setCurrentIndex(2);
+
     }
 }

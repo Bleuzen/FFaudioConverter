@@ -1,6 +1,6 @@
 /* ----------------------------------------------------------------------
 FFaudioConverter
-Copyright (C) 2018-2019  Bleuzen
+Copyright (C) 2018-2020  Bleuzen
 https://github.com/Bleuzen/FFaudioConverter
 supgesu@gmail.com
 
@@ -34,8 +34,7 @@ public:
 
     static QString FFmpegBinary;
     static QString OutputFormat;
-    static QString Quality;
-    static QString CustomQualityArguments;
+    static QString OutputQualityArguments;
     static QString OutputSamplerate;
     static QString OutputDirectory;
     static QString AudioFilters;

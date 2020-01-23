@@ -1,6 +1,6 @@
 /* ----------------------------------------------------------------------
 FFaudioConverter
-Copyright (C) 2018-2019  Bleuzen
+Copyright (C) 2018-2020  Bleuzen
 https://github.com/Bleuzen/FFaudioConverter
 supgesu@gmail.com
 
@@ -42,7 +42,7 @@ private slots:
     void on_buttonBox_accepted();
     void on_toolButton_SelectOutputDirectory_clicked();
     void on_comboBox_AudioFiltersPresets_activated(int index);
-    void on_comboBox_Quality_activated(int index);
+//    void on_comboBox_Quality_activated(int index);
     void on_comboBox_OutputFormat_activated(int index);
 
 private:
@@ -50,6 +50,7 @@ private:
 
     void LoadSettings();
     void ApplySettings();
+    void updateQualityComboBox();
 };
 
 #endif // SETTINGSDIALOG_H
