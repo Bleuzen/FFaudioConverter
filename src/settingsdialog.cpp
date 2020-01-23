@@ -132,7 +132,6 @@ void SettingsDialog::updateQualityComboBox() // Fill quality options (depending 
         ui->comboBox_Quality->addItem("VBR, 2, (~190 kbps)", "-q:a 2");
         ui->comboBox_Quality->addItem("VBR, 4, (~165 kbps)", "-q:a 4");
         ui->comboBox_Quality->addItem("VBR, 6, (~115 kbps)", "-q:a 6");
-        ui->comboBox_Quality->addItem("VBR, 8, (~85 kbps)", "-q:a 8");
         ui->comboBox_Quality->addItem("CBR, 320 kbps", "-b:a 320k");
         ui->comboBox_Quality->addItem("CBR, 256 kbps", "-b:a 256k");
         ui->comboBox_Quality->addItem("CBR, 192 kbps", "-b:a 192k");
