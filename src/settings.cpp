@@ -1,6 +1,6 @@
 /* ----------------------------------------------------------------------
 FFaudioConverter
-Copyright (C) 2018-2019  Elias Martin (Bleuzen)
+Copyright (C) 2018-2020  Elias Martin (Bleuzen)
 https://github.com/Bleuzen/FFaudioConverter
 supgesu@gmail.com
 
@@ -22,8 +22,7 @@ along with this program.  If not, see <https://www.gnu.org/licenses/>.
 
 QString Settings::FFmpegBinary;
 QString Settings::OutputFormat;
-QString Settings::Quality;
-QString Settings::CustomQualityArguments;
+QString Settings::OutputQualityArguments;
 QString Settings::OutputDirectory;
 QString Settings::OutputSamplerate;
 QString Settings::AudioFilters;
@@ -36,8 +35,7 @@ void Settings::init() {
 
     Settings::FFmpegBinary = settings.value("FFmpegBinary", DEFAULT_FFMPEG_BINARY).toString();
     Settings::OutputFormat = settings.value("OutputFormat", "mp3").toString();
-    Settings::Quality = settings.value("Quality", "high").toString();
-    Settings::CustomQualityArguments = settings.value("CustomQualityArguments", "").toString();
+    Settings::OutputQualityArguments = settings.value("OutputQualityArguments", "-q:a 2").toString();
     Settings::OutputDirectory = settings.value("OutputDirectory", QStandardPaths::writableLocation(QStandardPaths::HomeLocation) + "/" + QCoreApplication::applicationName() + "/{sourcedir}").toString();
     Settings::OutputSamplerate = settings.value("OutputSamplerate", "").toString();
     Settings::AudioFilters = settings.value("AudioFilters", "").toString();
@@ -53,8 +51,7 @@ void Settings::save() {
 
     settings.setValue("FFmpegBinary", Settings::FFmpegBinary);
     settings.setValue("OutputFormat", Settings::OutputFormat);
-    settings.setValue("Quality", Settings::Quality);
-    settings.setValue("CustomQualityArguments", Settings::CustomQualityArguments);
+    settings.setValue("OutputQualityArguments", Settings::OutputQualityArguments);
     settings.setValue("OutputDirectory", Settings::OutputDirectory);
     settings.setValue("OutputSamplerate", Settings::OutputSamplerate);
     settings.setValue("AudioFilters", Settings::AudioFilters);
