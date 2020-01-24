@@ -42,7 +42,6 @@ private slots:
     void on_buttonBox_accepted();
     void on_toolButton_SelectOutputDirectory_clicked();
     void on_comboBox_AudioFiltersPresets_activated(int index);
-//    void on_comboBox_Quality_activated(int index);
     void on_comboBox_OutputFormat_activated(int index);
 
 private:
