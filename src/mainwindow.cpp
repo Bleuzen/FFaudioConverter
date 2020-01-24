@@ -69,9 +69,10 @@ MainWindow::~MainWindow()
 }
 
 void MainWindow::processCommandLine(QStringList positionalArguments) {
-    // Add file or directory from positional argument from command line
-    QString localPath = positionalArguments.first();
-    addFromPath(localPath);
+    // Add files and directories from positional arguments from command line
+    foreach (const QString &path, positionalArguments) {
+        addFromPath(path);
+    }
     showTable();
 }
 
