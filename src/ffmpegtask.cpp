@@ -114,10 +114,11 @@ void FFmpegTask::prepare() {
 
     ffmpegArgs << "-hide_banner";
     if(Settings::QuickConvertMode) {
-        ffmpegArgs<< "-n";  // Not overwrite (keep existing file)
+        ffmpegArgs << "-n";  // Not overwrite (keep existing file)
     } else {
-        ffmpegArgs<< "-y";  // Overwrite (reconvert if file exists)
+        ffmpegArgs << "-y";  // Overwrite (reconvert if file exists)
     }
+    ffmpegArgs << "-vn"; // Ignore video of input file
     ffmpegArgs << "-i" << infile;
 
     if(Settings::OutputFormat == "mp3") {
