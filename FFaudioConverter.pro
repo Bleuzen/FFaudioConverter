@@ -16,7 +16,7 @@ unix: !macx {
 }
 
 # Set program version
-VERSION = 0.29
+VERSION = 0.29.1
 DEFINES += VERSIONSTR=\\\"$${VERSION}\\\"
 
 # The following define makes your compiler emit warnings if you use
@@ -70,7 +70,8 @@ RESOURCES += \
 
 TRANSLATIONS += \
     translations/de.ts \
-    translations/fr.ts
+    translations/fr.ts \
+    translations/tr.ts
 
 CONFIG += lrelease
 CONFIG += embed_translations
