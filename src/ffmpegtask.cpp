@@ -118,7 +118,7 @@ void FFmpegTask::prepare() {
     } else {
         ffmpegArgs << "-y";  // Overwrite (reconvert if file exists)
     }
-    ffmpegArgs << "-vn"; // Ignore video of input file
+    ffmpegArgs << "-vn"; // Ignore video of input file, sadly this also removes the cover art
     ffmpegArgs << "-i" << infile;
 
     if(Settings::OutputFormat == "mp3") {
@@ -135,7 +135,6 @@ void FFmpegTask::prepare() {
     } else if(Settings::OutputFormat == "m4a") {
         outfileExt = "m4a";
         ffmpegArgs << "-c:a" << "aac";
-        ffmpegArgs << "-vn";  // removes cover art but is the only way I know to get m4a working
         foreach (const QString &arg, Settings::OutputQualityArguments.split(" ")) {
             if (arg.length() > 0) ffmpegArgs << arg;
         }
@@ -145,7 +144,6 @@ void FFmpegTask::prepare() {
 
     } else if(Settings::OutputFormat == "ogg") {
         outfileExt = "ogg";
-        ffmpegArgs << "-vn"; //TODO: remove this to keep album art but without the output is a video
         ffmpegArgs << "-c:a" << "libvorbis";
         foreach (const QString &arg, Settings::OutputQualityArguments.split(" ")) {
             if (arg.length() > 0) ffmpegArgs << arg;
