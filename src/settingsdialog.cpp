@@ -82,8 +82,9 @@ void SettingsDialog::ApplySettings()
     Settings::OutputDirectory = ui->lineEdit_OutputDirectory->text().trimmed();
     Settings::OutputSamplerate = ui->comboBox_OutputSamplerate->currentData().toString();
     Settings::AudioFilters = ui->plainTextEdit_AudioFilters->toPlainText().trimmed();
-    Settings::UseSoXresampler = ui->checkBox_UseSoXresampler->isChecked();
     Settings::QuickConvertMode = ui->checkBox_QuickConvertMode->isChecked();
+    Settings::CopyNonAudioFiles = ui->checkBox_CopyNonAudioFiles->isChecked();
+    Settings::UseSoXresampler = ui->checkBox_UseSoXresampler->isChecked();
     Settings::Threads = ui->spinBox_Threads->value();
 
     Settings::save();
@@ -98,8 +99,9 @@ void SettingsDialog::LoadSettings()
     ui->lineEdit_OutputDirectory->setText(Settings::OutputDirectory);
     ui->comboBox_OutputSamplerate->setCurrentIndex(ui->comboBox_OutputSamplerate->findData(Settings::OutputSamplerate));
     ui->plainTextEdit_AudioFilters->setPlainText(Settings::AudioFilters);
-    ui->checkBox_UseSoXresampler->setChecked(Settings::UseSoXresampler);
     ui->checkBox_QuickConvertMode->setChecked(Settings::QuickConvertMode);
+    ui->checkBox_CopyNonAudioFiles->setChecked(Settings::CopyNonAudioFiles);
+    ui->checkBox_UseSoXresampler->setChecked(Settings::UseSoXresampler);
     ui->spinBox_Threads->setValue(Settings::Threads);
 }
 

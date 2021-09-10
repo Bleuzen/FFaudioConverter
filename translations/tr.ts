@@ -67,42 +67,42 @@
         <translation>Dosya</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="172"/>
+        <location filename="../src/mainwindow.cpp" line="173"/>
         <source>Pending</source>
         <translation>Bekleniyor</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="175"/>
+        <location filename="../src/mainwindow.cpp" line="176"/>
         <source>Converting</source>
         <translation>Dönüştürülüyor</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="178"/>
+        <location filename="../src/mainwindow.cpp" line="179"/>
         <source>Done</source>
         <translation>Bitti</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="181"/>
+        <location filename="../src/mainwindow.cpp" line="182"/>
         <source>Failed</source>
         <translation>Başarısız oldu</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="184"/>
+        <location filename="../src/mainwindow.cpp" line="185"/>
         <source>Skipped</source>
         <translation>Atlandı</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="257"/>
+        <location filename="../src/mainwindow.cpp" line="258"/>
         <source>Remove</source>
         <translation>Kaldır</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="295"/>
+        <location filename="../src/mainwindow.cpp" line="296"/>
         <source>FFmpeg binary is invalid. Please check your settings.</source>
         <translation>FFmpeg dosyası geçersiz. Lütfen ayarlarınızı kontrol edin.</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="299"/>
+        <location filename="../src/mainwindow.cpp" line="300"/>
         <source>Your output directory is bad. Maybe it is not writable?</source>
         <translation>Çıktı dizininiz bozuk. Belki yazılabilir değildir?</translation>
     </message>
@@ -164,7 +164,7 @@
         <source>How many files to process at the same time.
 Select 0 to use all CPU threads.</source>
         <translation>Aynı anda kaç dosya işlenecek.
-Tüm CPU iş parçacıklarını kullanmak için 0'ı seçin.</translation>
+Tüm CPU iş parçacıklarını kullanmak için 0&apos;ı seçin.</translation>
     </message>
     <message>
         <location filename="../src/settingsdialog.ui" line="211"/>
@@ -174,7 +174,7 @@ Tüm CPU iş parçacıklarını kullanmak için 0'ı seçin.</translation>
     <message>
         <location filename="../src/settingsdialog.ui" line="237"/>
         <source>SoX is slower, but results in higher quality. This option requires FFmpeg compiled with libsoxr.</source>
-        <translation>SoX daha yavaştır, ancak daha yüksek kalitede sonuçlanır. Bu seçenek, libsoxr ile derlenmiş FFmpeg'i gerektirir.</translation>
+        <translation>SoX daha yavaştır, ancak daha yüksek kalitede sonuçlanır. Bu seçenek, libsoxr ile derlenmiş FFmpeg&apos;i gerektirir.</translation>
     </message>
     <message>
         <location filename="../src/settingsdialog.ui" line="240"/>
@@ -182,12 +182,22 @@ Tüm CPU iş parçacıklarını kullanmak için 0'ı seçin.</translation>
         <translation>SoX örnekleyiciyi kullanın</translation>
     </message>
     <message>
-        <location filename="../src/settingsdialog.ui" line="246"/>
+        <location filename="../src/settingsdialog.ui" line="253"/>
+        <source>Copy any file not containing audio to the output directory</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/settingsdialog.ui" line="256"/>
+        <source>Copy non-audio files</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/settingsdialog.ui" line="262"/>
         <source>Filters</source>
         <translation>Filtreler</translation>
     </message>
     <message>
-        <location filename="../src/settingsdialog.ui" line="268"/>
+        <location filename="../src/settingsdialog.ui" line="284"/>
         <source>Preset:</source>
         <translation>Ön ayar:</translation>
     </message>
@@ -227,7 +237,7 @@ Tüm CPU iş parçacıklarını kullanmak için 0'ı seçin.</translation>
         <translation>Hızlandır</translation>
     </message>
     <message>
-        <location filename="../src/settingsdialog.cpp" line="108"/>
+        <location filename="../src/settingsdialog.cpp" line="110"/>
         <source>Open Directory</source>
         <translation>Dizin Aç</translation>
     </message>

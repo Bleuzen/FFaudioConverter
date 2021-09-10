@@ -26,8 +26,9 @@ QString Settings::OutputQualityArguments;
 QString Settings::OutputDirectory;
 QString Settings::OutputSamplerate;
 QString Settings::AudioFilters;
-bool Settings::UseSoXresampler;
 bool Settings::QuickConvertMode;
+bool Settings::CopyNonAudioFiles;
+bool Settings::UseSoXresampler;
 int Settings::Threads;
 
 void Settings::init() {
@@ -39,8 +40,9 @@ void Settings::init() {
     Settings::OutputDirectory = settings.value("OutputDirectory", QStandardPaths::writableLocation(QStandardPaths::HomeLocation) + "/" + QCoreApplication::applicationName() + "/{sourcedir}").toString();
     Settings::OutputSamplerate = settings.value("OutputSamplerate", "").toString();
     Settings::AudioFilters = settings.value("AudioFilters", "").toString();
-    Settings::UseSoXresampler = settings.value("UseSoXresampler", false).toBool();
     Settings::QuickConvertMode = settings.value("QuickConvertMode", false).toBool();
+    Settings::CopyNonAudioFiles = settings.value("CopyNonAudioFiles", false).toBool();
+    Settings::UseSoXresampler = settings.value("UseSoXresampler", false).toBool();
     Settings::Threads = settings.value("Threads", 0).toInt();
 
     qDebug() << "Settings loaded";
@@ -55,8 +57,9 @@ void Settings::save() {
     settings.setValue("OutputDirectory", Settings::OutputDirectory);
     settings.setValue("OutputSamplerate", Settings::OutputSamplerate);
     settings.setValue("AudioFilters", Settings::AudioFilters);
-    settings.setValue("UseSoXresampler", Settings::UseSoXresampler);
     settings.setValue("QuickConvertMode", Settings::QuickConvertMode);
+    settings.setValue("CopyNonAudioFiles", Settings::CopyNonAudioFiles);
+    settings.setValue("UseSoXresampler", Settings::UseSoXresampler);
     settings.setValue("Threads", Settings::Threads);
 
     qDebug() << "Settings saved";

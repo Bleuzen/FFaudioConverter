@@ -38,8 +38,9 @@ public:
     static QString OutputSamplerate;
     static QString OutputDirectory;
     static QString AudioFilters;
-    static bool UseSoXresampler;
     static bool QuickConvertMode;
+    static bool CopyNonAudioFiles;
+    static bool UseSoXresampler;
     static int Threads;
 };
 

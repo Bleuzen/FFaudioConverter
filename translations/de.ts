@@ -182,12 +182,22 @@ Stellen Sie 0 ein, um alle CPU Threads zu verwenden.</translation>
         <translation>Benutze den SoX Resampler</translation>
     </message>
     <message>
-        <location filename="../src/settingsdialog.ui" line="246"/>
+        <location filename="../src/settingsdialog.ui" line="253"/>
+        <source>Copy any file not containing audio to the output directory</source>
+        <translation>Kopiert Dateien, welche kein Audio enthalten, in das Ausgabeverzeichnis</translation>
+    </message>
+    <message>
+        <location filename="../src/settingsdialog.ui" line="256"/>
+        <source>Copy non-audio files</source>
+        <translation>Kopiere nicht-audio Dateien</translation>
+    </message>
+    <message>
+        <location filename="../src/settingsdialog.ui" line="262"/>
         <source>Filters</source>
         <translation>Filter</translation>
     </message>
     <message>
-        <location filename="../src/settingsdialog.ui" line="268"/>
+        <location filename="../src/settingsdialog.ui" line="284"/>
         <source>Preset:</source>
         <translation>Voreinstellung:</translation>
     </message>
@@ -227,7 +237,7 @@ Stellen Sie 0 ein, um alle CPU Threads zu verwenden.</translation>
         <translation>Geschwindigkeit erhöhen</translation>
     </message>
     <message>
-        <location filename="../src/settingsdialog.cpp" line="108"/>
+        <location filename="../src/settingsdialog.cpp" line="110"/>
         <source>Open Directory</source>
         <translation>Verzeichnis öffnen</translation>
     </message>
