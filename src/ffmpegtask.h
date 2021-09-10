@@ -45,11 +45,12 @@ public:
 
 private:
     int id;
-    QString outdir;
     QString infile, infileExt;
-    QString outfile, outfileExt;
+    QFileInfo infileInfo;
+    QString outdir, outfile, outfileExt;
 
-    void prepare();
+    void prepareOutput();
+    void prepareFFmpeg();
 
     QStringList ffmpegArgs;
     QString audioFilters;

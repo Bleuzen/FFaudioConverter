@@ -181,12 +181,22 @@ Select 0 to use all CPU threads.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/settingsdialog.ui" line="246"/>
+        <location filename="../src/settingsdialog.ui" line="253"/>
+        <source>Copy any file not containing audio to the output directory</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/settingsdialog.ui" line="256"/>
+        <source>Copy non-audio files</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/settingsdialog.ui" line="262"/>
         <source>Filters</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/settingsdialog.ui" line="268"/>
+        <location filename="../src/settingsdialog.ui" line="284"/>
         <source>Preset:</source>
         <translation type="unfinished"></translation>
     </message>
@@ -226,7 +236,7 @@ Select 0 to use all CPU threads.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/settingsdialog.cpp" line="108"/>
+        <location filename="../src/settingsdialog.cpp" line="110"/>
         <source>Open Directory</source>
         <translation type="unfinished"></translation>
     </message>

@@ -39,7 +39,7 @@
     </rect>
    </property>
    <property name="currentIndex">
-    <number>0</number>
+    <number>1</number>
    </property>
    <widget class="QWidget" name="tab_Main">
     <attribute name="title">
@@ -172,9 +172,9 @@
      <property name="geometry">
       <rect>
        <x>144</x>
-       <y>19</y>
+       <y>20</y>
        <width>220</width>
-       <height>26</height>
+       <height>24</height>
       </rect>
      </property>
     </widget>
@@ -182,7 +182,7 @@
      <property name="geometry">
       <rect>
        <x>10</x>
-       <y>100</y>
+       <y>90</y>
        <width>350</width>
        <height>24</height>
       </rect>
@@ -198,7 +198,7 @@
      <property name="geometry">
       <rect>
        <x>10</x>
-       <y>60</y>
+       <y>55</y>
        <width>130</width>
        <height>24</height>
       </rect>
@@ -215,7 +215,7 @@ Select 0 to use all CPU threads.</string>
      <property name="geometry">
       <rect>
        <x>144</x>
-       <y>60</y>
+       <y>55</y>
        <width>42</width>
        <height>24</height>
       </rect>
@@ -228,7 +228,7 @@ Select 0 to use all CPU threads.</string>
      <property name="geometry">
       <rect>
        <x>10</x>
-       <y>140</y>
+       <y>150</y>
        <width>350</width>
        <height>24</height>
       </rect>
@@ -238,6 +238,22 @@ Select 0 to use all CPU threads.</string>
      </property>
      <property name="text">
       <string>Use SoX resampler</string>
+     </property>
+    </widget>
+    <widget class="QCheckBox" name="checkBox_CopyNonAudioFiles">
+     <property name="geometry">
+      <rect>
+       <x>10</x>
+       <y>120</y>
+       <width>350</width>
+       <height>24</height>
+      </rect>
+     </property>
+     <property name="toolTip">
+      <string>Copy any file not containing audio to the output directory</string>
+     </property>
+     <property name="text">
+      <string>Copy non-audio files</string>
      </property>
     </widget>
    </widget>

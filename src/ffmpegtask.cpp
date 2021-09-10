@@ -30,21 +30,26 @@ FFmpegTask::FFmpegTask(int id, QString inpath)
 
 void FFmpegTask::run()
 {
-    // Skip if input file can not be an audio or video file
-    if(!Util::mayBeAudioOrVideoFile(infile)) {
-        qDebug() << "Skipping job" << id;
-        emit StatusChange(id, ConvertStatus::Skipped);
+    // Skip or copy files not containing audio according to settings
+    if(Util::mayBeAudioOrVideoFile(infile)) {
+        prepareOutput();
+    } else {
+        if(Settings::CopyNonAudioFiles) {
+            qDebug() << "Copy file" << id;
+            prepareOutput();
+            QFile::copy(infile, outdir + QDir::separator() + infileInfo.fileName());
+            emit StatusChange(id, ConvertStatus::Done);
+        } else {
+            qDebug() << "Skipping job" << id;
+            emit StatusChange(id, ConvertStatus::Skipped);
+        }
         emit ConvertDone(id);
         return;
     }
 
-    // Prepare some stuff (fill variables and ffmpeg arguments...)
-    prepare();
-
     qDebug() << "Starting job" << id << "|" << infile << "->" << outfile;
 
-    // Create output dir if it does not exist
-    QDir().mkpath(outdir);
+    prepareFFmpeg();
 
     // Skip this convert job under some conditions in fast mode
     if(Settings::QuickConvertMode) {
@@ -56,7 +61,7 @@ void FFmpegTask::run()
             return;
         }
         // Copy file if input and output format are the same
-        if(infileExt.toLower() == outfileExt) {
+        if(infileInfo.suffix().toLower() == outfileExt) {
             qDebug() << "Copy file of job" << id;
             if(QFile::copy(infile, outfile)) {
                 emit StatusChange(id, ConvertStatus::Done);
@@ -97,12 +102,9 @@ void FFmpegTask::run()
     emit ConvertDone(id);
 }
 
-void FFmpegTask::prepare() {
-    QFileInfo infileInfo(infile);
-    QDir qdir = infileInfo.absoluteDir();
-    QString sourcedir = qdir.path();
-    QString basename = infileInfo.completeBaseName();
-    infileExt = infileInfo.suffix();
+void FFmpegTask::prepareOutput() {
+    infileInfo = QFileInfo(infile);
+    QString sourcedir = infileInfo.absoluteDir().path();
 #ifdef Q_OS_WIN
     // Fix path on Windows
     if(!outdir.startsWith("{sourcedir}")) {
@@ -110,8 +112,10 @@ void FFmpegTask::prepare() {
     }
 #endif
     outdir = outdir.replace("{sourcedir}", sourcedir);  // Allow to use source directory as variable in output directory
-    outfile = outdir + QDir::separator() + basename;  // Output file path without extension (will be added later)
+    QDir().mkpath(outdir); // Create output dir if it does not exist
+}
 
+void FFmpegTask::prepareFFmpeg() {
     ffmpegArgs << "-hide_banner";
     if(Settings::QuickConvertMode) {
         ffmpegArgs << "-n";  // Not overwrite (keep existing file)
@@ -199,6 +203,6 @@ void FFmpegTask::prepare() {
     }
 
     // Set output file
-    outfile += "." + outfileExt;
+    outfile = outdir + QDir::separator() + infileInfo.completeBaseName() + "." + outfileExt;
     ffmpegArgs << outfile;
 }
