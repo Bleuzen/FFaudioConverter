@@ -131,46 +131,76 @@ void SettingsDialog::updateQualityComboBox() // Fill quality options (depending 
 
     if (format == "mp3") {
         ui->comboBox_Quality->addItem("VBR, 0, (~245 kbps)", "-q:a 0");
+        ui->comboBox_Quality->addItem("VBR, 1, (~225 kbps)", "-q:a 1");
         ui->comboBox_Quality->addItem("VBR, 2, (~190 kbps)", "-q:a 2");
+        ui->comboBox_Quality->addItem("VBR, 3, (~175 kbps)", "-q:a 3");
         ui->comboBox_Quality->addItem("VBR, 4, (~165 kbps)", "-q:a 4");
+        ui->comboBox_Quality->addItem("VBR, 5, (~130 kbps)", "-q:a 5");
         ui->comboBox_Quality->addItem("VBR, 6, (~115 kbps)", "-q:a 6");
+        ui->comboBox_Quality->addItem("VBR, 7, (~100 kbps)", "-q:a 7");
         ui->comboBox_Quality->addItem("CBR, 320 kbps", "-b:a 320k");
         ui->comboBox_Quality->addItem("CBR, 256 kbps", "-b:a 256k");
+        ui->comboBox_Quality->addItem("CBR, 224 kbps", "-b:a 224k");
         ui->comboBox_Quality->addItem("CBR, 192 kbps", "-b:a 192k");
+        ui->comboBox_Quality->addItem("CBR, 160 kbps", "-b:a 160k");
         ui->comboBox_Quality->addItem("CBR, 128 kbps", "-b:a 128k");
+        ui->comboBox_Quality->addItem("CBR, 96 kbps", "-b:a 96k");
         ui->comboBox_Quality->addItem("CBR, 64 kbps", "-b:a 64k");
+        ui->comboBox_Quality->addItem("CBR, 32 kbps", "-b:a 32k");
 
-        ui->comboBox_Quality->setCurrentIndex(1);
+        ui->comboBox_Quality->setCurrentIndex(2);
 
     } else if (format == "m4a") {
+        ui->comboBox_Quality->addItem("CBR, 320 kbps", "-b:a 320k");
         ui->comboBox_Quality->addItem("CBR, 256 kbps", "-b:a 256k");
+        ui->comboBox_Quality->addItem("CBR, 224 kbps", "-b:a 224k");
         ui->comboBox_Quality->addItem("CBR, 192 kbps", "-b:a 192k");
+        ui->comboBox_Quality->addItem("CBR, 160 kbps", "-b:a 160k");
         ui->comboBox_Quality->addItem("CBR, 128 kbps", "-b:a 128k");
+        ui->comboBox_Quality->addItem("CBR, 96 kbps", "-b:a 96k");
+        ui->comboBox_Quality->addItem("CBR, 64 kbps", "-b:a 64k");
+        ui->comboBox_Quality->addItem("CBR, 32 kbps", "-b:a 32k");
 
-        ui->comboBox_Quality->setCurrentIndex(1);
+        ui->comboBox_Quality->setCurrentIndex(4);
 
     } else if (format == "ogg") {
+        ui->comboBox_Quality->addItem("VBR, 9, (~320 kbps)", "-q:a 9");
         ui->comboBox_Quality->addItem("VBR, 8, (~256 kbps)", "-q:a 8");
+        ui->comboBox_Quality->addItem("VBR, 7, (~224 kbps)", "-q:a 7");
         ui->comboBox_Quality->addItem("VBR, 6, (~192 kbps)", "-q:a 6");
+        ui->comboBox_Quality->addItem("VBR, 5, (~160 kbps)", "-q:a 5");
         ui->comboBox_Quality->addItem("VBR, 4, (~128 kbps)", "-q:a 4");
+        ui->comboBox_Quality->addItem("VBR, 3, (~112 kbps)", "-q:a 3");
         ui->comboBox_Quality->addItem("VBR, 2, (~96 kbps)", "-q:a 2");
+        ui->comboBox_Quality->addItem("VBR, 1, (~80 kbps)", "-q:a 1");
         ui->comboBox_Quality->addItem("VBR, 0, (~64 kbps)", "-q:a 0");
         ui->comboBox_Quality->addItem("CBR, 320 kbps", "-b:a 320k");
         ui->comboBox_Quality->addItem("CBR, 256 kbps", "-b:a 256k");
+        ui->comboBox_Quality->addItem("CBR, 224 kbps", "-b:a 224k");
         ui->comboBox_Quality->addItem("CBR, 192 kbps", "-b:a 192k");
+        ui->comboBox_Quality->addItem("CBR, 160 kbps", "-b:a 160k");
         ui->comboBox_Quality->addItem("CBR, 128 kbps", "-b:a 128k");
+        ui->comboBox_Quality->addItem("CBR, 96 kbps", "-b:a 96k");
         ui->comboBox_Quality->addItem("CBR, 64 kbps", "-b:a 64k");
+        ui->comboBox_Quality->addItem("CBR, 48 kbps", "-b:a 48k");
+        ui->comboBox_Quality->addItem("CBR, 32 kbps", "-b:a 32k");
 
-        ui->comboBox_Quality->setCurrentIndex(1);
+        ui->comboBox_Quality->setCurrentIndex(4);
 
     } else if (format == "opus") {
+        ui->comboBox_Quality->addItem("ABR, 256 kbps", "-b:a 256k");
+        ui->comboBox_Quality->addItem("ABR, 224 kbps", "-b:a 224k");
         ui->comboBox_Quality->addItem("ABR, 192 kbps", "-b:a 192k");
         ui->comboBox_Quality->addItem("ABR, 160 kbps", "-b:a 160k");
         ui->comboBox_Quality->addItem("ABR, 128 kbps", "-b:a 128k");
+        ui->comboBox_Quality->addItem("ABR, 112 kbps", "-b:a 112k");
         ui->comboBox_Quality->addItem("ABR, 96 kbps", "-b:a 96k");
+        ui->comboBox_Quality->addItem("ABR, 80 kbps", "-b:a 80k");
         ui->comboBox_Quality->addItem("ABR, 64 kbps", "-b:a 64k");
+        ui->comboBox_Quality->addItem("ABR, 48 kbps", "-b:a 48k");
+        ui->comboBox_Quality->addItem("ABR, 32 kbps", "-b:a 32k");
 
-        ui->comboBox_Quality->setCurrentIndex(1);
+        ui->comboBox_Quality->setCurrentIndex(4);
 
     } else if (format == "flac") {
         ui->comboBox_Quality->addItem("auto", "");
