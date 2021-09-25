@@ -1,4 +1,4 @@
-SET PATH=%PATH%;C:\Qt\5.12.6\mingw73_64\bin;C:\Qt\Tools\mingw730_64\bin
+SET PATH=%PATH%;C:\Qt\Qt5.12.11\5.12.11\mingw73_64\bin;C:\Qt\Qt5.12.11\Tools\mingw730_64\bin
 
 mkdir build
 cd build
@@ -17,4 +17,4 @@ del D3Dcompiler_47.dll Qt5Svg.dll opengl32sw.dll libGLESV2.dll libEGL.dll
 
 echo .
 echo Build done. Now download FFmpeg and place it in the applications directory.
-echo https://ffmpeg.zeranoe.com/builds/
+echo https://github.com/BtbN/FFmpeg-Builds/releases
