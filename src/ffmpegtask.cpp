@@ -132,6 +132,7 @@ void FFmpegTask::prepareFFmpeg() {
             if (arg.length() > 0) ffmpegArgs << arg;
         }
         if (!Util::isNullOrEmpty(Settings::OutputSamplerate)) ffmpegArgs << "-ar" << Settings::OutputSamplerate;
+        if (Settings::OutputChannelCount > 0) ffmpegArgs << "-ac" << QString(Settings::OutputChannelCount);
         ffmpegArgs << "-map_metadata" << "0";
         ffmpegArgs << "-map_metadata" << "0:s:0";
         ffmpegArgs << "-id3v2_version" << "3";
@@ -143,6 +144,7 @@ void FFmpegTask::prepareFFmpeg() {
             if (arg.length() > 0) ffmpegArgs << arg;
         }
         if (!Util::isNullOrEmpty(Settings::OutputSamplerate)) ffmpegArgs << "-ar" << Settings::OutputSamplerate;
+        if (Settings::OutputChannelCount > 0) ffmpegArgs << "-ac" << QString(Settings::OutputChannelCount);
         ffmpegArgs << "-map_metadata" << "0";
         ffmpegArgs << "-map_metadata" << "0:s:0";
 
@@ -153,6 +155,7 @@ void FFmpegTask::prepareFFmpeg() {
             if (arg.length() > 0) ffmpegArgs << arg;
         }
         if (!Util::isNullOrEmpty(Settings::OutputSamplerate)) ffmpegArgs << "-ar" << Settings::OutputSamplerate;
+        if (Settings::OutputChannelCount > 0) ffmpegArgs << "-ac" << QString(Settings::OutputChannelCount);
         ffmpegArgs << "-map_metadata" << "0";
         ffmpegArgs << "-map_metadata" << "0:s:0";
 
@@ -163,6 +166,7 @@ void FFmpegTask::prepareFFmpeg() {
             if (arg.length() > 0) ffmpegArgs << arg;
         }
         // ChangeSamplerate not possible for opus (always uses 48 kHz)
+        if (Settings::OutputChannelCount > 0) ffmpegArgs << "-ac" << QString(Settings::OutputChannelCount);
         ffmpegArgs << "-map_metadata" << "0";
         ffmpegArgs << "-map_metadata" << "0:s:0";
 
@@ -173,6 +177,7 @@ void FFmpegTask::prepareFFmpeg() {
             if (arg.length() > 0) ffmpegArgs << arg;
         }
         if (!Util::isNullOrEmpty(Settings::OutputSamplerate)) ffmpegArgs << "-ar" << Settings::OutputSamplerate;
+        if (Settings::OutputChannelCount > 0) ffmpegArgs << "-ac" << QString(Settings::OutputChannelCount);
         ffmpegArgs << "-map_metadata" << "0";
         ffmpegArgs << "-map_metadata" << "0:s:0";
 
@@ -182,6 +187,7 @@ void FFmpegTask::prepareFFmpeg() {
             if (arg.length() > 0) ffmpegArgs << arg;
         }
         if (!Util::isNullOrEmpty(Settings::OutputSamplerate)) ffmpegArgs << "-ar" << Settings::OutputSamplerate;
+        if (Settings::OutputChannelCount > 0) ffmpegArgs << "-ac" << QString(Settings::OutputChannelCount);
 
     } else {
         // unknown format options (this should never happen)
