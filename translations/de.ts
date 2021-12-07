@@ -140,104 +140,120 @@
         <translation></translation>
     </message>
     <message>
-        <location filename="../src/settingsdialog.ui" line="156"/>
+        <location filename="../src/settingsdialog.ui" line="163"/>
+        <source>Channels:</source>
+        <translation>Kanäle:</translation>
+    </message>
+    <message>
+        <location filename="../src/settingsdialog.ui" line="179"/>
         <source>Advanced</source>
         <translation>Fortgeschritten</translation>
     </message>
     <message>
-        <location filename="../src/settingsdialog.ui" line="168"/>
+        <location filename="../src/settingsdialog.ui" line="191"/>
         <source>FFmpeg binary:</source>
         <translation>FFmpeg Binary:</translation>
     </message>
     <message>
-        <location filename="../src/settingsdialog.ui" line="191"/>
+        <location filename="../src/settingsdialog.ui" line="214"/>
         <source>This option may speed up the process in some cases by copying files which are already in the output format and skipping files which has already been converted. This will not change the bitrate or samplerate of the output file!</source>
         <translation>Diese Option könnte den Prozess beschleunigen, indem Dateien, die bereits im Ausgabeformat sind, kopiert werden und Dateien, die bereits konvertiert wurden, übersprungen werden. Die Bitrate und Samplerate wird dabei nicht geändert!</translation>
     </message>
     <message>
-        <location filename="../src/settingsdialog.ui" line="194"/>
+        <location filename="../src/settingsdialog.ui" line="217"/>
         <source>Quick mode</source>
         <translation>Schneller Modus</translation>
     </message>
     <message>
-        <location filename="../src/settingsdialog.ui" line="207"/>
+        <location filename="../src/settingsdialog.ui" line="230"/>
         <source>How many files to process at the same time.
 Select 0 to use all CPU threads.</source>
         <translation>Wie viele Dateien gleichzeitig konvertiert werden.
 Stellen Sie 0 ein, um alle CPU Threads zu verwenden.</translation>
     </message>
     <message>
-        <location filename="../src/settingsdialog.ui" line="211"/>
+        <location filename="../src/settingsdialog.ui" line="234"/>
         <source>Threads:</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../src/settingsdialog.ui" line="237"/>
+        <location filename="../src/settingsdialog.ui" line="260"/>
         <source>SoX is slower, but results in higher quality. This option requires FFmpeg compiled with libsoxr.</source>
         <translation>SoX ist langsamer, aber bietet bessere Qualität. Diese Option benötigt FFmpeg kompiliert mit libsoxr.</translation>
     </message>
     <message>
-        <location filename="../src/settingsdialog.ui" line="240"/>
+        <location filename="../src/settingsdialog.ui" line="263"/>
         <source>Use SoX resampler</source>
         <translation>Benutze den SoX Resampler</translation>
     </message>
     <message>
-        <location filename="../src/settingsdialog.ui" line="253"/>
+        <location filename="../src/settingsdialog.ui" line="276"/>
         <source>Copy any file not containing audio to the output directory</source>
         <translation>Kopiert Dateien, welche kein Audio enthalten, in das Ausgabeverzeichnis</translation>
     </message>
     <message>
-        <location filename="../src/settingsdialog.ui" line="256"/>
+        <location filename="../src/settingsdialog.ui" line="279"/>
         <source>Copy non-audio files</source>
         <translation>Kopiere nicht-audio Dateien</translation>
     </message>
     <message>
-        <location filename="../src/settingsdialog.ui" line="262"/>
+        <location filename="../src/settingsdialog.ui" line="285"/>
         <source>Filters</source>
         <translation>Filter</translation>
     </message>
     <message>
-        <location filename="../src/settingsdialog.ui" line="284"/>
+        <location filename="../src/settingsdialog.ui" line="307"/>
         <source>Preset:</source>
         <translation>Voreinstellung:</translation>
     </message>
     <message>
         <location filename="../src/settingsdialog.cpp" line="47"/>
+        <location filename="../src/settingsdialog.cpp" line="52"/>
         <source>Keep</source>
         <translation>Beibehalten</translation>
     </message>
     <message>
-        <location filename="../src/settingsdialog.cpp" line="52"/>
+        <location filename="../src/settingsdialog.cpp" line="53"/>
+        <source>1 (Mono)</source>
+        <translation>1 (Mono)</translation>
+    </message>
+    <message>
+        <location filename="../src/settingsdialog.cpp" line="54"/>
+        <source>2 (Stereo)</source>
+        <translation>2 (Stereo)</translation>
+    </message>
+    <message>
+        <location filename="../src/settingsdialog.cpp" line="56"/>
         <source>Disabled</source>
         <translation>Deaktiviert</translation>
     </message>
     <message>
-        <location filename="../src/settingsdialog.cpp" line="53"/>
+        <location filename="../src/settingsdialog.cpp" line="57"/>
         <source>Increase volume</source>
         <translation>Erhöhe Lautstärke</translation>
     </message>
     <message>
-        <location filename="../src/settingsdialog.cpp" line="54"/>
+        <location filename="../src/settingsdialog.cpp" line="58"/>
         <source>Reduce volume</source>
         <translation>Reduziere Lautstärke</translation>
     </message>
     <message>
-        <location filename="../src/settingsdialog.cpp" line="55"/>
+        <location filename="../src/settingsdialog.cpp" line="59"/>
         <source>Fade-in and fade-out</source>
         <translation>Ein- und Ausblenden</translation>
     </message>
     <message>
-        <location filename="../src/settingsdialog.cpp" line="56"/>
+        <location filename="../src/settingsdialog.cpp" line="60"/>
         <source>Bass boost</source>
         <translation>Bassverstärkung</translation>
     </message>
     <message>
-        <location filename="../src/settingsdialog.cpp" line="57"/>
+        <location filename="../src/settingsdialog.cpp" line="61"/>
         <source>Speed up</source>
         <translation>Geschwindigkeit erhöhen</translation>
     </message>
     <message>
-        <location filename="../src/settingsdialog.cpp" line="110"/>
+        <location filename="../src/settingsdialog.cpp" line="116"/>
         <source>Open Directory</source>
         <translation>Verzeichnis öffnen</translation>
     </message>

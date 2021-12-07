@@ -140,104 +140,120 @@
         <translation>Örnekleyici:</translation>
     </message>
     <message>
-        <location filename="../src/settingsdialog.ui" line="156"/>
+        <location filename="../src/settingsdialog.ui" line="163"/>
+        <source>Channels:</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/settingsdialog.ui" line="179"/>
         <source>Advanced</source>
         <translation>Gelişmiş</translation>
     </message>
     <message>
-        <location filename="../src/settingsdialog.ui" line="168"/>
+        <location filename="../src/settingsdialog.ui" line="191"/>
         <source>FFmpeg binary:</source>
         <translation>FFmpeg dosyası:</translation>
     </message>
     <message>
-        <location filename="../src/settingsdialog.ui" line="191"/>
+        <location filename="../src/settingsdialog.ui" line="214"/>
         <source>This option may speed up the process in some cases by copying files which are already in the output format and skipping files which has already been converted. This will not change the bitrate or samplerate of the output file!</source>
         <translation>Bu seçenek, bazı durumlarda zaten çıktı biçiminde olan dosyaları kopyalayarak ve önceden dönüştürülmüş dosyaları atlayarak işlemi hızlandırabilir. Bu, çıktı dosyasının bit hızını veya örneklemesini değiştirmez!</translation>
     </message>
     <message>
-        <location filename="../src/settingsdialog.ui" line="194"/>
+        <location filename="../src/settingsdialog.ui" line="217"/>
         <source>Quick mode</source>
         <translation>Çabuk mod</translation>
     </message>
     <message>
-        <location filename="../src/settingsdialog.ui" line="207"/>
+        <location filename="../src/settingsdialog.ui" line="230"/>
         <source>How many files to process at the same time.
 Select 0 to use all CPU threads.</source>
         <translation>Aynı anda kaç dosya işlenecek.
 Tüm CPU iş parçacıklarını kullanmak için 0&apos;ı seçin.</translation>
     </message>
     <message>
-        <location filename="../src/settingsdialog.ui" line="211"/>
+        <location filename="../src/settingsdialog.ui" line="234"/>
         <source>Threads:</source>
         <translation>Çekirdekler:</translation>
     </message>
     <message>
-        <location filename="../src/settingsdialog.ui" line="237"/>
+        <location filename="../src/settingsdialog.ui" line="260"/>
         <source>SoX is slower, but results in higher quality. This option requires FFmpeg compiled with libsoxr.</source>
         <translation>SoX daha yavaştır, ancak daha yüksek kalitede sonuçlanır. Bu seçenek, libsoxr ile derlenmiş FFmpeg&apos;i gerektirir.</translation>
     </message>
     <message>
-        <location filename="../src/settingsdialog.ui" line="240"/>
+        <location filename="../src/settingsdialog.ui" line="263"/>
         <source>Use SoX resampler</source>
         <translation>SoX örnekleyiciyi kullanın</translation>
     </message>
     <message>
-        <location filename="../src/settingsdialog.ui" line="253"/>
+        <location filename="../src/settingsdialog.ui" line="276"/>
         <source>Copy any file not containing audio to the output directory</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/settingsdialog.ui" line="256"/>
+        <location filename="../src/settingsdialog.ui" line="279"/>
         <source>Copy non-audio files</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/settingsdialog.ui" line="262"/>
+        <location filename="../src/settingsdialog.ui" line="285"/>
         <source>Filters</source>
         <translation>Filtreler</translation>
     </message>
     <message>
-        <location filename="../src/settingsdialog.ui" line="284"/>
+        <location filename="../src/settingsdialog.ui" line="307"/>
         <source>Preset:</source>
         <translation>Ön ayar:</translation>
     </message>
     <message>
         <location filename="../src/settingsdialog.cpp" line="47"/>
+        <location filename="../src/settingsdialog.cpp" line="52"/>
         <source>Keep</source>
         <translation>Koru</translation>
     </message>
     <message>
-        <location filename="../src/settingsdialog.cpp" line="52"/>
+        <location filename="../src/settingsdialog.cpp" line="53"/>
+        <source>1 (Mono)</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/settingsdialog.cpp" line="54"/>
+        <source>2 (Stereo)</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/settingsdialog.cpp" line="56"/>
         <source>Disabled</source>
         <translation>Devre dışı</translation>
     </message>
     <message>
-        <location filename="../src/settingsdialog.cpp" line="53"/>
+        <location filename="../src/settingsdialog.cpp" line="57"/>
         <source>Increase volume</source>
         <translation>Sesi yükselt</translation>
     </message>
     <message>
-        <location filename="../src/settingsdialog.cpp" line="54"/>
+        <location filename="../src/settingsdialog.cpp" line="58"/>
         <source>Reduce volume</source>
         <translation>Sesi azalt</translation>
     </message>
     <message>
-        <location filename="../src/settingsdialog.cpp" line="55"/>
+        <location filename="../src/settingsdialog.cpp" line="59"/>
         <source>Fade-in and fade-out</source>
         <translation>Giriş ve çıkış</translation>
     </message>
     <message>
-        <location filename="../src/settingsdialog.cpp" line="56"/>
+        <location filename="../src/settingsdialog.cpp" line="60"/>
         <source>Bass boost</source>
         <translation>Bass kuvvetlendirme</translation>
     </message>
     <message>
-        <location filename="../src/settingsdialog.cpp" line="57"/>
+        <location filename="../src/settingsdialog.cpp" line="61"/>
         <source>Speed up</source>
         <translation>Hızlandır</translation>
     </message>
     <message>
-        <location filename="../src/settingsdialog.cpp" line="110"/>
+        <location filename="../src/settingsdialog.cpp" line="116"/>
         <source>Open Directory</source>
         <translation>Dizin Aç</translation>
     </message>
