@@ -85,6 +85,7 @@ void SettingsDialog::ApplySettings()
     Settings::OutputQualityArguments = ui->comboBox_Quality->currentData().toString();
     Settings::OutputDirectory = ui->lineEdit_OutputDirectory->text().trimmed();
     Settings::OutputSamplerate = ui->comboBox_OutputSamplerate->currentData().toString();
+    Settings::OutputChannelCount = ui->comboBox_OutputChannelCount->currentData().toInt();
     Settings::AudioFilters = ui->plainTextEdit_AudioFilters->toPlainText().trimmed();
     Settings::QuickConvertMode = ui->checkBox_QuickConvertMode->isChecked();
     Settings::CopyNonAudioFiles = ui->checkBox_CopyNonAudioFiles->isChecked();
@@ -102,6 +103,7 @@ void SettingsDialog::LoadSettings()
     ui->comboBox_Quality->setCurrentIndex(ui->comboBox_Quality->findData(Settings::OutputQualityArguments));
     ui->lineEdit_OutputDirectory->setText(Settings::OutputDirectory);
     ui->comboBox_OutputSamplerate->setCurrentIndex(ui->comboBox_OutputSamplerate->findData(Settings::OutputSamplerate));
+    ui->comboBox_OutputChannelCount->setCurrentIndex(ui->comboBox_OutputChannelCount->findData(Settings::OutputChannelCount));
     ui->plainTextEdit_AudioFilters->setPlainText(Settings::AudioFilters);
     ui->checkBox_QuickConvertMode->setChecked(Settings::QuickConvertMode);
     ui->checkBox_CopyNonAudioFiles->setChecked(Settings::CopyNonAudioFiles);
