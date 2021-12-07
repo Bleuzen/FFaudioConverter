@@ -15,7 +15,10 @@
   <url type="bugtracker">https://github.com/Bleuzen/FFaudioConverter/issues</url>
   <screenshots>
     <screenshot type="default">
-      <image type="source">https://i.imgur.com/WPKqo9m.png</image>
+      <image type="source">https://raw.githubusercontent.com/Bleuzen/FFaudioConverter/master/screenshots/main.png</image>
+    </screenshot>
+    <screenshot>
+      <image type="source">https://raw.githubusercontent.com/Bleuzen/FFaudioConverter/master/screenshots/settings.png</image>
     </screenshot>
   </screenshots>
   <releases>
