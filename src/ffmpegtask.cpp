@@ -30,6 +30,8 @@ FFmpegTask::FFmpegTask(int id, QString inpath)
 
 void FFmpegTask::run()
 {
+    qDebug() << "Starting job" << id << "|" << infile;
+
     // Skip or copy files not containing audio according to settings
     if(Util::mayBeAudioOrVideoFile(infile)) {
         prepareOutput();
@@ -46,8 +48,6 @@ void FFmpegTask::run()
         emit ConvertDone(id);
         return;
     }
-
-    qDebug() << "Starting job" << id << "|" << infile << "->" << outfile;
 
     prepareFFmpeg();
 
