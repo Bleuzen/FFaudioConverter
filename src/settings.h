@@ -36,6 +36,7 @@ public:
     static QString OutputFormat;
     static QString OutputQualityArguments;
     static QString OutputSamplerate;
+    static int OutputChannelCount;
     static QString OutputDirectory;
     static QString AudioFilters;
     static bool QuickConvertMode;

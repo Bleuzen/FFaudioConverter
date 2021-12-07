@@ -25,6 +25,7 @@ QString Settings::OutputFormat;
 QString Settings::OutputQualityArguments;
 QString Settings::OutputDirectory;
 QString Settings::OutputSamplerate;
+int Settings::OutputChannelCount;
 QString Settings::AudioFilters;
 bool Settings::QuickConvertMode;
 bool Settings::CopyNonAudioFiles;
@@ -39,6 +40,7 @@ void Settings::init() {
     Settings::OutputQualityArguments = settings.value("OutputQualityArguments", "-q:a 2").toString();
     Settings::OutputDirectory = settings.value("OutputDirectory", QStandardPaths::writableLocation(QStandardPaths::HomeLocation) + "/" + QCoreApplication::applicationName() + "/{sourcedir}").toString();
     Settings::OutputSamplerate = settings.value("OutputSamplerate", "").toString();
+    Settings::OutputChannelCount = settings.value("OutputChannelCount", 0).toInt();
     Settings::AudioFilters = settings.value("AudioFilters", "").toString();
     Settings::QuickConvertMode = settings.value("QuickConvertMode", false).toBool();
     Settings::CopyNonAudioFiles = settings.value("CopyNonAudioFiles", false).toBool();
@@ -56,6 +58,7 @@ void Settings::save() {
     settings.setValue("OutputQualityArguments", Settings::OutputQualityArguments);
     settings.setValue("OutputDirectory", Settings::OutputDirectory);
     settings.setValue("OutputSamplerate", Settings::OutputSamplerate);
+    settings.setValue("OutputChannelCount", Settings::OutputChannelCount);
     settings.setValue("AudioFilters", Settings::AudioFilters);
     settings.setValue("QuickConvertMode", Settings::QuickConvertMode);
     settings.setValue("CopyNonAudioFiles", Settings::CopyNonAudioFiles);
