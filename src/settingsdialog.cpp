@@ -49,6 +49,10 @@ SettingsDialog::SettingsDialog(QWidget *parent) :
     ui->comboBox_OutputSamplerate->addItem("48000 Hz", "48000");
     ui->comboBox_OutputSamplerate->addItem("96000 Hz", "96000");
 
+    ui->comboBox_OutputChannelCount->addItem(tr("Keep"), 0);
+    ui->comboBox_OutputChannelCount->addItem(tr("1 (Mono)"), 1);
+    ui->comboBox_OutputChannelCount->addItem(tr("2 (Stereo)"), 2);
+
     ui->comboBox_AudioFiltersPresets->addItem(tr("Disabled"), "");
     ui->comboBox_AudioFiltersPresets->addItem(tr("Increase volume"), "volume=10dB");
     ui->comboBox_AudioFiltersPresets->addItem(tr("Reduce volume"), "volume=-5dB");
@@ -130,14 +134,14 @@ void SettingsDialog::updateQualityComboBox() // Fill quality options (depending 
     ui->comboBox_Quality->clear();
 
     if (format == "mp3") {
-        ui->comboBox_Quality->addItem("VBR, 0, (~245 kbps)", "-q:a 0");
-        ui->comboBox_Quality->addItem("VBR, 1, (~225 kbps)", "-q:a 1");
-        ui->comboBox_Quality->addItem("VBR, 2, (~190 kbps)", "-q:a 2");
-        ui->comboBox_Quality->addItem("VBR, 3, (~175 kbps)", "-q:a 3");
-        ui->comboBox_Quality->addItem("VBR, 4, (~165 kbps)", "-q:a 4");
-        ui->comboBox_Quality->addItem("VBR, 5, (~130 kbps)", "-q:a 5");
-        ui->comboBox_Quality->addItem("VBR, 6, (~115 kbps)", "-q:a 6");
-        ui->comboBox_Quality->addItem("VBR, 7, (~100 kbps)", "-q:a 7");
+        ui->comboBox_Quality->addItem("VBR, 0, ~245 kbps", "-q:a 0");
+        ui->comboBox_Quality->addItem("VBR, 1, ~225 kbps", "-q:a 1");
+        ui->comboBox_Quality->addItem("VBR, 2, ~190 kbps", "-q:a 2");
+        ui->comboBox_Quality->addItem("VBR, 3, ~175 kbps", "-q:a 3");
+        ui->comboBox_Quality->addItem("VBR, 4, ~165 kbps", "-q:a 4");
+        ui->comboBox_Quality->addItem("VBR, 5, ~130 kbps", "-q:a 5");
+        ui->comboBox_Quality->addItem("VBR, 6, ~115 kbps", "-q:a 6");
+        ui->comboBox_Quality->addItem("VBR, 7, ~100 kbps", "-q:a 7");
         ui->comboBox_Quality->addItem("CBR, 320 kbps", "-b:a 320k");
         ui->comboBox_Quality->addItem("CBR, 256 kbps", "-b:a 256k");
         ui->comboBox_Quality->addItem("CBR, 224 kbps", "-b:a 224k");
@@ -164,16 +168,16 @@ void SettingsDialog::updateQualityComboBox() // Fill quality options (depending 
         ui->comboBox_Quality->setCurrentIndex(4);
 
     } else if (format == "ogg") {
-        ui->comboBox_Quality->addItem("VBR, 9, (~320 kbps)", "-q:a 9");
-        ui->comboBox_Quality->addItem("VBR, 8, (~256 kbps)", "-q:a 8");
-        ui->comboBox_Quality->addItem("VBR, 7, (~224 kbps)", "-q:a 7");
-        ui->comboBox_Quality->addItem("VBR, 6, (~192 kbps)", "-q:a 6");
-        ui->comboBox_Quality->addItem("VBR, 5, (~160 kbps)", "-q:a 5");
-        ui->comboBox_Quality->addItem("VBR, 4, (~128 kbps)", "-q:a 4");
-        ui->comboBox_Quality->addItem("VBR, 3, (~112 kbps)", "-q:a 3");
-        ui->comboBox_Quality->addItem("VBR, 2, (~96 kbps)", "-q:a 2");
-        ui->comboBox_Quality->addItem("VBR, 1, (~80 kbps)", "-q:a 1");
-        ui->comboBox_Quality->addItem("VBR, 0, (~64 kbps)", "-q:a 0");
+        ui->comboBox_Quality->addItem("VBR, 9, ~320 kbps", "-q:a 9");
+        ui->comboBox_Quality->addItem("VBR, 8, ~256 kbps", "-q:a 8");
+        ui->comboBox_Quality->addItem("VBR, 7, ~224 kbps", "-q:a 7");
+        ui->comboBox_Quality->addItem("VBR, 6, ~192 kbps", "-q:a 6");
+        ui->comboBox_Quality->addItem("VBR, 5, ~160 kbps", "-q:a 5");
+        ui->comboBox_Quality->addItem("VBR, 4, ~128 kbps", "-q:a 4");
+        ui->comboBox_Quality->addItem("VBR, 3, ~112 kbps", "-q:a 3");
+        ui->comboBox_Quality->addItem("VBR, 2, ~96 kbps", "-q:a 2");
+        ui->comboBox_Quality->addItem("VBR, 1, ~80 kbps", "-q:a 1");
+        ui->comboBox_Quality->addItem("VBR, 0, ~64 kbps", "-q:a 0");
         ui->comboBox_Quality->addItem("CBR, 320 kbps", "-b:a 320k");
         ui->comboBox_Quality->addItem("CBR, 256 kbps", "-b:a 256k");
         ui->comboBox_Quality->addItem("CBR, 224 kbps", "-b:a 224k");

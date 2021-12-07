@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>400</width>
-    <height>280</height>
+    <width>410</width>
+    <height>310</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -17,7 +17,7 @@
    <property name="geometry">
     <rect>
      <x>10</x>
-     <y>240</y>
+     <y>270</y>
      <width>380</width>
      <height>30</height>
     </rect>
@@ -34,8 +34,8 @@
     <rect>
      <x>10</x>
      <y>10</y>
-     <width>380</width>
-     <height>220</height>
+     <width>390</width>
+     <height>250</height>
     </rect>
    </property>
    <property name="currentIndex">
@@ -63,7 +63,7 @@
       <rect>
        <x>144</x>
        <y>19</y>
-       <width>190</width>
+       <width>200</width>
        <height>26</height>
       </rect>
      </property>
@@ -86,7 +86,7 @@
       <rect>
        <x>144</x>
        <y>59</y>
-       <width>220</width>
+       <width>230</width>
        <height>26</height>
       </rect>
      </property>
@@ -109,7 +109,7 @@
       <rect>
        <x>144</x>
        <y>99</y>
-       <width>220</width>
+       <width>230</width>
        <height>26</height>
       </rect>
      </property>
@@ -118,8 +118,8 @@
      <property name="geometry">
       <rect>
        <x>144</x>
-       <y>140</y>
-       <width>220</width>
+       <y>139</y>
+       <width>230</width>
        <height>26</height>
       </rect>
      </property>
@@ -127,7 +127,7 @@
     <widget class="QToolButton" name="toolButton_SelectOutputDirectory">
      <property name="geometry">
       <rect>
-       <x>340</x>
+       <x>350</x>
        <y>20</y>
        <width>24</width>
        <height>24</height>
@@ -148,6 +148,29 @@
      </property>
      <property name="text">
       <string>Samplerate:</string>
+     </property>
+    </widget>
+    <widget class="QLabel" name="label_8">
+     <property name="geometry">
+      <rect>
+       <x>10</x>
+       <y>180</y>
+       <width>130</width>
+       <height>24</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>Channels:</string>
+     </property>
+    </widget>
+    <widget class="QComboBox" name="comboBox_OutputChannelCount">
+     <property name="geometry">
+      <rect>
+       <x>144</x>
+       <y>179</y>
+       <width>230</width>
+       <height>26</height>
+      </rect>
      </property>
     </widget>
    </widget>
@@ -172,9 +195,9 @@
      <property name="geometry">
       <rect>
        <x>144</x>
-       <y>20</y>
-       <width>220</width>
-       <height>24</height>
+       <y>19</y>
+       <width>230</width>
+       <height>26</height>
       </rect>
      </property>
     </widget>
@@ -182,8 +205,8 @@
      <property name="geometry">
       <rect>
        <x>10</x>
-       <y>90</y>
-       <width>350</width>
+       <y>100</y>
+       <width>360</width>
        <height>24</height>
       </rect>
      </property>
@@ -198,7 +221,7 @@
      <property name="geometry">
       <rect>
        <x>10</x>
-       <y>55</y>
+       <y>60</y>
        <width>130</width>
        <height>24</height>
       </rect>
@@ -215,7 +238,7 @@ Select 0 to use all CPU threads.</string>
      <property name="geometry">
       <rect>
        <x>144</x>
-       <y>55</y>
+       <y>60</y>
        <width>42</width>
        <height>24</height>
       </rect>
@@ -228,8 +251,8 @@ Select 0 to use all CPU threads.</string>
      <property name="geometry">
       <rect>
        <x>10</x>
-       <y>150</y>
-       <width>350</width>
+       <y>180</y>
+       <width>360</width>
        <height>24</height>
       </rect>
      </property>
@@ -244,8 +267,8 @@ Select 0 to use all CPU threads.</string>
      <property name="geometry">
       <rect>
        <x>10</x>
-       <y>120</y>
-       <width>350</width>
+       <y>140</y>
+       <width>360</width>
        <height>24</height>
       </rect>
      </property>
@@ -266,8 +289,8 @@ Select 0 to use all CPU threads.</string>
       <rect>
        <x>10</x>
        <y>60</y>
-       <width>354</width>
-       <height>110</height>
+       <width>364</width>
+       <height>140</height>
       </rect>
      </property>
     </widget>
@@ -289,7 +312,7 @@ Select 0 to use all CPU threads.</string>
       <rect>
        <x>144</x>
        <y>19</y>
-       <width>220</width>
+       <width>230</width>
        <height>26</height>
       </rect>
      </property>
