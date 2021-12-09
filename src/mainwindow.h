@@ -73,7 +73,6 @@ private:
 
     void insertTableRow();
     void removeTableRows(QList<int>);
-    void resetTableModel();
 
     QModelIndex rowToStatusIndex(int);
     QModelIndex rowToFileIndex(int);
@@ -92,7 +91,7 @@ private:
     void addFile(QString);
     void addDirectory(QString);
 
-    void showTable();
+    void showTable(bool);
     void setIsConverting(bool);
 };
 
