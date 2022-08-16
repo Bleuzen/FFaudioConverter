@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!DOCTYPE TS>
-<TS version="2.1" language="de_DE">
+<TS version="2.1" language="tr_TR">
 <context>
     <name>AboutDialog</name>
     <message>
@@ -21,7 +21,7 @@
     <message>
         <location filename="../src/aboutdialog.cpp" line="39"/>
         <source>developed by</source>
-        <translation>tarafından geliştirildi</translation>
+        <translation>Geliştirici: </translation>
     </message>
 </context>
 <context>
@@ -39,7 +39,7 @@
     <message>
         <location filename="../src/mainwindow.ui" line="56"/>
         <source>Cancel</source>
-        <translation>İptal et</translation>
+        <translation>İptal Et</translation>
     </message>
     <message>
         <location filename="../src/mainwindow.ui" line="63"/>
@@ -99,7 +99,7 @@
     <message>
         <location filename="../src/mainwindow.cpp" line="296"/>
         <source>FFmpeg binary is invalid. Please check your settings.</source>
-        <translation>FFmpeg dosyası geçersiz. Lütfen ayarlarınızı kontrol edin.</translation>
+        <translation>FFmpeg ikili dosyası geçersiz. Lütfen ayarlarınızı kontrol edin.</translation>
     </message>
     <message>
         <location filename="../src/mainwindow.cpp" line="300"/>
@@ -122,7 +122,7 @@
     <message>
         <location filename="../src/settingsdialog.ui" line="58"/>
         <source>Output directory:</source>
-        <translation>Çıkış klasörü:</translation>
+        <translation>Çıktı dizini:</translation>
     </message>
     <message>
         <location filename="../src/settingsdialog.ui" line="81"/>
@@ -137,12 +137,12 @@
     <message>
         <location filename="../src/settingsdialog.ui" line="150"/>
         <source>Samplerate:</source>
-        <translation>Örnekleyici:</translation>
+        <translation>Örnekleme hızı:</translation>
     </message>
     <message>
         <location filename="../src/settingsdialog.ui" line="163"/>
         <source>Channels:</source>
-        <translation type="unfinished"></translation>
+        <translation>Kanallar:</translation>
     </message>
     <message>
         <location filename="../src/settingsdialog.ui" line="179"/>
@@ -152,17 +152,17 @@
     <message>
         <location filename="../src/settingsdialog.ui" line="191"/>
         <source>FFmpeg binary:</source>
-        <translation>FFmpeg dosyası:</translation>
+        <translation>FFmpeg ikili dosyası:</translation>
     </message>
     <message>
         <location filename="../src/settingsdialog.ui" line="214"/>
         <source>This option may speed up the process in some cases by copying files which are already in the output format and skipping files which has already been converted. This will not change the bitrate or samplerate of the output file!</source>
-        <translation>Bu seçenek, bazı durumlarda zaten çıktı biçiminde olan dosyaları kopyalayarak ve önceden dönüştürülmüş dosyaları atlayarak işlemi hızlandırabilir. Bu, çıktı dosyasının bit hızını veya örneklemesini değiştirmez!</translation>
+        <translation>Bu seçenek, bazı durumlarda zaten çıktı biçiminde olan dosyaları kopyalayarak ve önceden dönüştürülmüş dosyaları atlayarak işlemi hızlandırabilir. Bu, çıktı dosyasının bit hızını veya örnekleme hızını değiştirmez!</translation>
     </message>
     <message>
         <location filename="../src/settingsdialog.ui" line="217"/>
         <source>Quick mode</source>
-        <translation>Çabuk mod</translation>
+        <translation>Hızlı kip</translation>
     </message>
     <message>
         <location filename="../src/settingsdialog.ui" line="230"/>
@@ -174,7 +174,7 @@ Tüm CPU iş parçacıklarını kullanmak için 0&apos;ı seçin.</translation>
     <message>
         <location filename="../src/settingsdialog.ui" line="234"/>
         <source>Threads:</source>
-        <translation>Çekirdekler:</translation>
+        <translation>Çekirdek:</translation>
     </message>
     <message>
         <location filename="../src/settingsdialog.ui" line="260"/>
@@ -184,17 +184,17 @@ Tüm CPU iş parçacıklarını kullanmak için 0&apos;ı seçin.</translation>
     <message>
         <location filename="../src/settingsdialog.ui" line="263"/>
         <source>Use SoX resampler</source>
-        <translation>SoX örnekleyiciyi kullanın</translation>
+        <translation>SoX örnekleyiciyi kullan</translation>
     </message>
     <message>
         <location filename="../src/settingsdialog.ui" line="276"/>
         <source>Copy any file not containing audio to the output directory</source>
-        <translation type="unfinished"></translation>
+        <translation>Ses içermeyen dosyayı çıktı dizinine kopyala</translation>
     </message>
     <message>
         <location filename="../src/settingsdialog.ui" line="279"/>
         <source>Copy non-audio files</source>
-        <translation type="unfinished"></translation>
+        <translation>Ses olmayan dosyaları kopyala</translation>
     </message>
     <message>
         <location filename="../src/settingsdialog.ui" line="285"/>
@@ -215,12 +215,12 @@ Tüm CPU iş parçacıklarını kullanmak için 0&apos;ı seçin.</translation>
     <message>
         <location filename="../src/settingsdialog.cpp" line="53"/>
         <source>1 (Mono)</source>
-        <translation type="unfinished"></translation>
+        <translation>1 (Mono)</translation>
     </message>
     <message>
         <location filename="../src/settingsdialog.cpp" line="54"/>
         <source>2 (Stereo)</source>
-        <translation type="unfinished"></translation>
+        <translation>2 (Stereo)</translation>
     </message>
     <message>
         <location filename="../src/settingsdialog.cpp" line="56"/>
@@ -235,12 +235,12 @@ Tüm CPU iş parçacıklarını kullanmak için 0&apos;ı seçin.</translation>
     <message>
         <location filename="../src/settingsdialog.cpp" line="58"/>
         <source>Reduce volume</source>
-        <translation>Sesi azalt</translation>
+        <translation>Sesi alçalt</translation>
     </message>
     <message>
         <location filename="../src/settingsdialog.cpp" line="59"/>
         <source>Fade-in and fade-out</source>
-        <translation>Giriş ve çıkış</translation>
+        <translation>Yavaşça artır ve yavaşça azalt</translation>
     </message>
     <message>
         <location filename="../src/settingsdialog.cpp" line="60"/>
