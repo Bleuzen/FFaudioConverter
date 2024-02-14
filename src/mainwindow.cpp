@@ -73,7 +73,7 @@ void MainWindow::processCommandLine(QStringList positionalArguments) {
     foreach (const QString &path, positionalArguments) {
         addFromPath(path);
     }
-    showTable(true);
+    showTable();
 }
 
 void MainWindow::dragEnterEvent(QDragEnterEvent *event)
@@ -88,7 +88,7 @@ void MainWindow::dragEnterEvent(QDragEnterEvent *event)
 void MainWindow::dropEvent(QDropEvent *event)
 {
     // Display file table if it is still hidden
-    showTable(true);
+    showTable();
 
     // Handle drop
     QList<QUrl> droppedUrls = event->mimeData()->urls();
@@ -101,7 +101,6 @@ void MainWindow::dropEvent(QDropEvent *event)
 }
 
 void MainWindow::addFromPath(QString localPath) {
-    if (Util::isNullOrEmpty(localPath)) return;
     QFileInfo fileInfo(localPath);
     if(fileInfo.isFile()) {
     // file
@@ -172,19 +171,19 @@ void MainWindow::setConvertItemStatus(QModelIndex index, FFmpegTask::ConvertStat
 {
     if(status == FFmpegTask::ConvertStatus::Pending) {
         model->setData(index, tr("Pending"));
-        model->setData(index, QColor(Qt::yellow), Qt::BackgroundRole);
+        model->setData(index, QColor(Qt::darkYellow), Qt::BackgroundRole);
     } else if(status == FFmpegTask::ConvertStatus::Converting) {
         model->setData(index, tr("Converting"));
         model->setData(index, QColor(Qt::darkYellow), Qt::BackgroundRole);
     } else if(status == FFmpegTask::ConvertStatus::Done) {
         model->setData(index, tr("Done"));
-        model->setData(index, QColor(Qt::green), Qt::BackgroundRole);
+        model->setData(index, QColor(Qt::darkGreen), Qt::BackgroundRole);
     } else if(status == FFmpegTask::ConvertStatus::Failed) {
         model->setData(index, tr("Failed"));
-        model->setData(index, QColor(Qt::red), Qt::BackgroundRole);
+        model->setData(index, QColor(Qt::darkRed), Qt::BackgroundRole);
     } else if(status == FFmpegTask::ConvertStatus::Skipped) {
         model->setData(index, tr("Skipped"));
-        model->setData(index, QColor(Qt::blue), Qt::BackgroundRole);
+        model->setData(index, QColor(Qt::darkBlue), Qt::BackgroundRole);
     }
 }
 
@@ -198,6 +197,11 @@ void MainWindow::removeTableRows(QList<int> rows)
           prev = current;
        }
     }
+}
+
+void MainWindow::resetTableModel()
+{
+    model->removeRows(0, model->rowCount());
 }
 
 void MainWindow::convertItem(int id, QString file)
@@ -267,14 +271,10 @@ void MainWindow::on_tableView_customContextMenuRequested(const QPoint &pos)
     menu->popup(ui->tableView->viewport()->mapToGlobal(pos));
 }
 
-void MainWindow::showTable(bool e) {
-    if (e && !ui->tableView->isVisible()) {
-        ui->tableView->setVisible(true);  // Show file table
+void MainWindow::showTable() {
+    if(!ui->tableView->isVisible()) {
+        ui->tableView->setVisible(true);  // Display file table
         ui->label_HelpMessage->setVisible(false);  // Hide help message
-    } else if (!e && ui->tableView->isVisible()) {
-        model->removeRows(0, model->rowCount());  // Clear file table
-        ui->tableView->setVisible(false);  // Hide file table
-        ui->label_HelpMessage->setVisible(true);  // Show help message
     }
 }
 
@@ -336,7 +336,7 @@ void MainWindow::on_pushButton_Cancel_clicked()
 
 void MainWindow::on_pushButton_Clear_clicked()
 {
-    showTable(false);
+    resetTableModel();
 }
 
 void MainWindow::on_pushButton_Settings_clicked()
