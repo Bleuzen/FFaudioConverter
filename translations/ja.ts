@@ -1,27 +1,27 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!DOCTYPE TS>
-<TS version="2.1" language="tr_TR">
+<TS version="2.1" language="ja_JP">
 <context>
     <name>AboutDialog</name>
     <message>
         <location filename="../src/aboutdialog.ui" line="14"/>
         <source>About</source>
-        <translation>Hakkında</translation>
+        <translation>情報</translation>
     </message>
     <message>
         <location filename="../src/aboutdialog.ui" line="26"/>
         <source>Close</source>
-        <translation>Kapat</translation>
+        <translation>閉じる</translation>
     </message>
     <message>
         <location filename="../src/aboutdialog.ui" line="105"/>
         <source>About Qt</source>
-        <translation>Qt Hakkında</translation>
+        <translation>Qt情報</translation>
     </message>
     <message>
         <location filename="../src/aboutdialog.cpp" line="39"/>
         <source>developed by</source>
-        <translation>Geliştirici: </translation>
+        <translation>開発者</translation>
     </message>
 </context>
 <context>
@@ -29,82 +29,82 @@
     <message>
         <location filename="../src/mainwindow.ui" line="18"/>
         <source>Drop files or directories here</source>
-        <translation>Dosyaları veya klasörleri buraya sürükle</translation>
+        <translation>ここにファイルまたはディレクトリをドロップ</translation>
     </message>
     <message>
         <location filename="../src/mainwindow.ui" line="46"/>
         <source>Convert</source>
-        <translation>Dönüştür</translation>
+        <translation>変換開始</translation>
     </message>
     <message>
         <location filename="../src/mainwindow.ui" line="56"/>
         <source>Cancel</source>
-        <translation>İptal Et</translation>
+        <translation>キャンセル</translation>
     </message>
     <message>
         <location filename="../src/mainwindow.ui" line="63"/>
         <source>Clear</source>
-        <translation>Temizle</translation>
+        <translation>クリア</translation>
     </message>
     <message>
         <location filename="../src/mainwindow.ui" line="70"/>
         <source>Settings</source>
-        <translation>Ayarlar</translation>
+        <translation>設定</translation>
     </message>
     <message>
         <location filename="../src/mainwindow.ui" line="77"/>
         <source>About</source>
-        <translation>Hakkında</translation>
+        <translation>情報</translation>
     </message>
     <message>
         <location filename="../src/mainwindow.cpp" line="39"/>
         <source>Status</source>
-        <translation>Durum</translation>
+        <translation>状態</translation>
     </message>
     <message>
         <location filename="../src/mainwindow.cpp" line="39"/>
         <source>File</source>
-        <translation>Dosya</translation>
+        <translation>ファイル</translation>
     </message>
     <message>
         <location filename="../src/mainwindow.cpp" line="174"/>
         <source>Pending</source>
-        <translation>Bekleniyor</translation>
+        <translation>待機</translation>
     </message>
     <message>
         <location filename="../src/mainwindow.cpp" line="177"/>
         <source>Converting</source>
-        <translation>Dönüştürülüyor</translation>
+        <translation>返還中</translation>
     </message>
     <message>
         <location filename="../src/mainwindow.cpp" line="180"/>
         <source>Done</source>
-        <translation>Bitti</translation>
+        <translation>完了</translation>
     </message>
     <message>
         <location filename="../src/mainwindow.cpp" line="183"/>
         <source>Failed</source>
-        <translation>Başarısız oldu</translation>
+        <translation>失敗</translation>
     </message>
     <message>
         <location filename="../src/mainwindow.cpp" line="186"/>
         <source>Skipped</source>
-        <translation>Atlandı</translation>
+        <translation>スキップ</translation>
     </message>
     <message>
         <location filename="../src/mainwindow.cpp" line="254"/>
         <source>Remove</source>
-        <translation>Kaldır</translation>
+        <translation>削除</translation>
     </message>
     <message>
         <location filename="../src/mainwindow.cpp" line="296"/>
         <source>FFmpeg binary is invalid. Please check your settings.</source>
-        <translation>FFmpeg ikili dosyası geçersiz. Lütfen ayarlarınızı kontrol edin.</translation>
+        <translation>FFmpeg バイナリが無効です。 設定を確認してください。</translation>
     </message>
     <message>
         <location filename="../src/mainwindow.cpp" line="300"/>
         <source>Your output directory is bad. Maybe it is not writable?</source>
-        <translation>Çıktı dizininiz bozuk. Belki yazılabilir değildir?</translation>
+        <translation>出力ディレクトリが間違っています。 ディレクトリが書き込み不可ではありませんか？</translation>
     </message>
 </context>
 <context>
@@ -112,150 +112,150 @@
     <message>
         <location filename="../src/settingsdialog.ui" line="14"/>
         <source>Settings</source>
-        <translation>Ayarlar</translation>
+        <translation>設定</translation>
     </message>
     <message>
         <location filename="../src/settingsdialog.ui" line="46"/>
         <source>Main</source>
-        <translation>Ana</translation>
+        <translation>基本設定</translation>
     </message>
     <message>
         <location filename="../src/settingsdialog.ui" line="58"/>
         <source>Output directory:</source>
-        <translation>Çıktı dizini:</translation>
+        <translation>出力ディレクトリ:</translation>
     </message>
     <message>
         <location filename="../src/settingsdialog.ui" line="81"/>
         <source>Format:</source>
-        <translation>Biçim:</translation>
+        <translation>フォーマット:</translation>
     </message>
     <message>
         <location filename="../src/settingsdialog.ui" line="104"/>
         <source>Quality:</source>
-        <translation>Kalite:</translation>
+        <translation>品質:</translation>
     </message>
     <message>
         <location filename="../src/settingsdialog.ui" line="150"/>
         <source>Samplerate:</source>
-        <translation>Örnekleme hızı:</translation>
+        <translation>サンプリングレート:</translation>
     </message>
     <message>
         <location filename="../src/settingsdialog.ui" line="163"/>
         <source>Channels:</source>
-        <translation>Kanallar:</translation>
+        <translation>チャンネル:</translation>
     </message>
     <message>
         <location filename="../src/settingsdialog.ui" line="179"/>
         <source>Advanced</source>
-        <translation>Gelişmiş</translation>
+        <translation>高度な設定</translation>
     </message>
     <message>
         <location filename="../src/settingsdialog.ui" line="191"/>
         <source>FFmpeg binary:</source>
-        <translation>FFmpeg ikili dosyası:</translation>
+        <translation>FFmpeg バイナリ:</translation>
     </message>
     <message>
         <location filename="../src/settingsdialog.ui" line="214"/>
         <source>This option may speed up the process in some cases by copying files which are already in the output format and skipping files which has already been converted. This will not change the bitrate or samplerate of the output file!</source>
-        <translation>Bu seçenek, bazı durumlarda zaten çıktı biçiminde olan dosyaları kopyalayarak ve önceden dönüştürülmüş dosyaları atlayarak işlemi hızlandırabilir. Bu, çıktı dosyasının bit hızını veya örnekleme hızını değiştirmez!</translation>
+        <translation>このオプションを使用すると、既に出力形式になっているファイルをコピーし、変換済みのファイルをスキップすることにより、プロセスが高速化される場合があります。 これにより、出力ファイルのビットレートやサンプルレートは変更されません！</translation>
     </message>
     <message>
         <location filename="../src/settingsdialog.ui" line="217"/>
         <source>Quick mode</source>
-        <translation>Hızlı kip</translation>
+        <translation>クイック モード</translation>
     </message>
     <message>
         <location filename="../src/settingsdialog.ui" line="230"/>
         <source>How many files to process at the same time.
 Select 0 to use all CPU threads.</source>
-        <translation>Aynı anda kaç dosya işlenecek.
-Tüm CPU iş parçacıklarını kullanmak için 0&apos;ı seçin.</translation>
+        <translation>同時に処理するファイル数.
+全CPU スレッドを使用するには 0 を選択します.</translation>
     </message>
     <message>
         <location filename="../src/settingsdialog.ui" line="234"/>
         <source>Threads:</source>
-        <translation>Çekirdek:</translation>
+        <translation>スレッド:</translation>
     </message>
     <message>
         <location filename="../src/settingsdialog.ui" line="260"/>
         <source>SoX is slower, but results in higher quality. This option requires FFmpeg compiled with libsoxr.</source>
-        <translation>SoX daha yavaştır, ancak daha yüksek kalitede sonuçlanır. Bu seçenek, libsoxr ile derlenmiş FFmpeg&apos;i gerektirir.</translation>
+        <translation>SoX は速度は遅くなりますが、品質は高くなります。 このオプションには、libsoxr でコンパイルされた FFmpeg が必要です.</translation>
     </message>
     <message>
         <location filename="../src/settingsdialog.ui" line="263"/>
         <source>Use SoX resampler</source>
-        <translation>SoX örnekleyiciyi kullan</translation>
+        <translation>SoX リサンプラーを使用する</translation>
     </message>
     <message>
         <location filename="../src/settingsdialog.ui" line="276"/>
         <source>Copy any file not containing audio to the output directory</source>
-        <translation>Ses içermeyen dosyayı çıktı dizinine kopyala</translation>
+        <translation>オーディオを含まないファイルもすべて出力ディレクトリにコピーします</translation>
     </message>
     <message>
         <location filename="../src/settingsdialog.ui" line="279"/>
         <source>Copy non-audio files</source>
-        <translation>Ses olmayan dosyaları kopyala</translation>
+        <translation>非オーディオファイルをコピー</translation>
     </message>
     <message>
         <location filename="../src/settingsdialog.ui" line="285"/>
         <source>Filters</source>
-        <translation>Filtreler</translation>
+        <translation>フィルター</translation>
     </message>
     <message>
         <location filename="../src/settingsdialog.ui" line="307"/>
         <source>Preset:</source>
-        <translation>Ön ayar:</translation>
+        <translation>プリセット:</translation>
     </message>
     <message>
         <location filename="../src/settingsdialog.cpp" line="47"/>
         <location filename="../src/settingsdialog.cpp" line="52"/>
         <source>Keep</source>
-        <translation>Koru</translation>
+        <translation>保持</translation>
     </message>
     <message>
         <location filename="../src/settingsdialog.cpp" line="53"/>
         <source>1 (Mono)</source>
-        <translation>1 (Mono)</translation>
+        <translation>1 (モノ)</translation>
     </message>
     <message>
         <location filename="../src/settingsdialog.cpp" line="54"/>
         <source>2 (Stereo)</source>
-        <translation>2 (Stereo)</translation>
+        <translation>2 (ステレオ)</translation>
     </message>
     <message>
         <location filename="../src/settingsdialog.cpp" line="56"/>
         <source>Disabled</source>
-        <translation>Devre dışı</translation>
+        <translation>無効</translation>
     </message>
     <message>
         <location filename="../src/settingsdialog.cpp" line="57"/>
         <source>Increase volume</source>
-        <translation>Sesi yükselt</translation>
+        <translation>音量を上げる</translation>
     </message>
     <message>
         <location filename="../src/settingsdialog.cpp" line="58"/>
         <source>Reduce volume</source>
-        <translation>Sesi alçalt</translation>
+        <translation>音量を下げる</translation>
     </message>
     <message>
         <location filename="../src/settingsdialog.cpp" line="59"/>
         <source>Fade-in and fade-out</source>
-        <translation>Yavaşça artır ve yavaşça azalt</translation>
+        <translation>フェードIN・フェードOUT</translation>
     </message>
     <message>
         <location filename="../src/settingsdialog.cpp" line="60"/>
         <source>Bass boost</source>
-        <translation>Bass kuvvetlendirme</translation>
+        <translation>低音ブースト</translation>
     </message>
     <message>
         <location filename="../src/settingsdialog.cpp" line="61"/>
         <source>Speed up</source>
-        <translation>Hızlandır</translation>
+        <translation>速度アップ</translation>
     </message>
     <message>
         <location filename="../src/settingsdialog.cpp" line="116"/>
         <source>Open Directory</source>
-        <translation>Dizin Aç</translation>
+        <translation>ディレクトリを開く</translation>
     </message>
 </context>
 </TS>
