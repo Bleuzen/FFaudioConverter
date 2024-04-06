@@ -54,7 +54,7 @@
     <message>
         <location filename="../src/mainwindow.ui" line="77"/>
         <source>About</source>
-        <translation>FFaudioConverterについて</translation>
+        <translation>情報</translation>
     </message>
     <message>
         <location filename="../src/mainwindow.cpp" line="39"/>
