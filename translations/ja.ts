@@ -6,7 +6,7 @@
     <message>
         <location filename="../src/aboutdialog.ui" line="14"/>
         <source>About</source>
-        <translation>FFaudioConverterについて</translation>
+        <translation>情報</translation>
     </message>
     <message>
         <location filename="../src/aboutdialog.ui" line="26"/>
@@ -16,7 +16,7 @@
     <message>
         <location filename="../src/aboutdialog.ui" line="105"/>
         <source>About Qt</source>
-        <translation>Qtについて</translation>
+        <translation>Qt情報</translation>
     </message>
     <message>
         <location filename="../src/aboutdialog.cpp" line="39"/>
