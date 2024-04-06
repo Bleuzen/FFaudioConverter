@@ -71,7 +71,8 @@ RESOURCES += \
 TRANSLATIONS += \
     translations/de.ts \
     translations/fr.ts \
-    translations/tr.ts
+    translations/tr.ts \
+    translations/ja.ts
 
 CONFIG += lrelease
 CONFIG += embed_translations
