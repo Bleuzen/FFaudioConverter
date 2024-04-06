@@ -1,6 +1,6 @@
 /* ----------------------------------------------------------------------
 FFaudioConverter
-Copyright (C) 2018-2019  Bleuzen
+Copyright (C) 2018-2024  Bleuzen
 https://github.com/Bleuzen/FFaudioConverter
 supgesu@gmail.com
 
