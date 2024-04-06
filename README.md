@@ -11,12 +11,12 @@ Features:
  - Quick mode for copying files in same format and skip already converted files
 
 Currently supported output formats are:
- - mp3
- - aac
- - ogg
- - opus
- - flac
- - wav
+ - MP3
+ - AAC
+ - Ogg Vorbis
+ - Opus
+ - FLAC
+ - WAV
 
 ### Installation
 
@@ -29,5 +29,3 @@ AUR: https://aur.archlinux.org/packages/ffaudioconverter/
 You can find the latest version for Windows here: https://github.com/Bleuzen/FFaudioConverter/releases/download/v0.31.0/FFaudioConverter-0.31.0-win64.zip
 
 Just extract the zip file and run the .exe file in it.
-
-Since Windows is not my main os atm I will not promise that there will be a new build with every new release.
